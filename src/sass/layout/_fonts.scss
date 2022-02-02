@@ -1,0 +1,11 @@
+$font-path: "/src/assets/layout/fonts/fonts/";
+
+@font-face {
+    font-family: "Sukhumvit";
+    src: url($font-path + "SukhumvitSet/sukhumvittadmai_lig-webfont.eot");
+    src: url($font-path + "SukhumvitSet/sukhumvittadmai_bol-webfont.eot?#iefix") format("embedded-opentype"),
+        url($font-path + "SukhumvitSet/sukhumvittadmai_lig-webfont.svg") format("svg"),
+        url($font-path + "SukhumvitSet/sukhumvittadmai_lig-webfont.woff") format("woff"),
+        url($font-path + "SukhumvitSet/sukhumvittadmai_lig-webfont.woff2") format("woff2"),
+        url($font-path + "SukhumvitSet/sukhumvittadmai_lig-webfont.ttf") format("truetype");
+}

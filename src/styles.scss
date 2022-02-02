@@ -1,14 +1,29 @@
-$gutter: 1rem; //for primeflex grid system
-
-@import "../node_modules/primeng/resources/primeng.min.css";
-@import "../node_modules/primeflex/primeflex.scss";
-@import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/prismjs/themes/prism-coy.css";
-@import "../node_modules/@fullcalendar/daygrid/main.min.css";
-@import "../node_modules/@fullcalendar/timegrid/main.min.css";
-@import "assets/demo/flags/flags.css";
-
-// $color-main: #2e4e6e;
+@import "./sass/theme-light.scss";
+@import "./sass/theme_light";
+@import "./sass/layout_light";
+@import "./sass/common";
+@import "./sass/designer/components";
+@import "./sass/designer/common";
+@import "./sass/designer/colors";
+// // @import "assets/demo/flags/flags";
+// @import "./sass/layout/mixins";
+// @import "./sass/layout/animation";
+// @import "./sass/layout/config";
+// @import "./sass/layout/dashboard";
+// @import "./sass/layout/exception";
+// @import "./sass/layout/footer";
+// @import "./sass/layout/invoice";
+// @import "./sass/layout/main";
+// @import "./sass/layout/responsive";
+// @import "./sass/layout/topbar";
+// @import "./sass/layout/typography";
+// @import "./sass/layout/utils";
+// @import "./sass/layout/sidebar/sidebar_light";
+// @import "./sass/layout/sidebar/sidebar_right";
+// @import "./sass/layout/fonts";
+// @import "./sass/main";
+@import "./layout-light.css";
+@import "./assets/demo/flags/flags.css";
 
 .text-error {
     color: #f44336;

@@ -15,39 +15,41 @@ export class AppMenuComponent implements OnInit {
         this.model = [
             { separator: true },
             {
-                label: 'Plan Description', icon: 'pi pi-fw pi-download',
+                label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {
-                        label: 'Plan Header/Details',
+                        label: 'Plan Description', icon: 'pi pi-fw pi-download',
+                        items: [
+                            {
+                                label: 'Plan Header/Details',
+                                icon: 'pi pi-fw pi-info-circle',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
+
+                            },
+                        ]
+                    },
+                    {
+                        label: 'Create',
                         icon: 'pi pi-fw pi-info-circle',
-                        routerLink: ['/']
+                        routerLink: ['/'],
+                        items: [
+                            {
+                                label: 'Whole Life'
+                            },
+                            {
+                                label: 'Endowment'
+                            },
+                            {
+                                label: 'Annuity'
+                            },
+                            {
+                                label: 'Pension'
+                            }
+                        ]
                     },
-                    {
-                        label: 'Plan Premium',
-                        icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['/test']
-                    },
-                    {
-                        label: 'Plan Commission',
-                        icon: 'pi pi-fw pi-info-circle',
-                        routerLink: ['/test']
-                    },
-                ]
-            },
-            { separator: true },
-            {
-                label: 'Plan Setup', icon: 'pi pi-fw pi-download',
-                items: [
-                    {
-                        label: 'Rate Header Table(RH)',
-                        icon: 'pi pi-fw pi-info-circle',
-                        routerLink: ['/test']
-                    },
-                    {
-                        label: 'Rate Load Table(RTBL)',
-                        icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['/test']
-                    }
                 ]
             }
         ];

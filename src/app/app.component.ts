@@ -8,19 +8,14 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
     menuMode = 'static';
-
     colorScheme = 'light';
-
     menuTheme = 'layout-sidebar-darkgray';
-
     inputStyle = 'outlined';
-
     ripple: boolean;
 
     constructor(
         private primengConfig: PrimeNGConfig
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
         this.primengConfig.ripple = true;

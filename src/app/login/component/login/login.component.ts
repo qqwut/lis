@@ -5,7 +5,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { NgcCookieConsentService, NgcInitializeEvent, NgcStatusChangeEvent, NgcNoCookieLawEvent } from 'ngx-cookieconsent';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter } from 'rxjs';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  formLogin: FormGroup;
+  formLogin!: FormGroup;
   supportDevice = false
   loading = false
   products = [
@@ -34,12 +35,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       support: 'Nougat (7.0), Marshmallow (6.0), Lollipop (5.0, 5.1)'
     }
   ];
-  private popupOpenSubscription: Subscription;
-  private popupCloseSubscription: Subscription;
-  private initializeSubscription: Subscription;
-  private statusChangeSubscription: Subscription;
-  private revokeChoiceSubscription: Subscription;
-  private noCookieLawSubscription: Subscription;
+  private popupOpenSubscription: Subscription = new Subscription();
+  private popupCloseSubscription: Subscription = new Subscription();
+  private initializeSubscription: Subscription = new Subscription();
+  private statusChangeSubscription: Subscription = new Subscription();
+  private revokeChoiceSubscription: Subscription = new Subscription();
+  private noCookieLawSubscription: Subscription = new Subscription();
 
 
   constructor(
@@ -48,9 +49,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private ccService: NgcCookieConsentService,
     @Inject(PLATFORM_ID) private platformId: any,
+    private loginService: LoginService
   ) {
     this.router.events.pipe(
-      filter((events: RouterEvent) => events instanceof NavigationEnd)
+      // filter((events: RouterEvent) => {
+      //   return events instanceof NavigationEnd
+      // })
     ).subscribe(event => {
       if (isPlatformBrowser(this.platformId)) {
         window.scroll(0, 0);
@@ -143,21 +147,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   signIn() {
-    debugger
-    this.http
-      .post<any>('https://localhost:5001/api/Auth/Login', {
-        username: this.formLogin.value.username,
-        password: this.formLogin.value.password,
-      })
+    this.loginService.signIn({
+      username: this.formLogin.value.username,
+      password: this.formLogin.value.password,
+    })
       .subscribe((res) => {
-        debugger
-        this.loading = true;
-        // setTimeout(() => {
-        //   this.loading = false
-        //   this.router.navigate(['/']);
-        // }, 3000);
+        this.router.navigate(['/']);
       }, (err) => {
-        debugger
       })
   }
 
