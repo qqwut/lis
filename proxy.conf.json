@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "http://192.168.137.1:5001",
+        "secure": false
+    },
+    "/hash": {
+        "target": "http://192.168.137.1:5001",
+        "secure": false
+    }
+}
