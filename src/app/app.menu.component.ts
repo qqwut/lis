@@ -22,13 +22,92 @@ export class AppMenuComponent implements OnInit {
                         items: [
                             {
                                 label: 'Plan Header/Details',
-                                icon: 'pi pi-fw pi-info-circle',
                                 routerLink: ['/']
                             },
                             {
-                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
-
+                                label: 'Plan Premium',  
+                                routerLink: ['/']
                             },
+                            {
+                                label: 'Plan Commission',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Rates Maintenance',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan CPAYOe',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Dividend',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Cash Value',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan ETI/RPU',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Maturity Value',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Maturity/Expiry Date',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan Table Value',  
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Plan - Policy Statistic',  
+                                routerLink: ['/']
+                            },
+                        ]
+                    },
+                    {
+                        label: 'Rates Setup',
+                        icon: 'pi pi-fw pi-info-circle',
+                        routerLink: ['/'],
+                        items: [
+                            {
+                                label: 'Rate Header Table(RH)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Rate Load Table(RTBL)',
+                                routerLink: ['/']
+                                
+                            },
+                            {
+                                label: 'Unit Value Table(UVAL)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Interest Rate Table(IR)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'PCNT Table(CC)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'MxDx Table (MD)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Edit Table (EDIT)',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'ABVAL Table (TABVAL)',
+                                routerLink: ['/']
+                            }
                         ]
                     },
                     {
