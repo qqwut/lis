@@ -35,6 +35,11 @@
               "./node_modules/prismjs/themes/prism-coy.css",
               "./node_modules/cookieconsent/build/cookieconsent.min.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/sass"
+              ]
+            },
             "scripts": [
               "./node_modules/prismjs/prism.js",
               "./node_modules/prismjs/components/prism-typescript.js",
