@@ -6,7 +6,7 @@
     $menuSeparatorBorder: 1px solid rgba(255, 255, 255, 0.2);
     $menuitemRootTextColor: rgba(255, 255, 255, 0.4);
     $menuitemTextColor: rgba(255, 255, 255, 0.8);
-    $menuitemHoverBg: #223d87;
+    $menuitemHoverBg: $color-main;
     $menuitemActiveBg: #1e4669;
     $menuitemTextActiveColor: #ffffff;
     $menuitemFocusShadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
