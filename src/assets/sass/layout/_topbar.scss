@@ -11,7 +11,8 @@
     @include flex();
     @include flex-align-center();
     @include flex-justify-between();
-    color: $topbarTextColor;
+    // color: $topbarTextColor;
+    color: $color-topbar;
     transition: margin-left $animationDuration $animationTimingFunction;
 
     .topbar-left {
@@ -28,7 +29,7 @@
         height: 2.5rem;
         line-height: 2.5rem;
         text-align: center;
-        color: #fff;
+        color: $color-topbar;
         overflow: hidden;
         border-radius: $borderRadius;
         background: $topbarIconBg;
@@ -116,7 +117,8 @@
                 height: 2.5rem;
                 line-height: 2.5rem;
                 text-align: center;
-                color: $topbarTextColor;
+                // color: $topbarTextColor;
+                color: $color-topbar;
                 overflow: hidden;
                 border-radius: $borderRadius;
                 transition: background-color $transitionDuration, box-shadow $transitionDuration;

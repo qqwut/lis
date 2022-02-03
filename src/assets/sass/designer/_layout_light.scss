@@ -1,8 +1,9 @@
-@import './designer/common';
+@import './common';
+@import './../variables';
 
 // $color-main: #1e3269;
-$color-main: #2e4e6e;
-$color-orange: #fd8b1e;
+// $color-main: #2e4e6e;
+// $color-orange: #fd8b1e;
 $bodyBg: #f8f9fa !default;
 // $textColor:#495057 !default;
 $textColor:#fff !default;
@@ -22,8 +23,8 @@ $cardBorder: 0 none !default;
 $topbarBg: $color-orange !default;
 $topbarBottomBorder: 1px solid $dividerColor !default;
 $topbarTextColor: $textColor !default;
-$topbarIconBg: $color-main !default;
-$topbarIconHoverBg: #e9ecef !default;
+$topbarIconBg: $color-orange-active !default;
+$topbarIconHoverBg: $color-orange-active !default;
 
 //accent
 $accentColor: #1976D2 !default;

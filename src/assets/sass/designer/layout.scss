@@ -1,4 +1,3 @@
-
 .modal-in {
   -webkit-animation-name: modal-in;
   animation-name: modal-in;
@@ -35,11 +34,10 @@ html {
 }
 
 body {
-  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 400;
-  color: #495057;
+  // color: #495057;
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -73,55 +71,55 @@ a {
   font-size: 2rem;
   color: #6c757d;
 }
+
 .layout-sidebar-darkgray .layout-sidebar {
   background: #2e4e6e;
   border-right: 0 none;
   background-image: linear-gradient(180deg, #2e4e6e 10%, #39628c 100%);
 }
+
 .layout-sidebar-darkgray .layout-sidebar .logo {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .layout-sidebar-darkgray .layout-sidebar .logo:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
 }
+
 .layout-sidebar-darkgray .layout-sidebar .app-name {
   color: #ffffff;
 }
+
 .layout-sidebar-darkgray .layout-sidebar .layout-menu .menu-separator {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .layout-sidebar-darkgray .layout-sidebar .layout-menu li.active-menuitem > a {
   color: #ffffff;
 }
+
 .layout-sidebar-darkgray .layout-sidebar .layout-menu li a {
   color: rgba(255, 255, 255, 0.8);
   color: #fff;
 }
+
 .layout-sidebar-darkgray .layout-sidebar .layout-menu li a:hover {
   background: #39628c;
 }
+
 .layout-sidebar-darkgray .layout-sidebar .layout-menu li a:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
 }
-.layout-sidebar-darkgray
-  .layout-sidebar
-  .layout-menu
-  .layout-root-menuitem
-  .layout-menuitem-root-text {
+
+.layout-sidebar-darkgray .layout-sidebar .layout-menu .layout-root-menuitem .layout-menuitem-root-text {
   color: rgba(255, 255, 255, 0.4);
 }
-.layout-sidebar-darkgray
-  .layout-sidebar
-  .layout-menu
-  .layout-root-menuitem.active-menuitem {
+
+.layout-sidebar-darkgray .layout-sidebar .layout-menu .layout-root-menuitem.active-menuitem {
   background: #39628c;
 }
-.layout-sidebar-darkgray
-  .layout-sidebar
-  .layout-menu
-  .layout-root-menuitem
-  > ul
-  > li.active-menuitem {
+
+.layout-sidebar-darkgray .layout-sidebar .layout-menu .layout-root-menuitem > ul > li.active-menuitem {
   background: #39628c;
 }
 
@@ -139,25 +137,27 @@ a {
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
 }
+
 .layout-sidebar-right.layout-sidebar-right-active {
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   transform: translateX(0);
 }
 
-/* Right Sidebar Demo Content */
 .layout-sidebar-right p {
   font-size: 0.875rem;
   color: #6c757d;
 }
+
 .layout-sidebar-right .withdraw {
   margin-top: -0.5rem;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 }
+
 .layout-sidebar-right .withdraw > div {
   padding: 0.5rem;
 }
+
 .layout-sidebar-right .withdraw input,
 .layout-sidebar-right .withdraw button {
   font-size: 0.875rem;
@@ -180,6 +180,7 @@ a {
   flex: 1 1 auto;
   -ms-flex: 1 1 auto;
 }
+
 .layout-content .viewname {
   display: none;
 }
@@ -197,22 +198,26 @@ a {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+
 .layout-footer .footer-logo-container {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
 }
+
 .layout-footer .footer-logo-container img {
   width: 1.5rem;
   height: 1.5rem;
 }
+
 .layout-footer .footer-logo-container .app-name {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.2px;
   margin-left: 0.5rem;
 }
+
 .layout-footer .copyright {
   font-size: 0.875rem;
   color: #6c757d;
@@ -233,6 +238,7 @@ a {
   z-index: 999999;
   pointer-events: none;
 }
+
 .layout-search .search-container {
   background: #adb5bd;
   display: -ms-flexbox;
@@ -244,8 +250,8 @@ a {
   width: 50vw;
   border-radius: 0.625rem;
   position: relative;
-  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
-    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   border: 0 none;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -256,7 +262,7 @@ a {
   .login-body .login-wrapper .login-image {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("assets/layout/images/pages/bg-login.jpg");
+    background-image: url(/assets/sass/layout/images/pages/bg-login.jpg);
   }
 }
 
@@ -272,22 +278,26 @@ a {
   align-items: center;
   min-height: 100vh;
 }
+
 .exception-body .logo {
   width: 50px;
   position: absolute;
   left: 50px;
   top: 50px;
 }
+
 .exception-body .exception-content .exception-title {
   font-size: 112px;
   font-weight: 700;
   color: #ffffff;
 }
+
 .exception-body .exception-content .exception-detail {
   font-weight: 700;
   color: #ffffff;
   margin: 10px 0 0 0;
 }
+
 .exception-body .exception-content > a {
   margin-top: 40px;
   width: 250px;
@@ -299,17 +309,21 @@ a {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
+
 .exception-body .exception-content > a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
 .exception-body.access {
-  background-image: url("assets/layout/images/pages/bg-access.jpg");
+  background-image: url(/assets/sass/layout/images/pages/bg-access.jpg);
 }
+
 .exception-body.notfound {
-  background-image: url("assets/layout/images/pages/bg-404.jpg");
+  background-image: url(/assets/sass/layout/images/pages/bg-404.jpg);
 }
+
 .exception-body.error {
-  background-image: url("assets/layout/images/pages/bg-error.jpg");
+  background-image: url(/assets/sass/layout/images/pages/bg-error.jpg);
 }
 
 @media (max-width: 640px) {
@@ -317,6 +331,7 @@ a {
     font-size: 72px;
   }
 }
+
 .layout-config {
   width: 16rem;
   height: 100%;
@@ -331,30 +346,32 @@ a {
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
 }
+
 .layout-config.layout-config-active {
   transform: translateX(0);
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
-.layout-config.layout-config-active
-  .layout-config-content
-  .layout-config-button
-  i {
+
+.layout-config.layout-config-active .layout-config-content .layout-config-button i {
   transform: rotate(360deg);
 }
+
 .layout-config p {
   line-height: 1.5rem;
   color: #6c757d;
 }
+
 .layout-config .layout-themes {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
 .layout-config .layout-themes > div {
   padding: 0.25rem;
 }
+
 .layout-config .layout-themes a {
   width: 2rem;
   height: 2rem;
@@ -368,6 +385,7 @@ a {
   transition: transform 0.2s;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
+
 .layout-config .layout-themes a i {
   font-size: 1rem;
   position: absolute;
@@ -376,6 +394,7 @@ a {
   margin-left: -0.5rem;
   margin-top: -0.5rem;
 }
+
 .layout-config .layout-themes a:hover {
   transform: scale(1.1);
 }
@@ -400,14 +419,14 @@ a {
   z-index: 999;
   box-shadow: -0.25rem 0 1rem rgba(0, 0, 0, 0.15);
 }
+
 .layout-config-button i {
   font-size: 2rem;
   line-height: inherit;
   transform: rotate(0deg);
   transition: transform 1s;
 }
+
 .layout-config-button:hover {
   background: #2083e4;
 }
-
-/* Add your customizations of the layout styles here */
