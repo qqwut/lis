@@ -20,7 +20,11 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     "noImplicitAny": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "paths": {
+      "@app-root/*": ["./src/app/*"],
+      "@app-shared/*": ["./src/app/shared/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

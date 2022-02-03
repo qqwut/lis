@@ -1,0 +1,6 @@
+<div class="layout-search">
+    <div class="search-container" [@animation]="appMain.search ? 'visible' : 'hidden'" (@animation.done)="onAnimationEnd($event)">
+        <i class="pi pi-search"></i>
+        <input #input type="text" class="p-inputtext search-input" placeholder="Search" (click)="appMain.searchClick = true;" (keydown)="onInputKeydown($event)"/>
+    </div>
+</div>

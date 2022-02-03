@@ -8,51 +8,51 @@
       <i class="pi pi-chevron-left"></i>
     </a>
     <!-- <img
-            id="logo-horizontal"
-            class="horizontal-logo"
-            [routerLink]="['/']"
-            src="assets/layout/images/logo-white.svg"
-            alt="diamond-layout"
-        /> -->
+              id="logo-horizontal"
+              class="horizontal-logo"
+              [routerLink]="['/']"
+              src="assets/layout/images/logo-white.svg"
+              alt="diamond-layout"
+          /> -->
     <!-- <span class="topbar-separator"></span> -->
     <!-- <ng-template ngFor let-item let-last="last" [ngForOf]="items">
-            <span class="viewname" style="text-transform: uppercase">{{
-                item.label
-            }}</span>
-        </ng-template>
-        <img
-            id="logo-mobile"
-            class="mobile-logo"
-            [src]="
-                'assets/layout/images/logo-' +
-                (app.colorScheme === 'light' ? 'dark' : 'white') +
-                '.svg'
-            "
-            alt="diamond-layout"
-        /> -->
+              <span class="viewname" style="text-transform: uppercase">{{
+                  item.label
+              }}</span>
+          </ng-template>
+          <img
+              id="logo-mobile"
+              class="mobile-logo"
+              [src]="
+                  'assets/layout/images/logo-' +
+                  (app.colorScheme === 'light' ? 'dark' : 'white') +
+                  '.svg'
+              "
+              alt="diamond-layout"
+          /> -->
     <!-- <p-menubar
-      [model]="tieredItems"
-      [style]="{ border: 'unset', backgroundColor: 'unset' }"
-    >
-      <ng-template pTemplate="end">
-        <span class="p-input-icon-right">
-          <input type="text" pInputText placeholder="Search" />
-          <i class="pi pi-search"></i>
-        </span>
-      </ng-template>
-    </p-menubar> -->
+        [model]="tieredItems"
+        [style]="{ border: 'unset', backgroundColor: 'unset' }"
+      >
+        <ng-template pTemplate="end">
+          <span class="p-input-icon-right">
+            <input type="text" pInputText placeholder="Search" />
+            <i class="pi pi-search"></i>
+          </span>
+        </ng-template>
+      </p-menubar> -->
   </div>
 
-  <app-menu></app-menu>
+  <app-menu-left></app-menu-left>
 
   <div class="layout-mask modal-in"></div>
   <div class="topbar-right">
     <ul class="topbar-menu">
       <!-- <li class="search-item">
-                <a tabindex="0" (click)="appMain.onSearchClick($event)">
-                    <i class="pi pi-search"></i>
-                </a>
-            </li> -->
+                  <a tabindex="0" (click)="appMain.onSearchClick($event)">
+                      <i class="pi pi-search"></i>
+                  </a>
+              </li> -->
       <li
         class="notifications-item"
         [ngClass]="{
@@ -129,10 +129,10 @@
       >
         <a href="#" (click)="appMain.onTopbarUserMenuButtonClick($event)">
           <!-- <img
-                        src="assets/demo/images/avatar/profile.jpg"
-                        alt="diamond-layout"
-                        class="profile-image"
-                    /> -->
+                          src="assets/demo/images/avatar/profile.jpg"
+                          alt="diamond-layout"
+                          class="profile-image"
+                      /> -->
           <span class="profile-name">สวัสดี : วันชัย</span>
         </a>
         <ul class="profile-menu fade-in-up">
@@ -149,23 +149,23 @@
             </a>
           </li>
           <!-- <li>
-                        <a href="#">
-                            <i class="pi pi-calendar"></i>
-                            <span>Calendar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="pi pi-inbox"></i>
-                            <span>Inbox</span>
-                        </a>
-                    </li> -->
+                          <a href="#">
+                              <i class="pi pi-calendar"></i>
+                              <span>Calendar</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#">
+                              <i class="pi pi-inbox"></i>
+                              <span>Inbox</span>
+                          </a>
+                      </li> -->
           <!-- <li>
-                        <a href="#">
-                            <i class="pi pi-power-off"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li> -->
+                          <a href="#">
+                              <i class="pi pi-power-off"></i>
+                              <span>Logout</span>
+                          </a>
+                      </li> -->
         </ul>
       </li>
       <li>
@@ -174,29 +174,29 @@
         </span>
       </li>
       <!-- <li class="right-sidebar-item">
-                <a
-                    href="#"
-                    tabindex="0"
-                    (click)="appMain.onRightMenuClick($event)"
-                >
-                    <i class="pi pi-align-right"></i>
-                </a>
-            </li> -->
+                  <a
+                      href="#"
+                      tabindex="0"
+                      (click)="appMain.onRightMenuClick($event)"
+                  >
+                      <i class="pi pi-align-right"></i>
+                  </a>
+              </li> -->
     </ul>
   </div>
 </div>
 <!-- <div
-    style="
-        position: fixed;
-        top: 55px;
-        width: 100%;
-        z-index: 9999;
-        color: #fff !important;
-    "
->
-    <p-breadcrumb
-        [style]="{ height: '40px',paddingTop:'10px' }"
-        [model]="breadcrumbItems"
-        [home]="{ icon: 'pi pi-home' }"
-    ></p-breadcrumb>
-</div> -->
+      style="
+          position: fixed;
+          top: 55px;
+          width: 100%;
+          z-index: 9999;
+          color: #fff !important;
+      "
+  >
+      <p-breadcrumb
+          [style]="{ height: '40px',paddingTop:'10px' }"
+          [model]="breadcrumbItems"
+          [home]="{ icon: 'pi pi-home' }"
+      ></p-breadcrumb>
+  </div> -->

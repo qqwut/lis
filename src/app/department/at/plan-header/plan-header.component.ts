@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-plan-header',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanHeaderComponent implements OnInit {
   product: any[]
+  items: MenuItem[];
+  activeItem: MenuItem;
+
   constructor() { }
 
   ngOnInit(): void {
     this.getProduct()
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home' },
+      { label: 'Calendar', icon: 'pi pi-fw pi-calendar' }
+    ];
+    this.activeItem = this.items[0];
   }
 
   getProduct() {

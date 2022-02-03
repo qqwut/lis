@@ -5,7 +5,7 @@ import { AtRoutingModule } from './at-routing.module';
 import { PlanHeaderComponent } from './plan-header/plan-header.component';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TableModule } from 'primeng/table';
-
+import { TabMenuModule } from 'primeng/tabmenu';
 @NgModule({
   declarations: [
     PlanHeaderComponent
@@ -14,7 +14,8 @@ import { TableModule } from 'primeng/table';
     CommonModule,
     AtRoutingModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    TabMenuModule
   ]
 })
 export class AtModule { }

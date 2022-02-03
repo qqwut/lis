@@ -3,7 +3,7 @@ import { MenuService } from './shared/services/menu/menu.service';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
 import { Subscription } from 'rxjs';
-import { BreadcrumbService } from './app.breadcrumb.service';
+import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
 
 @Component({
     selector: 'app-main',

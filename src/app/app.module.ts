@@ -87,18 +87,16 @@ import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
-import { AppCodeModule } from './app.code.component';
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
-import { AppConfigComponent } from './app.config.component';
-import { AppRightmenuComponent } from './app.rightmenu.component';
-import { AppMenuComponent } from './app.menu.component';
-import { AppMenuitemComponent } from './app.menuitem.component';
-import { AppTopBarComponent } from './app.topbar.component';
-import { AppSearchComponent } from './app.search.component';
-import { AppFooterComponent } from './app.footer.component';
-import { BreadcrumbService } from './app.breadcrumb.service';
+import { MenuRightComponent } from '@app-shared/components/menu/menu-right/menu-right.component';
+import { MenuItemComponent } from '@app-shared/directives/menu/menu-item/menu-item.component';
+import { TopbarComponent } from '@app-shared/components/menu/topbar/topbar.component';
+import { SearchComponent } from '@app-shared/components/search/search.component';
+import { FooterComponent } from '@app-shared/components/footer/footer.component';
+import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
 import { MenuService } from './shared/services/menu/menu.service';
+import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-left.component';
 
 // import dayGridPlugin from '@fullcalendar/daygrid';
 // import timeGridPlugin from '@fullcalendar/timegrid';
@@ -199,18 +197,18 @@ import { MenuService } from './shared/services/menu/menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
     ],
     declarations: [
         AppComponent,
         AppMainComponent,
-        AppRightmenuComponent,
-        AppMenuComponent,
-        AppMenuitemComponent,
-        AppConfigComponent,
-        AppTopBarComponent,
-        AppSearchComponent,
-        AppFooterComponent,
+        MenuRightComponent,
+        MenuLeftComponent,
+        MenuItemComponent,
+        TopbarComponent,
+        FooterComponent,
+        SearchComponent,
+        MenuRightComponent,
+        MenuLeftComponent
     ],
     providers: [
         {
