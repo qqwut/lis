@@ -17,6 +17,7 @@ import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthenticationService } from '../shared/services/authentication/authentication.service';
 
 const cookieConfig: NgcCookieConsentConfig = {
   cookie: {
@@ -52,7 +53,8 @@ const cookieConfig: NgcCookieConsentConfig = {
     NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [
-    CookieService
+    CookieService,
+    AuthenticationService
   ]
 })
 export class LoginModule { }

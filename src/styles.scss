@@ -1,31 +1,34 @@
-@import "./sass/theme-light.scss";
+
+// $color-main: #2e4e6e;
+$color-main: #2e4e6e;
+$color-active: #2e4e6e;
+$color-orange: #fd8b1e;
+
+@import "./layout-light.css";
 @import "./sass/theme_light";
 @import "./sass/layout_light";
 @import "./sass/common";
 @import "./sass/designer/components";
 @import "./sass/designer/common";
 @import "./sass/designer/colors";
-// // @import "assets/demo/flags/flags";
-// @import "./sass/layout/mixins";
-// @import "./sass/layout/animation";
-// @import "./sass/layout/config";
-// @import "./sass/layout/dashboard";
-// @import "./sass/layout/exception";
-// @import "./sass/layout/footer";
-// @import "./sass/layout/invoice";
-// @import "./sass/layout/main";
-// @import "./sass/layout/responsive";
-// @import "./sass/layout/topbar";
-// @import "./sass/layout/typography";
-// @import "./sass/layout/utils";
-// @import "./sass/layout/sidebar/sidebar_light";
-// @import "./sass/layout/sidebar/sidebar_right";
-// @import "./sass/layout/fonts";
-// @import "./sass/main";
-@import "./layout-light.css";
+@import "assets/demo/flags/flags";
+@import "./sass/layout/mixins";
+@import "./sass/layout/animation";
+@import "./sass/layout/config";
+@import "./sass/layout/dashboard";
+@import "./sass/layout/exception";
+@import "./sass/layout/footer";
+@import "./sass/layout/invoice";
+@import "./sass/layout/main";
+@import "./sass/layout/responsive";
+@import "./sass/layout/topbar";
+@import "./sass/layout/typography";
+@import "./sass/layout/utils";
+@import "./sass/layout/sidebar/sidebar_light";
+@import "./sass/layout/sidebar/sidebar_right";
+@import "./sass/layout/fonts";
+@import "./sass/main";
 @import "./assets/demo/flags/flags.css";
-
-$color-main : #2e4e6e;
 
 .text-error {
     color: #f44336;
@@ -141,4 +144,15 @@ input.ng-dirty.ng-invalid {
     &-5 {
         padding-top: 50px;
     }
+}
+
+.layout-content-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    min-height: 100vh;
+    transition: margin-left 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
 }

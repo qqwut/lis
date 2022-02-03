@@ -23,7 +23,6 @@ export class LoginService {
   constructor() { }
 
   signIn(body: IReqLogin): Observable<IResLogin> {
-    // '/api/Auth/Login'
     return new Observable(subscriber => {
       subscriber.next({
         token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IndhbmNoYWkiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwianRpIjoiNjRjMzExMTktYzg3Mi00YjUzLThlOWEtYmVlMmYwNDJmMGFlIiwibmJmIjoxNjQzNzgzNzE2LCJleHAiOjE2NDM4MDUzMTYsImlhdCI6MTY0Mzc4MzcxNn0.PkQOKFOCdw0XaVACTPu7YJrhqkq08rfrWKMRWQ3tKps',
@@ -34,6 +33,6 @@ export class LoginService {
         success: true
       });
       subscriber.complete();
-    });
+    })
   }
 }

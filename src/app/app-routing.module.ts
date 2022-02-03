@@ -6,6 +6,13 @@ import { AppMainComponent } from './app.main.component';
         RouterModule.forRoot([
             {
                 path: '', component: AppMainComponent,
+                children: [
+                    {
+                        path: 'at',
+                        loadChildren: () => import('./department/at/at.module').then(m => m.AtModule),
+                        canActivate: []
+                    }
+                ]
             },
             // { path: 'error', component: AppErrorComponent },
             // { path: 'access', component: AppAccessdeniedComponent },

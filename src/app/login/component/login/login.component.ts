@@ -4,9 +4,12 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { NgcCookieConsentService, NgcInitializeEvent, NgcStatusChangeEvent, NgcNoCookieLawEvent } from 'ngx-cookieconsent';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs';
+
+import { filter, Subscription } from 'rxjs';
+import { MenuService } from 'src/app/shared/services/menu/menu.service';
+import { MENU_AT } from 'src/app/shared/constants/menu/menu.data';
 import { LoginService } from '../../service/login.service';
+import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -35,31 +38,31 @@ export class LoginComponent implements OnInit, OnDestroy {
       support: 'Nougat (7.0), Marshmallow (6.0), Lollipop (5.0, 5.1)'
     }
   ];
-  private popupOpenSubscription: Subscription = new Subscription();
-  private popupCloseSubscription: Subscription = new Subscription();
-  private initializeSubscription: Subscription = new Subscription();
-  private statusChangeSubscription: Subscription = new Subscription();
-  private revokeChoiceSubscription: Subscription = new Subscription();
-  private noCookieLawSubscription: Subscription = new Subscription();
+  // private popupOpenSubscription: Subscription = new Subscription();
+  // private popupCloseSubscription: Subscription = new Subscription();
+  // private initializeSubscription: Subscription = new Subscription();
+  // private statusChangeSubscription: Subscription = new Subscription();
+  // private revokeChoiceSubscription: Subscription = new Subscription();
+  // private noCookieLawSubscription: Subscription = new Subscription();
 
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private ccService: NgcCookieConsentService,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private loginService: LoginService
+    // private ccService: NgcCookieConsentService,
+    // @Inject(PLATFORM_ID) private platformId: any,
+    private loginService: LoginService,
+    private menuService: MenuService,
+    private authenticationService: AuthenticationService
   ) {
-    this.router.events.pipe(
-      // filter((events: RouterEvent) => {
-      //   return events instanceof NavigationEnd
-      // })
-    ).subscribe(event => {
-      if (isPlatformBrowser(this.platformId)) {
-        window.scroll(0, 0);
-      }
-    });
+    // this.router.events
+    //   .pipe(filter((event: any) => event instanceof NavigationEnd))
+    //   .subscribe(event => {
+    //     if (isPlatformBrowser(this.platformId)) {
+    //       window.scroll(0, 0);
+    //     }
+    //   });
   }
 
   get username() {
@@ -79,42 +82,35 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(
+    //   () => {
+    //     console.log('popupOpen');
+    //   });
 
-    this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(
-      () => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log('popupOpen');
-      });
+    // this.popupCloseSubscription = this.ccService.popupClose$.subscribe(
+    //   () => {
+    //     console.log('popuClose');
+    //   });
 
-    this.popupCloseSubscription = this.ccService.popupClose$.subscribe(
-      () => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log('popuClose');
-      });
+    // this.initializeSubscription = this.ccService.initialize$.subscribe(
+    //   (event: NgcInitializeEvent) => {
+    //     console.log(`initialize: ${JSON.stringify(event)}`);
+    //   });
 
-    this.initializeSubscription = this.ccService.initialize$.subscribe(
-      (event: NgcInitializeEvent) => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log(`initialize: ${JSON.stringify(event)}`);
-      });
+    // this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
+    //   (event: NgcStatusChangeEvent) => {
+    //     console.log(`statusChange: ${JSON.stringify(event)}`);
+    //   });
 
-    this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
-      (event: NgcStatusChangeEvent) => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log(`statusChange: ${JSON.stringify(event)}`);
-      });
+    // this.revokeChoiceSubscription = this.ccService.revokeChoice$.subscribe(
+    //   () => {
+    //     console.log(`revokeChoice`);
+    //   });
 
-    this.revokeChoiceSubscription = this.ccService.revokeChoice$.subscribe(
-      () => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log(`revokeChoice`);
-      });
-
-    this.noCookieLawSubscription = this.ccService.noCookieLaw$.subscribe(
-      (event: NgcNoCookieLawEvent) => {
-        // you can use this.ccService.getConfig() to do stuff...
-        console.log(`noCookieLaw: ${JSON.stringify(event)}`);
-      });
+    // this.noCookieLawSubscription = this.ccService.noCookieLaw$.subscribe(
+    //   (event: NgcNoCookieLawEvent) => {
+    //     console.log(`noCookieLaw: ${JSON.stringify(event)}`);
+    //   });
     this.initForm()
 
     // (Optional) support for translated cookies messages
@@ -147,23 +143,23 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   signIn() {
-    this.loginService.signIn({
-      username: this.formLogin.value.username,
-      password: this.formLogin.value.password,
-    })
-      .subscribe((res) => {
+    this.loginService
+      .signIn({
+        username: this.formLogin.value.username,
+        password: this.formLogin.value.password,
+      }).subscribe((res) => {
+        this.authenticationService.authentication(res && res.roleid);
         this.router.navigate(['/']);
-      }, (err) => {
       })
   }
 
   ngOnDestroy() {
     // unsubscribe to cookieconsent observables to prevent memory leaks
-    this.popupOpenSubscription.unsubscribe();
-    this.popupCloseSubscription.unsubscribe();
-    this.initializeSubscription.unsubscribe();
-    this.statusChangeSubscription.unsubscribe();
-    this.revokeChoiceSubscription.unsubscribe();
-    this.noCookieLawSubscription.unsubscribe();
+    // this.popupOpenSubscription.unsubscribe();
+    // this.popupCloseSubscription.unsubscribe();
+    // this.initializeSubscription.unsubscribe();
+    // this.statusChangeSubscription.unsubscribe();
+    // this.revokeChoiceSubscription.unsubscribe();
+    // this.noCookieLawSubscription.unsubscribe();
   }
 }

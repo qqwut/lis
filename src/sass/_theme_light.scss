@@ -11,6 +11,15 @@ $colors: (
     "purple": #9C27B0
 ) !default;
 
+//
+$primaryColor: #2196F3;
+$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
+$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
+$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
+$primaryTextColor: #ffffff;
+$highlightBg: #E3F2FD;
+$highlightTextColor: #495057;
+
 //reused color variables
 $shade000:#ffffff !default;    //surface
 $shade100:#f8f9fa !default;    //header background

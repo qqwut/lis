@@ -1,9 +1,11 @@
 @import './designer/common';
 
-$color-main: #1e3269;
+// $color-main: #1e3269;
+$color-main: #2e4e6e;
 $color-orange: #fd8b1e;
 $bodyBg: #f8f9fa !default;
-$textColor:#495057 !default;
+// $textColor:#495057 !default;
+$textColor:#fff !default;
 $textSecondaryColor:#6c757d !default;
 $dividerColor:#dee2e6 !default;
 $itemHoverBg:#e9ecef !default;
@@ -17,10 +19,10 @@ $cardBg: #ffffff !default;
 $cardBorder: 0 none !default;
 
 //topbar
-$topbarBg: #ffffff !default;
+$topbarBg: $color-orange !default;
 $topbarBottomBorder: 1px solid $dividerColor !default;
 $topbarTextColor: $textColor !default;
-$topbarIconBg: #f8f9fa !default;
+$topbarIconBg: $color-main !default;
 $topbarIconHoverBg: #e9ecef !default;
 
 //accent

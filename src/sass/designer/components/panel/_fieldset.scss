@@ -3,6 +3,7 @@
     background: $panelContentBg;
     color: $panelContentTextColor;
     border-radius: $borderRadius;
+    // border: unset;
 
     .p-fieldset-legend {
         padding: $panelHeaderPadding;
@@ -11,6 +12,7 @@
         background: $panelHeaderBg;
         font-weight: $panelHeaderFontWeight;
         border-radius: $borderRadius;
+        border: unset;
     }
 
     &.p-fieldset-toggleable {

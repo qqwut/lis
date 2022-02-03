@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { MenuService } from './app.menu.service';
+import { MenuService } from './shared/services/menu/menu.service';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
 import { Subscription } from 'rxjs';

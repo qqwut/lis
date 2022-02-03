@@ -1,0 +1,40 @@
+<ng-container *ngFor="let item of product">
+  <p-fieldset legend="Basic Plan Information">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>
+            Plan Code
+            <label style="padding-left: 5rem; color: #34597e">
+              <b>{{ product?.reinstIntRtId }}</b>
+            </label>
+          </td>
+          <td>
+            Plan Description
+            <label style="padding-left: 5rem; color: #34597e">
+              <b>{{ product?.rpuTbacId }}</b>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Plan Code
+            <label style="padding-left: 5rem; color: #34597e">
+              <b>{{ product?.reinstIntRtId }}</b>
+            </label>
+          </td>
+          <td>
+            Plan Description
+            <label style="padding-left: 5rem; color: #34597e">
+              <b>{{ product?.rpuTbacId }}</b>
+            </label>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-fieldset>
+</ng-container>
