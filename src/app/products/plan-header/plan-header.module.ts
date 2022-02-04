@@ -21,6 +21,9 @@ import { LoadReinstateInformationComponent } from './component/load-reinstate-in
 import { ParticipationDividendInformationComponent } from './component/participation-dividend-information/participation-dividend-information.component';
 import { CashValueUnitValueInformationComponent } from './component/cash-value-unit-value-information/cash-value-unit-value-information.component';
 import { ExtendedTermReducedPaidupInformationComponent } from './component/extended-term-reduced-paidup-information/extended-term-reduced-paidup-information.component';
+import { MaturityInformationComponent } from './component/maturity-information/maturity-information.component';
+import { ExpiryInformationComponent } from './component/expiry-information/expiry-information.component';
+import { PremiumChangeInformationComponent } from './component/premium-change-information/premium-change-information.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ExtendedTermReducedPaidupInformationComponent } from './component/exten
     LoadReinstateInformationComponent,
     ParticipationDividendInformationComponent,
     CashValueUnitValueInformationComponent,
-    ExtendedTermReducedPaidupInformationComponent
+    ExtendedTermReducedPaidupInformationComponent,
+    MaturityInformationComponent,
+    ExpiryInformationComponent,
+    PremiumChangeInformationComponent
   ],
   imports: [
     CommonModule,
