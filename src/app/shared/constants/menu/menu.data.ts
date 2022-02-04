@@ -1,8 +1,5 @@
 export const MENU_AT = [
     {
-        separator: true
-    },
-    {
         label: 'Hierarchy',
         icon: 'pi pi-fw pi-align-left',
         items: [
@@ -11,7 +8,7 @@ export const MENU_AT = [
                 items: [
                     {
                         label: 'Plan Header/Details',
-                        routerLink: ['/at/plan-header']
+                        routerLink: ['/plan-header']
                     },
                     {
                         label: 'Plan Premium',

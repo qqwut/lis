@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlanHeaderComponent } from './plan-header/plan-header.component';
+import { PlanHeaderComponent } from './component/main/plan-header.component';
 
 const routes: Routes = [
   {
-    path: 'plan-header',
+    path: '',
     component: PlanHeaderComponent
   }
 ];
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AtRoutingModule { }
+export class PlanHeaderRoutingModule { }

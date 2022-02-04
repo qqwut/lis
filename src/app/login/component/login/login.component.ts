@@ -1,16 +1,18 @@
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { NgcCookieConsentService, NgcInitializeEvent, NgcStatusChangeEvent, NgcNoCookieLawEvent } from 'ngx-cookieconsent';
-
+import { NgxSpinnerService } from "ngx-spinner";
 import { filter, Subscription } from 'rxjs';
 import { MenuService } from 'src/app/shared/services/menu/menu.service';
 import { MENU_AT } from 'src/app/shared/constants/menu/menu.data';
 import { LoginService } from '../../service/login.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service';
-
+import { AppConfigService } from '@app-root/app-config.service';
+// import * as moment from "moment";
+import "moment/locale/th";
+import { I18nTranslateService } from '@app-root/shared/services/translate/i18n-translate.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -48,13 +50,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private router: Router,
+    private spinner: NgxSpinnerService,
+    private i18n: I18nTranslateService,
     // private ccService: NgcCookieConsentService,
     // @Inject(PLATFORM_ID) private platformId: any,
     private loginService: LoginService,
     private menuService: MenuService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    public appConfig: AppConfigService,
   ) {
     // this.router.events
     //   .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -63,6 +67,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     //       window.scroll(0, 0);
     //     }
     //   });
+    this.i18n.changeLanguage('en')
   }
 
   get username() {
@@ -118,6 +123,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     // this.translateService.setDefaultLang('en');
   }
 
+  changeLang() {
+    this.i18n.changeLanguage('en')
+  }
+
   initForm() {
     const form = this.fb.group({
       username: new FormControl('', [
@@ -143,13 +152,17 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   signIn() {
+    this.spinner.show()
     this.loginService
       .signIn({
         username: this.formLogin.value.username,
         password: this.formLogin.value.password,
       }).subscribe((res) => {
         this.authenticationService.authentication(res && res.roleid);
-        this.router.navigate(['/']);
+        setTimeout(() => {
+          this.spinner.hide()
+          this.router.navigate(['/']);
+        }, 3000);
       })
   }
 

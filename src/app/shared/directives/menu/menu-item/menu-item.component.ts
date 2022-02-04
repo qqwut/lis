@@ -70,7 +70,12 @@ export class MenuItemComponent implements OnInit, OnDestroy {
 
   slimClick = false;
 
-  constructor(public appMain: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
+  constructor(
+    public appMain: AppMainComponent,
+    public router: Router,
+    private cd: ChangeDetectorRef,
+    private menuService: MenuService
+  ) {
     this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
       // deactivate current active menu
       if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {

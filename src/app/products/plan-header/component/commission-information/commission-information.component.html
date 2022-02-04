@@ -1,0 +1,165 @@
+<div class="card mt-2">
+  <p-divider>
+    <div class="inline-flex align-items-center">
+      <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-secondary p-button-outlined"
+        (click)="collapse = !collapse"
+      >
+        <b class="header-button"> Commission Information </b>
+      </button>
+
+      <span
+        pButton
+        pRipple
+        type="button"
+        class="p-button-secondary p-button-text"
+        (click)="displayModal = true"
+      >
+        <b class="show-modal">(Show Field Definition)</b>
+      </span>
+    </div>
+  </p-divider>
+
+  <p-table
+    [value]="product"
+    styleClass="p-datatable-striped"
+    responsiveLayout="scroll"
+    [hidden]="!collapse"
+  >
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="width: 20%">Rate Type</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">Percent Pointer</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Rate Header Pointer</td>
+        <td class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td>Calculation Method</td>
+        <td class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<!-- MODAL -->
+<p-dialog
+  header="Field Definition"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-striped"
+      responsiveLayout="scroll"
+      [hidden]="!collapse"
+    >
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td style="width: 20%">
+            <b> Rate Type </b>
+            <p>(COMM_RT_TBAC_CD)</p>
+          </td>
+          <td style="width: 80%">
+            This field indicates the commission rate access, i.e., indicates if
+            the commission rates are stored on PCNT or RHDR and RLTB. Allowed
+            Value Description
+            <ul>
+              <li>
+                C Commissions are calculated using coverage 1 info only
+                (trail/deposit based)
+              </li>
+              <li>N Not applicable</li>
+              <li>P Commission rates are stored on PCNT; default value</li>
+              <li>R Commission rates are stored on RHDR and RLTB</li>
+              <li>T Commissions are targeted, & are stored on RHDR and RLTB</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width: 20%">
+            <b> Rate Header Pointer </b>
+            <p>(COMM_RH_SUB_CD)</p>
+          </td>
+          <td style="width: 80%">
+            "This field will define the key to the Rate Header and Rate Load
+            tables. GUI selection box created from the ‘EDIT’ table with a type
+            of ‘PRHDR’."
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width: 20%">
+            <b> PCNT Pointer </b>
+            <p>(COMM_PLAN_TYP_CD)</p>
+          </td>
+          <td style="width: 80%">
+            This field defines the second and third digits of the writing agent
+            commission pattern code. When a coverage is created, these values
+            are used together with the value in the contract type field from the
+            agent's record to create the writing agent commission pattern code.
+            This is part of the key to the commission code rate table. If the
+            first character is 'J', the system will pay an agent commission on a
+            coverage at the same rate he or she received on the basic or
+            preceding coverage. If the second digit of this field is alphabetic,
+            duration portion of key to commcode table will be zero (for
+            commission rate look-up). If the second digit is numeric, duration
+            portion of key will be policy duration divided by this digit.
+            Default value is 'L0'. GUI selection box created from the ‘EDIT’
+            table with a type of ‘PPCNT’.
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width: 20%">
+            <b> Calculation Method </b>
+            <p>(PLAN_CPREM_CALC_CD)</p>
+          </td>
+          <td style="width: 80%">
+            "This field indicates the method of calculating the commissionable
+            premium for the plan. It is used as the default value for the
+            coverage. Allowed Value Description
+            <ul>
+              <li>0 The commissionable premium</li>
+              <li>1 The commissionable premium is</li>
+              <li>
+                2 The commissionable premium is the mode premium, less any flat
+                extra and multiple extra premiums, and less the policy fee
+              </li>
+              <li>
+                3 The commissionable premium is entered manually, or set up
+                automatically for immediate annuities. It remains static
+                throughout the duration of the coverage"
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-scrollTop
+      target="parent"
+      styleClass="custom-scrolltop"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+    ></p-scrollTop>
+  </p-scrollPanel>
+  <ng-template pTemplate="footer"> </ng-template>
+</p-dialog>

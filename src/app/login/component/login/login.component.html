@@ -72,7 +72,7 @@
             style="color: #007bff"
             (click)="privacyClick()"
           >
-            นโยบายความเป็นส่วนตัว
+            {{ "PRIVACY_POLICY" | translate }}
           </label>
         </div>
         <div class="mt-1 text-center">
@@ -81,9 +81,12 @@
             style="color: #007bff"
             (click)="openSupportDevice()"
           >
-            ตรวจสอบระบบปฏิบัติการที่ Support
+            {{ "CHECK_VERSION" | translate }}
           </label>
-          <p class="mt-2">PhillipLife&nbsp;&copy; 2020&nbsp;-&nbsp; 1.0.0</p>
+          <p class="mt-2">
+            PhillipLife&nbsp;&copy; 2022&nbsp;-&nbsp;
+            {{ appConfig?.APP_VERSION }}
+          </p>
         </div>
       </div>
     </form>
@@ -96,7 +99,6 @@
     [style]="{ width: '50vw' }"
     [draggable]="false"
     [resizable]="false"
-    [closable]="false"
   >
     <p-table
       [value]="products"
@@ -116,7 +118,7 @@
         </tr>
       </ng-template>
     </p-table>
-    <ng-template pTemplate="footer">
+    <!-- <ng-template pTemplate="footer">
       <p-button
         pRipple
         icon="pi pi-close"
@@ -124,26 +126,6 @@
         label="ปิด"
         styleClass="p-button-danger"
       ></p-button>
-    </ng-template>
+    </ng-template> -->
   </p-dialog>
-
-  <div class="custom-spinner" *ngIf="loading">
-    <!-- <img
-        width="100px"
-        class="image"
-        src="assets/img/iapply_logo2.png"
-        alt="diamond-ng"
-    /> -->
-    <p-progressSpinner
-      [style]="{
-        width: '50px',
-        height: '50px',
-        position: 'fixed',
-        top: '49%',
-        left: '48.5%'
-      }"
-      strokeWidth="8"
-      animationDuration="1s"
-    ></p-progressSpinner>
-  </div>
 </div>

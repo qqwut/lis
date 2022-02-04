@@ -1,0 +1,5 @@
+{
+  "hello": "test {{name}}!",
+  "PRIVACY_POLICY": "Privacy Policy",
+  "CHECK_VERSION": "How to Check Browser's Version"
+}

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component, OnInit } from '@angular/core'
+import { MenuItem } from 'primeng/api'
 
 @Component({
   selector: 'app-plan-header',
@@ -8,8 +8,10 @@ import { MenuItem } from 'primeng/api';
 })
 export class PlanHeaderComponent implements OnInit {
   product: any[]
-  items: MenuItem[];
-  activeItem: MenuItem;
+  items: MenuItem[]
+  activeItem: MenuItem
+  displayModal = false
+  collapse = true
 
   constructor() { }
 
@@ -18,8 +20,8 @@ export class PlanHeaderComponent implements OnInit {
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home' },
       { label: 'Calendar', icon: 'pi pi-fw pi-calendar' }
-    ];
-    this.activeItem = this.items[0];
+    ]
+    this.activeItem = this.items[0]
   }
 
   getProduct() {
@@ -302,5 +304,9 @@ export class PlanHeaderComponent implements OnInit {
     }
 
     this.product = data.data.tph
+  }
+
+  onDetail() {
+    this.displayModal = true
   }
 }

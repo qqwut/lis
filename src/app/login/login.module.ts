@@ -18,6 +18,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationService } from '../shared/services/authentication/authentication.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { TranslateModule } from '@ngx-translate/core';
 
 const cookieConfig: NgcCookieConsentConfig = {
   cookie: {
@@ -43,6 +45,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     LoginRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
     InputTextModule,
     PasswordModule,
     ButtonModule,
@@ -50,6 +53,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     DialogModule,
     TableModule,
     ProgressSpinnerModule,
+    TranslateModule,
     NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [

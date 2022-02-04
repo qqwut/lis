@@ -780,12 +780,12 @@ $chipTextColor:$textColor;
 $chipBorderRadius: 16px;
 
 //scrollTop
-$scrollTopBg:rgba(0,0,0,0.7);
-$scrollTopHoverBg:rgba(0,0,0,0.8);
-$scrollTopWidth:3rem;
-$scrollTopHeight:3rem;
+$scrollTopBg:$color-orange-active;
+$scrollTopHoverBg:$color-orange;
+$scrollTopWidth:2rem;
+$scrollTopHeight:2rem;
 $scrollTopBorderRadius:50%;
-$scrollTopFontSize:1.5rem;
+$scrollTopFontSize:0.8rem;
 $scrollTopTextColor:$shade100;
 
 //skeleton

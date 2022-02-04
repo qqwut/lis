@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -97,6 +97,8 @@ import { FooterComponent } from '@app-shared/components/footer/footer.component'
 import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
 import { MenuService } from './shared/services/menu/menu.service';
 import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-left.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { AppConfigService } from './app-config.service';
 
 // import dayGridPlugin from '@fullcalendar/daygrid';
 // import timeGridPlugin from '@fullcalendar/timegrid';
@@ -107,6 +109,13 @@ import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-le
 //     timeGridPlugin,
 //     interactionPlugin
 // ]);
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { I18nTranslateService } from './shared/services/translate/i18n-translate.service';
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -117,6 +126,15 @@ import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-le
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient],
+            },
+            defaultLanguage: 'en',
+        }),
+        NgxSpinnerModule,
         AccordionModule,
         AutoCompleteModule,
         AvatarModule,
@@ -211,12 +229,14 @@ import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-le
         MenuLeftComponent
     ],
     providers: [
+        AppConfigService,
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
         },
         MenuService,
-        BreadcrumbService
+        BreadcrumbService,
+        I18nTranslateService
     ],
     bootstrap: [AppComponent]
 })

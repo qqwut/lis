@@ -44,6 +44,9 @@
               "./node_modules/prismjs/prism.js",
               "./node_modules/prismjs/components/prism-typescript.js",
               "./node_modules/cookieconsent/build/cookieconsent.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "moment"
             ]
           },
           "configurations": {
@@ -51,13 +54,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "500mb",
+                  "maximumError": "1000mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 }
               ],
               "fileReplacements": [

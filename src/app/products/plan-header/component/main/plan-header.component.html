@@ -1,6 +1,21 @@
-<ng-container *ngFor="let item of product">
-  <p-fieldset legend="Basic Plan Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+<basic-plan-information [product]="product"></basic-plan-information>
+<general-information></general-information>
+<underwriting-information></underwriting-information>
+<premium-information></premium-information>
+<mode></mode>
+<commission-information [product]="product"></commission-information>
+
+<!-- <ng-container *ngFor="let item of product">
+  <p-fieldset
+    legend="Basic Plan Information"
+    [toggleable]="true"
+    [collapsed]="true"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -75,11 +90,13 @@
       </ng-template>
     </p-table>
   </p-fieldset>
-</ng-container>
 
-<ng-container *ngFor="let item of product">
-  <p-fieldset legend="Availability">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset legend="Availability" [toggleable]="true" [collapsed]="true">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -101,8 +118,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Free Look / Tax Exemption">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Free Look / Tax Exemption"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -120,8 +145,8 @@
         </tr>
         <tr>
           <td>
-            ในกรณี Tax Exempt = 'C' ให้ดูเอกสารประกอบ คลิกที่นี่-สำหรับแบบสามัญ และ คลิกที่นี่-สำหรับแบบตะกาฟุล และ
-            คลิกที่นี่-สำหรับแบบปี 2013
+            ในกรณี Tax Exempt = 'C' ให้ดูเอกสารประกอบ คลิกที่นี่-สำหรับแบบสามัญ
+            และ คลิกที่นี่-สำหรับแบบตะกาฟุล และ คลิกที่นี่-สำหรับแบบปี 2013
           </td>
         </tr>
       </ng-template>
@@ -130,8 +155,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="General Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="General Information"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -153,8 +186,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Calculation Method">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Calculation Method"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -177,8 +218,7 @@
               <b>{{ product?.reinstIntRtId }}</b>
             </label>
           </td>
-          <td>
-          </td>
+          <td></td>
         </tr>
       </ng-template>
     </p-table>
@@ -186,8 +226,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Non-Forfeiture Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Non-Forfeiture Information"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -196,8 +244,7 @@
               <b>{{ product?.reinstIntRtId }}</b>
             </label>
           </td>
-          <td>
-          </td>
+          <td></td>
         </tr>
       </ng-template>
     </p-table>
@@ -205,8 +252,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Underwriting Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Underwriting Information"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -242,8 +297,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Premium Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Premium Information"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -274,8 +337,7 @@
           </td>
         </tr>
         <tr>
-          <td>
-          </td>
+          <td></td>
           <td>
             Premium is contractual
             <label style="padding-left: 5rem; color: #34597e">
@@ -289,8 +351,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Modal Loads / Policy Fees">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Modal Loads / Policy Fees"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -312,110 +382,100 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset>
+  <p-fieldset [toggleable]="true" [collapsed]="true">
     <tr>
       <td>
         Model
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Mode Factor
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Fee Factor
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Mode PAC
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Mode PAC
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Mode Factor
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Fee Factor
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
     </tr>
     <tr>
       <td>
         Semi-Annual
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Semi-Annual PAC
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
     </tr>
     <tr>
       <td>
         Quarterly
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         VQuarterly PAC
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
     </tr>
     <tr>
       <td>
         Monthly
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
       <td>
         Monthly PAC
-        <label style="padding-left: 5rem; color: #34597e">
-        </label>
+        <label style="padding-left: 5rem; color: #34597e"> </label>
       </td>
     </tr>
   </p-fieldset>
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Commission Information   (Show Field Definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <div><button>test</button></div>
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Commission Information   (Show Field Definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -451,8 +511,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="CLoan/Reinstate Information">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="CLoan/Reinstate Information"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -503,8 +571,7 @@
               <b>{{ product?.reinstIntRtId }}</b>
             </label>
           </td>
-          <td>
-          </td>
+          <td></td>
         </tr>
       </ng-template>
     </p-table>
@@ -512,8 +579,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Participation/Dividend Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Participation/Dividend Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -549,8 +624,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Cash Value/Unit Value Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Cash Value/Unit Value Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -586,8 +669,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Extended Term/Reduced Paidup Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Extended Term/Reduced Paidup Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -624,8 +715,7 @@
               <b>{{ product?.reinstIntRtId }}</b>
             </label>
           </td>
-          <td>
-          </td>
+          <td></td>
         </tr>
       </ng-template>
     </p-table>
@@ -633,8 +723,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Maturity Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Maturity Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -670,8 +768,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Expiry Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Expiry Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -708,8 +814,7 @@
               <b>{{ product?.reinstIntRtId }}</b>
             </label>
           </td>
-          <td>
-          </td>
+          <td></td>
         </tr>
       </ng-template>
     </p-table>
@@ -717,8 +822,16 @@
 </ng-container>
 
 <ng-container *ngFor="let item of product">
-  <p-fieldset legend="Premium Change Information (Show field definition)">
-    <p-table [value]="product" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <p-fieldset
+    [toggleable]="true"
+    [collapsed]="true"
+    legend="Premium Change Information (Show field definition)"
+  >
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
@@ -751,4 +864,4 @@
       </ng-template>
     </p-table>
   </p-fieldset>
-</ng-container>
+</ng-container> -->
