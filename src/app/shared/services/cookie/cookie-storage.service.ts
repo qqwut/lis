@@ -15,7 +15,11 @@ export class CookieStorageService {
   }
 
   getData(key: KeyCookieData) {
+    const data = this.cookieService.get(key)
+    if (!data) {
+      return null
+    }
     return JSON.parse(this.cookieService.get(key))
   }
-  
+
 }

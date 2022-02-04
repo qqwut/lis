@@ -116,11 +116,27 @@ import { UserService } from './shared/services/user/user.service';
 import { CookieStorageService } from './shared/services/cookie/cookie-storage.service';
 import { AuthenticationService } from './shared/services/authentication/authentication.service';
 import { NotfoundPageComponent } from './shared/components/notfound-page/notfound-page.component';
+import { NgcCookieConsentConfig, NgcCookieConsentModule, NgcCookieConsentService } from 'ngx-cookieconsent';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+const cookieConfig: NgcCookieConsentConfig = {
+    cookie: {
+        domain: 'localhost'
+    },
+    palette: {
+        popup: {
+            background: '#000'
+        },
+        button: {
+            background: '#f1d600'
+        }
+    },
+    theme: 'edgeless',
+    type: 'opt-out'
+};
 
 @NgModule({
     imports: [
@@ -219,6 +235,7 @@ export function createTranslateLoader(http: HttpClient) {
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
+        NgcCookieConsentModule.forRoot(cookieConfig)
     ],
     declarations: [
         AppComponent,
@@ -244,7 +261,8 @@ export function createTranslateLoader(http: HttpClient) {
         BreadcrumbService,
         UserService,
         I18nTranslateService,
-        CookieStorageService
+        CookieStorageService,
+        NgcCookieConsentService
     ],
     bootstrap: [AppComponent]
 })

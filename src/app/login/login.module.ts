@@ -15,27 +15,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthenticationService } from '../shared/services/authentication/authentication.service';
+import { AuthenticationService } from '@app-shared/services/authentication/authentication.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TranslateModule } from '@ngx-translate/core';
 
-const cookieConfig: NgcCookieConsentConfig = {
-  cookie: {
-    domain: 'localhost'
-  },
-  palette: {
-    popup: {
-      background: '#000'
-    },
-    button: {
-      background: '#f1d600'
-    }
-  },
-  theme: 'edgeless',
-  type: 'opt-out'
-};
 @NgModule({
   declarations: [
     LoginComponent
@@ -53,8 +37,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     DialogModule,
     TableModule,
     ProgressSpinnerModule,
-    TranslateModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)
+    TranslateModule
   ],
   providers: [
     CookieService,
