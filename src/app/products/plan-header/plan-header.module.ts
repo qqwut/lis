@@ -17,6 +17,10 @@ import { PremiumInformationComponent } from './component/premium-information/pre
 import { CommissionInformationComponent } from './component/commission-information/commission-information.component';
 import { PlanHeaderComponent } from './component/main/plan-header.component';
 import { ModeComponent } from './component/mode/mode.component';
+import { LoadReinstateInformationComponent } from './component/load-reinstate-information/load-reinstate-information.component';
+import { ParticipationDividendInformationComponent } from './component/participation-dividend-information/participation-dividend-information.component';
+import { CashValueUnitValueInformationComponent } from './component/cash-value-unit-value-information/cash-value-unit-value-information.component';
+import { ExtendedTermReducedPaidupInformationComponent } from './component/extended-term-reduced-paidup-information/extended-term-reduced-paidup-information.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { ModeComponent } from './component/mode/mode.component';
     UnderwritingInformationComponent,
     PremiumInformationComponent,
     CommissionInformationComponent,
-    ModeComponent
+    ModeComponent,
+    LoadReinstateInformationComponent,
+    ParticipationDividendInformationComponent,
+    CashValueUnitValueInformationComponent,
+    ExtendedTermReducedPaidupInformationComponent
   ],
   imports: [
     CommonModule,

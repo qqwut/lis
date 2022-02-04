@@ -1,1 +1,97 @@
-<p>general-information works!</p>
+<div class="card mt-2">
+    <p-divider>
+        <div class="inline-flex align-items-center">
+            <button 
+            pButton 
+            pRipple 
+            ype="button" 
+            class="p-button-secondary p-button-outlined"
+            (click)="collapse = !collapse">
+                <b class="header-button"> General Information </b>
+            </button>
+        </div>
+    </p-divider>
+
+    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapse">
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td style="width: 20%">Date Rule</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.reinstIntRtId }}</b>
+                </td>
+                <td style="width: 20%">Value per Unit</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.rpuTbacId }}</b>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-divider>
+        <div class="inline-flex align-items-center">
+            <button 
+            pButton 
+            pRipple 
+            ype="button" 
+            class="p-button-secondary p-button-outlined"
+            (click)="collapseCalculation = !collapseCalculation">
+                <b class="header-button"> Calculation Method </b>
+            </button>
+        </div>
+    </p-divider>
+
+    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapseCalculation">
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td style="width: 20%">Age Calculation</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.reinstIntRtId }}</b>
+                </td>
+
+                <td style="width: 20%">Death Benefit</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.rpuTbacId }}</b>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 20%">Sum Insured</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.reinstIntRtId }}</b>
+                </td>
+
+                <td style="width: 20%"></td>
+                <td style="width: 30%" class="td-active">
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-divider>
+        <div class="inline-flex align-items-center">
+            <button 
+            pButton 
+            pRipple 
+            ype="button" 
+            class="p-button-secondary p-button-outlined"
+            (click)="collapseNonForfeiture = !collapseNonForfeiture">
+                <b class="header-button"> Non-Forfeiture Information </b>
+            </button>
+        </div>
+    </p-divider>
+    
+    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapseNonForfeiture">
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td style="width: 20%">Grace period</td>
+                <td style="width: 30%" class="td-active">
+                    <b>{{ product?.reinstIntRtId }}</b>
+                </td>
+
+                <td style="width: 20%"></td>
+                <td style="width: 30%" class="td-active">
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

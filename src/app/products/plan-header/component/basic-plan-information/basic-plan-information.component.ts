@@ -9,9 +9,9 @@ import { MenuItem } from 'primeng/api';
 export class BasicPlanInformationComponent implements OnInit {
   activeItem: MenuItem
   displayModal = false
-  collapse = true
-  collapseAvailability = true
-  collapseFreeLook = true
+  @Input() collapse? = true
+  @Input() collapseAvailability? = true
+  @Input() collapseFreeLook? = true
   @Input() product: any[]
   constructor() { }
 

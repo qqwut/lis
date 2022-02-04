@@ -226,7 +226,7 @@ export function createTranslateLoader(http: HttpClient) {
         FooterComponent,
         SearchComponent,
         MenuRightComponent,
-        MenuLeftComponent
+        MenuLeftComponent,
     ],
     providers: [
         AppConfigService,

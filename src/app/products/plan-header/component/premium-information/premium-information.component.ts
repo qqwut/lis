@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'premium-information',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./premium-information.component.scss']
 })
 export class PremiumInformationComponent implements OnInit {
+  displayModal = false
+  collapsePremium = true
+  @Input() collapse = true
+  @Input() product :any[]
 
   constructor() { }
 

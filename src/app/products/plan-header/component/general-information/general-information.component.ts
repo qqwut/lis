@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'general-information',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./general-information.component.scss']
 })
 export class GeneralInformationComponent implements OnInit {
+  displayModal = false
+  collapseCalculation = true
+  collapseNonForfeiture = true
+  @Input() collapse = true
+  @Input() product :any[]
 
   constructor() { }
 

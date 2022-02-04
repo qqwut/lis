@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'underwriting-information',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./underwriting-information.component.scss']
 })
 export class UnderwritingInformationComponent implements OnInit {
+  displayModal = false
+  @Input() collapse = true
+  @Input() product :any[]
 
   constructor() { }
 
