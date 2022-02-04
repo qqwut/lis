@@ -112,6 +112,10 @@ import { AppConfigService } from './app-config.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nTranslateService } from './shared/services/translate/i18n-translate.service';
+import { UserService } from './shared/services/user/user.service';
+import { CookieStorageService } from './shared/services/cookie/cookie-storage.service';
+import { AuthenticationService } from './shared/services/authentication/authentication.service';
+import { NotfoundPageComponent } from './shared/components/notfound-page/notfound-page.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -226,7 +230,8 @@ export function createTranslateLoader(http: HttpClient) {
         FooterComponent,
         SearchComponent,
         MenuRightComponent,
-        MenuLeftComponent
+        MenuLeftComponent,
+        NotfoundPageComponent
     ],
     providers: [
         AppConfigService,
@@ -234,9 +239,12 @@ export function createTranslateLoader(http: HttpClient) {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
         },
+        AuthenticationService,
         MenuService,
         BreadcrumbService,
-        I18nTranslateService
+        UserService,
+        I18nTranslateService,
+        CookieStorageService
     ],
     bootstrap: [AppComponent]
 })

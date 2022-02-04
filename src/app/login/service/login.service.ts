@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IUserItem } from '@app-root/shared/constants/user/user';
 import { Observable, observable } from 'rxjs';
 
 interface IResLogin {
@@ -22,7 +23,7 @@ export class LoginService {
 
   constructor() { }
 
-  signIn(body: IReqLogin): Observable<IResLogin> {
+  signIn(body: IReqLogin): Observable<IUserItem> {
     return new Observable(subscriber => {
       subscriber.next({
         token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IndhbmNoYWkiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwianRpIjoiNjRjMzExMTktYzg3Mi00YjUzLThlOWEtYmVlMmYwNDJmMGFlIiwibmJmIjoxNjQzNzgzNzE2LCJleHAiOjE2NDM4MDUzMTYsImlhdCI6MTY0Mzc4MzcxNn0.PkQOKFOCdw0XaVACTPu7YJrhqkq08rfrWKMRWQ3tKps',

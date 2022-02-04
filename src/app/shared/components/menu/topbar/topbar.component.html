@@ -133,7 +133,9 @@
                           alt="diamond-layout"
                           class="profile-image"
                       /> -->
-          <span class="profile-name">สวัสดี : วันชัย</span>
+          <span class="profile-name" *ngIf="user.userItem$ | async as user">
+            {{ user?.userAD }}
+          </span>
         </a>
         <ul class="profile-menu fade-in-up">
           <li>
@@ -169,7 +171,7 @@
         </ul>
       </li>
       <li>
-        <span style="cursor: pointer" [routerLink]="['/login']">
+        <span style="cursor: pointer" (click)="signOut()">
           <i class="pi pi-power-off"></i>
         </span>
       </li>

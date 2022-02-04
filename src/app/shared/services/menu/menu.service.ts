@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+import { MENU_AT } from '@app-root/shared/constants/menu/menu.data';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { CookieStorageService } from '../cookie/cookie-storage.service';
 
 @Injectable()
 export class MenuService {
@@ -10,9 +13,28 @@ export class MenuService {
     menuSource$ = this.menuSource.asObservable();
     resetSource$ = this.resetSource.asObservable();
 
-
     private itemsSource = new BehaviorSubject<any[]>([]);
     itemsHandler$ = this.itemsSource.asObservable();
+
+    constructor(private cookieService: CookieStorageService) {
+        const user = this.cookieService.getData('user')
+        if (user && user.roleid) {
+            this.roleMenu(user.roleid)
+        }
+    }
+
+    roleMenu(roleId) {
+
+        if (!roleId) return
+
+        switch (roleId) {
+            case 'AT':
+                return this.setItems(MENU_AT)
+            default:
+                break
+        }
+
+    }
 
     onMenuStateChange(key: string) {
         this.menuSource.next(key);
@@ -20,6 +42,7 @@ export class MenuService {
 
     reset() {
         this.resetSource.next('');
+        this.itemsSource.next(null);
     }
 
     setItems(items: any[]) {

@@ -1,9 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MenuItem } from 'primeng/api';
 import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
 import { AppComponent } from '@app-root/app.component';
 import { AppMainComponent } from '@app-root/app.main.component';
+import { UserService } from '@app-root/shared/services/user/user.service';
+import { IUserItem } from '@app-root/shared/constants/user/user';
+import { Router } from '@angular/router';
+import { CookieStorageService } from '@app-root/shared/services/cookie/cookie-storage.service';
+import { MenuService } from '@app-root/shared/services/menu/menu.service';
 
 @Component({
   selector: 'app-topbar',
@@ -14,24 +19,36 @@ export class TopbarComponent implements OnDestroy {
   subscription: Subscription;
   items: MenuItem[];
   tieredItems = []
-  breadcrumbItems = [
-    { label: 'Electronics' },
-    { label: 'Computer' },
-    { label: 'Notebook' },
-    { label: 'Accessories' },
-    { label: 'Backpacks' },
-    { label: 'Item' }
-  ];
+  // user$: Observable<IUserItem>
+  // user: IUserItem
 
   constructor(
     public breadcrumbService: BreadcrumbService,
     public appMain: AppMainComponent,
-    public app: AppComponent
+    public app: AppComponent,
+    private router: Router,
+    public user: UserService,
+    public menu: MenuService,
+    private cookieStorageService: CookieStorageService,
   ) {
+
     this.subscription = breadcrumbService.itemsHandler
       .subscribe(response => {
         this.items = response;
-      });
+      })
+
+    // this.subscription.add(
+    // this.user.userItem$.subscribe(response => {
+    // this.user = response;
+    // })
+    // )
+
+    // this.subscription.add(
+    //   breadcrumbService.itemsHandler.subscribe(response => {
+    //     this.items = response;
+    //   })
+    // )
+
     // this.tieredItems = [
     //   {
     //     label: 'Home',
@@ -47,7 +64,6 @@ export class TopbarComponent implements OnDestroy {
     //         label: 'Search',
     //         icon: 'pi pi-fw pi-search'
     //       }
-
     //     ]
     //   },
     //   {
@@ -66,6 +82,13 @@ export class TopbarComponent implements OnDestroy {
     //     label: 'About Program'
     //   }
     // ];
+  }
+
+  signOut() {
+    this.cookieStorageService.setData('user', null)
+    this.user.clearUser()
+    this.menu.reset()
+    this.router.navigate(['/login'])
   }
 
   ngOnDestroy() {
