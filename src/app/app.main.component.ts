@@ -45,6 +45,10 @@ export class AppMainComponent implements OnDestroy {
 
     resetMenu: boolean;
 
+    signOutMenuClick: boolean;
+
+    signOutMenuActive: boolean;
+
     menuHoverActive = false;
 
     constructor(
@@ -75,6 +79,10 @@ export class AppMainComponent implements OnDestroy {
             this.rightMenuActive = false;
         }
 
+        if (!this.signOutMenuClick) {
+            this.signOutMenuActive = false;
+        }
+
         if (!this.menuClick) {
             if (this.isSlim() || this.isHorizontal()) {
                 this.menuService.reset();
@@ -96,6 +104,7 @@ export class AppMainComponent implements OnDestroy {
         this.configClick = false;
         this.userMenuClick = false;
         this.rightMenuClick = false;
+        this.signOutMenuClick = false;
         this.notificationMenuClick = false;
         this.menuClick = false;
     }
@@ -157,6 +166,15 @@ export class AppMainComponent implements OnDestroy {
         event.preventDefault();
     }
 
+    onMenuSignOut(event) {
+        this.signOutMenuClick = true;
+        this.signOutMenuActive = !this.signOutMenuActive;
+
+        this.hideOverlayMenu();
+
+        event.preventDefault();
+    }
+
     onRightMenuClick(event) {
         this.rightMenuClick = true;
         this.rightMenuActive = !this.rightMenuActive;
@@ -188,11 +206,11 @@ export class AppMainComponent implements OnDestroy {
     }
 
     isDesktop() {
-        return window.innerWidth > 1091;
+        return window.innerWidth > 720;
     }
 
     isMobile() {
-        return window.innerWidth <= 1091;
+        return window.innerWidth <= 720;
     }
 
     hideOverlayMenu() {

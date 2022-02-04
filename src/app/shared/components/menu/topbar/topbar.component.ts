@@ -1,14 +1,14 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { MenuItem } from 'primeng/api';
-import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
-import { AppComponent } from '@app-root/app.component';
-import { AppMainComponent } from '@app-root/app.main.component';
-import { UserService } from '@app-root/shared/services/user/user.service';
-import { IUserItem } from '@app-root/shared/constants/user/user';
-import { Router } from '@angular/router';
-import { CookieStorageService } from '@app-root/shared/services/cookie/cookie-storage.service';
-import { MenuService } from '@app-root/shared/services/menu/menu.service';
+import { Component, OnDestroy } from '@angular/core'
+import { Observable, Subscription } from 'rxjs'
+import { MenuItem } from 'primeng/api'
+import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service'
+import { AppComponent } from '@app-root/app.component'
+import { AppMainComponent } from '@app-root/app.main.component'
+import { UserService } from '@app-root/shared/services/user/user.service'
+import { IUserItem } from '@app-root/shared/constants/user/user'
+import { Router } from '@angular/router'
+import { CookieStorageService } from '@app-root/shared/services/cookie/cookie-storage.service'
+import { MenuService } from '@app-root/shared/services/menu/menu.service'
 
 @Component({
   selector: 'app-topbar',
@@ -16,9 +16,8 @@ import { MenuService } from '@app-root/shared/services/menu/menu.service';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnDestroy {
-  subscription: Subscription;
-  items: MenuItem[];
-  tieredItems = []
+  subscription: Subscription
+  items: MenuItem[]
   // user$: Observable<IUserItem>
   // user: IUserItem
 
@@ -34,18 +33,18 @@ export class TopbarComponent implements OnDestroy {
 
     this.subscription = breadcrumbService.itemsHandler
       .subscribe(response => {
-        this.items = response;
+        this.items = response
       })
 
     // this.subscription.add(
     // this.user.userItem$.subscribe(response => {
-    // this.user = response;
+    // this.user = response
     // })
     // )
 
     // this.subscription.add(
     //   breadcrumbService.itemsHandler.subscribe(response => {
-    //     this.items = response;
+    //     this.items = response
     //   })
     // )
 
@@ -81,7 +80,7 @@ export class TopbarComponent implements OnDestroy {
     //   {
     //     label: 'About Program'
     //   }
-    // ];
+    // ]
   }
 
   signOut() {
@@ -93,7 +92,7 @@ export class TopbarComponent implements OnDestroy {
 
   ngOnDestroy() {
     if (this.subscription) {
-      this.subscription.unsubscribe();
+      this.subscription.unsubscribe()
     }
   }
 

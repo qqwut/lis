@@ -150,55 +150,27 @@
               <span>Settings</span>
             </a>
           </li>
-          <!-- <li>
-                          <a href="#">
-                              <i class="pi pi-calendar"></i>
-                              <span>Calendar</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <i class="pi pi-inbox"></i>
-                              <span>Inbox</span>
-                          </a>
-                      </li> -->
-          <!-- <li>
-                          <a href="#">
-                              <i class="pi pi-power-off"></i>
-                              <span>Logout</span>
-                          </a>
-                      </li> -->
         </ul>
       </li>
-      <li>
-        <span style="cursor: pointer" (click)="signOut()">
-          <i class="pi pi-power-off"></i>
-        </span>
+      <li
+        [ngClass]="{
+          'active-menuitem': appMain.signOutMenuActive
+        }"
+      >
+        <a href="#" (click)="appMain.onMenuSignOut($event)">
+          <span style="cursor: pointer">
+            <i class="pi pi-power-off" style="font-size: 1.2rem"></i>
+          </span>
+        </a>
+        <ul class="profile-menu fade-in-up">
+          <li>
+            <a (click)="signOut()">
+              <i class="pi pi-power-off"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
       </li>
-      <!-- <li class="right-sidebar-item">
-                  <a
-                      href="#"
-                      tabindex="0"
-                      (click)="appMain.onRightMenuClick($event)"
-                  >
-                      <i class="pi pi-align-right"></i>
-                  </a>
-              </li> -->
     </ul>
   </div>
 </div>
-<!-- <div
-      style="
-          position: fixed;
-          top: 55px;
-          width: 100%;
-          z-index: 9999;
-          color: #fff !important;
-      "
-  >
-      <p-breadcrumb
-          [style]="{ height: '40px',paddingTop:'10px' }"
-          [model]="breadcrumbItems"
-          [home]="{ icon: 'pi pi-home' }"
-      ></p-breadcrumb>
-  </div> -->

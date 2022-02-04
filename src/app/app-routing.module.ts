@@ -13,9 +13,8 @@ import { NotfoundPageComponent } from './shared/components/notfound-page/notfoun
                     {
                         path: 'plan-header',
                         canActivate: [],
-                        loadChildren: () =>
-                            import('@app-root/products/plan-header/plan-header.module')
-                                .then(m => m.PlanHeaderModule),
+                        loadChildren: () => import('@app-root/products/plan-header/plan-header.module')
+                            .then(m => m.PlanHeaderModule),
                     },
                     // {
                     //     path: 'at',
@@ -26,8 +25,7 @@ import { NotfoundPageComponent } from './shared/components/notfound-page/notfoun
             },
             {
                 path: 'login',
-                loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
-                canActivate: []
+                loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
             },
             { path: 'notfound', component: NotfoundPageComponent },
             { path: '**', redirectTo: '/notfound' },

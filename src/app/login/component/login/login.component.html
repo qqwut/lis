@@ -45,13 +45,13 @@
             [class.bd-error]="passwordInvalid"
           />
           <div class="text-error text-left" *ngIf="passwordInvalid">
-            <small *ngIf="password.hasError('required')">
+            <small *ngIf="password.errors['required']">
               Must input password
             </small>
-            <small *ngIf="password.hasError('minlength')">
+            <small *ngIf="password.errors['minlength']">
               Minimum 3 characters
             </small>
-            <small *ngIf="password.hasError('maxlength')">
+            <small *ngIf="password.errors['maxlength']">
               Maximum 10 characters!!
             </small>
           </div>
