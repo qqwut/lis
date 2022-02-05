@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { KeyCookieData } from '@app-root/shared/constants/cookie/cookie'
+import { KeyCookieData } from '@app-root/shared/interfaces/cookie/cookie'
 import { CookieService } from 'ngx-cookie-service'
 
 @Injectable({
@@ -16,10 +16,10 @@ export class CookieStorageService {
 
   getData(key: KeyCookieData) {
     const data = this.cookieService.get(key)
-    if (!data) {
+    if (!data || data === 'undefined' || data === '{}') {
       return null
     }
-    return JSON.parse(this.cookieService.get(key))
+    return JSON.parse(data)
   }
 
 }

@@ -1,58 +1,35 @@
-import { isPlatformBrowser } from '@angular/common'
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
-import { NavigationEnd, Router, RouterEvent } from '@angular/router'
-import { NgcCookieConsentService, NgcInitializeEvent, NgcStatusChangeEvent, NgcNoCookieLawEvent } from 'ngx-cookieconsent'
+import { Router } from '@angular/router'
 import { NgxSpinnerService } from "ngx-spinner"
-import { filter, Subscription } from 'rxjs'
 import { MenuService } from 'src/app/shared/services/menu/menu.service'
-import { MENU_AT } from 'src/app/shared/constants/menu/menu.data'
-import { LoginService } from '../../service/login.service'
 import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service'
 import { AppConfigService } from '@app-root/app-config.service'
 import { I18nTranslateService } from '@app-root/shared/services/translate/i18n-translate.service'
-import { UserService } from '@app-root/shared/services/user/user.service'
-import { IUserItem } from '@app-root/shared/constants/user/user'
-import { CookieStorageService } from '@app-root/shared/services/cookie/cookie-storage.service'
-import { TranslateService } from '@ngx-translate/core'
+import { IUserItem } from '@app-root/shared/interfaces/user/user'
+import { BROWSER } from '@app-root/shared/constants/cookie/cookie'
+import { HttpErrorResponse } from '@angular/common/http'
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  formLogin!: FormGroup
+  formLogin: FormGroup
+  browserList = BROWSER
   supportDevice = false
-  loading = false
-  products = [
-    {
-      browser: 'Chrome',
-      support: 'ตั้งแต่เวอร์ชั่น 70 ขึ้นไป'
-    },
-    {
-      browser: 'Safari',
-      support: 'ตั้งแต่เวอร์ชั่น 10 ขึ้นไป'
-    },
-    {
-      browser: 'iOS',
-      support: 'ตั้งแต่เวอร์ชั่น 10 ขึ้นไป'
-    },
-    {
-      browser: 'Android',
-      support: 'Nougat (7.0), Marshmallow (6.0), Lollipop (5.0, 5.1)'
-    }
-  ]
+  messageError: string
+  // subscription = new Subscription()
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private spinner: NgxSpinnerService,
     private i18n: I18nTranslateService,
-    private loginService: LoginService,
     private menuService: MenuService,
     public appConfig: AppConfigService,
-    private userService: UserService,
-    private cookieStorageService: CookieStorageService
+    private authenticationService: AuthenticationService
   ) { }
 
   get username() {
@@ -76,10 +53,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.i18n.changeLanguage('th')
   }
 
-  changeLang() {
-    // this.i18n.changeLanguage('en')
-  }
-
   initForm() {
     const form = this.fb.group({
       username: new FormControl('', [
@@ -96,34 +69,37 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.formLogin = new FormGroup(form.controls)
   }
 
-  privacyClick() {
+  onPrivacy() {
     this.router.navigate(['/privacy-policy'])
   }
 
-  openSupportDevice() {
+  onSupportDevice() {
     this.supportDevice = true
   }
 
   signIn() {
+    this.messageError = null
     this.spinner.show()
-    this.loginService
-      .signIn({
-        username: this.formLogin.value.username,
-        password: this.formLogin.value.password,
-      }).subscribe((res: IUserItem) => {
-        this.cookieStorageService.setData('user', {
-          userAD: res.userAD,
-          userLis: res.userLis,
-          email: res.email,
-          roleid: res.roleid
-        })
-        this.cookieStorageService.setData('token', res.token)
-        this.menuService.roleMenu(res && res.roleid)
-        this.userService.setUser(res)
-        this.spinner.hide()
-        this.router.navigate(['/'])
+    this.authenticationService
+      .login(this.formLogin.value)
+      .subscribe({
+        next: (userItem: IUserItem) => {
+          this.menuService.roleMenu(userItem && userItem.roleid)
+          this.spinner.hide()
+          this.router.navigate(['/'])
+        },
+        error: (error: HttpErrorResponse) => {
+          this.spinner.hide()
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed.',
+            text: error.message,
+            showConfirmButton: false
+          })
+        }
       })
   }
 
-  ngOnDestroy() { }
+  ngOnDestroy() {
+  }
 }

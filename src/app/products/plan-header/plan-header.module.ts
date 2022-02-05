@@ -24,6 +24,7 @@ import { ExtendedTermReducedPaidupInformationComponent } from './component/exten
 import { MaturityInformationComponent } from './component/maturity-information/maturity-information.component';
 import { ExpiryInformationComponent } from './component/expiry-information/expiry-information.component';
 import { PremiumChangeInformationComponent } from './component/premium-change-information/premium-change-information.component';
+import { PlanHeaderService } from './service/plan-header.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { PremiumChangeInformationComponent } from './component/premium-change-in
     ExtendedTermReducedPaidupInformationComponent,
     MaturityInformationComponent,
     ExpiryInformationComponent,
-    PremiumChangeInformationComponent
+    PremiumChangeInformationComponent,
   ],
   imports: [
     CommonModule,
@@ -53,6 +54,9 @@ import { PremiumChangeInformationComponent } from './component/premium-change-in
     ScrollPanelModule,
     ScrollTopModule,
     ButtonModule
+  ],
+  providers: [
+    PlanHeaderService
   ]
 })
 export class PlanHeaderModule { }

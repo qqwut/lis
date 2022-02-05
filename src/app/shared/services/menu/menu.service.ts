@@ -16,11 +16,12 @@ export class MenuService {
     private itemsSource = new BehaviorSubject<any[]>([]);
     itemsHandler$ = this.itemsSource.asObservable();
 
-    constructor(private cookieService: CookieStorageService) {
-        const user = this.cookieService.getData('user')
-        if (user && user.roleid) {
-            this.roleMenu(user.roleid)
-        }
+    constructor(private authentication: AuthenticationService) {
+        this.authentication.user$.subscribe((user) => {
+            if (user && user.roleid) {
+                this.roleMenu(user.roleid)
+            }
+        })
     }
 
     roleMenu(roleId) {

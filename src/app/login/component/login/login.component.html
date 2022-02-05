@@ -17,11 +17,12 @@
           <input
             pInputText
             id="userName"
-            formControlName="username"
             class="login-input"
+            formControlName="username"
             [class.bd-error]="usernameInvalid"
             placeholder="Username"
           />
+
           <div class="text-error text-left" *ngIf="usernameInvalid">
             <small *ngIf="username.hasError('required')">
               Must input username
@@ -56,6 +57,9 @@
             </small>
           </div>
         </div>
+        <div class="w-100">
+          {{ messageError }}
+        </div>
         <div class="mt-1">
           <button
             pButton
@@ -67,22 +71,16 @@
           ></button>
         </div>
         <div class="mt-1 text-center">
-          <label
-            class="cursor-pointer"
-            style="color: #007bff"
-            (click)="privacyClick()"
-          >
+          <label class="cursor-pointer color-link" (click)="onPrivacy()">
             {{ "PRIVACY_POLICY" | translate }}
           </label>
         </div>
+
         <div class="mt-1 text-center">
-          <label
-            class="cursor-pointer"
-            style="color: #007bff"
-            (click)="openSupportDevice()"
-          >
+          <label class="cursor-pointer color-link" (click)="onSupportDevice()">
             {{ "CHECK_VERSION" | translate }}
           </label>
+
           <p class="mt-2">
             PhillipLife&nbsp;&copy; 2022&nbsp;-&nbsp;
             {{ appConfig?.APP_VERSION }}
@@ -101,7 +99,7 @@
     [resizable]="false"
   >
     <p-table
-      [value]="products"
+      [value]="browserList"
       styleClass="p-datatable-striped"
       responsiveLayout="scroll"
     >
@@ -118,14 +116,5 @@
         </tr>
       </ng-template>
     </p-table>
-    <!-- <ng-template pTemplate="footer">
-      <p-button
-        pRipple
-        icon="pi pi-close"
-        (click)="supportDevice = false"
-        label="ปิด"
-        styleClass="p-button-danger"
-      ></p-button>
-    </ng-template> -->
   </p-dialog>
 </div>

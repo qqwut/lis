@@ -1,14 +1,14 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppMainComponent } from './app.main.component';
-import { AuthGuardService } from './shared/services/auth-guard/auth-guard.service';
 import { NotfoundPageComponent } from './shared/components/notfound-page/notfound-page.component';
+import { AuthGuard } from './shared/services/helpers/auth.guard';
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
                 path: '', component: AppMainComponent,
-                canActivate: [AuthGuardService],
+                canActivate: [AuthGuard],
                 children: [
                     {
                         path: 'plan-header',

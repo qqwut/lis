@@ -133,8 +133,10 @@
                           alt="diamond-layout"
                           class="profile-image"
                       /> -->
-          <span class="profile-name" *ngIf="user.userItem$ | async as user">
-            {{ user?.userAD }}
+          <!-- <span class="profile-name" *ngIf="authentication.user | async as user"> -->
+          <span class="profile-name">
+            <!-- {{ user?.userAD }} -->
+            {{ authentication?.userValue?.userAD }}
           </span>
         </a>
         <ul class="profile-menu fade-in-up">
