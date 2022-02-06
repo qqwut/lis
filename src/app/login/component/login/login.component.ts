@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initForm()
-    this.i18n.changeLanguage('th')
   }
 
   initForm() {
@@ -92,6 +91,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigate(['/'])
       },
       error: (error: HttpErrorResponse) => {
+        debugger
         this.spinner.hide()
         Swal.fire({
           icon: 'error',

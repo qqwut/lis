@@ -12,14 +12,17 @@ export class CookieConsentService {
     private cookieService: CookieService,
     private translateService: TranslateService
   ) {
+    // const browserLang = this.translateService.getBrowserLang()
+    // const lang = browserLang.match(/en|th/) ? browserLang : 'th'
+    this.translateService.use('th')
     let NgxCookieConsentValue = this.cookieService.get('cookieconsent_status')
     if (NgxCookieConsentValue === 'deny' || !NgxCookieConsentValue) {
       this.ccService.open()
-      this.init()
     } else {
       // this.ccService.close(false)
       // this.ccService.destroy()
     }
+    this.init()
   }
 
   init() {

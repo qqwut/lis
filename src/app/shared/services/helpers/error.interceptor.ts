@@ -28,8 +28,8 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.authenticationService.logout()
         }
 
-        const error = (err && err.error && err.error.message) || err.statusText
-        return throwError(() => error)
+        // const error = (err && err.error && err.error.message) || err.statusText
+        return throwError(() => err)
       })
     )
   }

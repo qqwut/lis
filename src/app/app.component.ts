@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   constructor(
     private primengConfig: PrimeNGConfig,
     private router: Router,
-    // private cookieConsentService: CookieConsentService,
+    private cookieConsentService: CookieConsentService,
     private translateService: TranslateService
   ) {
     // private cookie: CookieConsentService // @Inject(PLATFORM_ID) private platformId: any
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
     // const lang = browserLang.match(/en|th/) ? browserLang : 'th'
     const lang = 'th'
     this.translateService.use(lang)
+    this.translateService.setDefaultLang(lang)
     // this.cookieConsentService.init()
   }
 

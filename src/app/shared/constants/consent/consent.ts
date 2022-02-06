@@ -16,7 +16,7 @@ export const cookieConfig: NgcCookieConsentConfig = {
       border: 'transparent',
     },
   },
-  theme: 'edgeless', // classic
+  theme: 'classic', // edgeless
   type: 'opt-out',
   layout: 'my-custom-layout',
   layouts: {
