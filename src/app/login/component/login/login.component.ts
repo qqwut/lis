@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   browserList = BROWSER
   supportDevice = false
   messageError: string
-  // subscription = new Subscription()
 
   constructor(
     private fb: FormBuilder,
