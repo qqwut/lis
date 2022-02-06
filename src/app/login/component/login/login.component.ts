@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigate(['/'])
       },
       error: (error: HttpErrorResponse) => {
-        debugger
         this.spinner.hide()
         Swal.fire({
           icon: 'error',
