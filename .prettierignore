@@ -1,0 +1,26 @@
+dist
+node_modules
+*.png
+*.jpeg
+*.jpg
+Dockerfile
+*.conf
+browserslist
+*.ico
+src/assets/fonts
+src/assets/icons
+src/assets/.gitkeep
+.DS_Store
+.editorconfig
+.gitignore
+.prettierignore
+
+# Not ignore JSON and ts file
+!*.json
+!*.ts
+
+# Not ignore style
+!*.scss
+
+# Not ignore HTML
+!*.html
