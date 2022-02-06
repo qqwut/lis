@@ -3,23 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
 import { AppMainComponent } from './app.main.component'
-import { AppConfigComponent } from './app.config.component'
-import { AppTopBarComponent } from './app.topbar.component'
-import { AppFooterComponent } from './app.footer.component'
-import { AppMenuComponent } from './app.menu.component'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule, RouterTestingModule],
-      declarations: [
-        AppComponent,
-        AppMainComponent,
-        AppConfigComponent,
-        AppTopBarComponent,
-        AppMenuComponent,
-        AppFooterComponent,
-      ],
+      declarations: [AppComponent, AppMainComponent],
     }).compileComponents()
   }))
   it('should create the app', async(() => {
