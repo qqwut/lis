@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
 import { CookieService } from 'ngx-cookie-service'
-import { NgcCookieConsentService } from 'ngx-cookieconsent'
+import { NgcCookieConsentService , NgcStatusChangeEvent } from 'ngx-cookieconsent'
+import { Subscription } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CookieConsentService {
+  private statusChangeSubscription: Subscription = new Subscription()
   constructor(
     private ccService: NgcCookieConsentService,
     private cookieService: CookieService,
@@ -15,14 +17,31 @@ export class CookieConsentService {
     // const browserLang = this.translateService.getBrowserLang()
     // const lang = browserLang.match(/en|th/) ? browserLang : 'th'
     this.translateService.use('th')
-    let NgxCookieConsentValue = this.cookieService.get('cookieconsent_status')
-    if (NgxCookieConsentValue === 'deny' || !NgxCookieConsentValue) {
-      this.ccService.open()
-    } else {
+    const status = this.cookieService.get('cookieconsent_status')
+
+    if (status === 'allow') {
       // this.ccService.close(false)
-      // this.ccService.destroy()
+      this.ccService.destroy()
+      if (this.statusChangeSubscription) {
+        this.statusChangeSubscription.unsubscribe()
+      }
+    } else if (status === 'deny' || !status) {
+      this.ccService.open()
+      this.init()
+    } else {
+      this.init()
     }
-    this.init()
+
+    this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
+      (event: NgcStatusChangeEvent) => {
+        if (event.status === 'allow') {
+          this.ccService.destroy()
+          if (this.statusChangeSubscription) {
+            this.statusChangeSubscription.unsubscribe()
+          }
+        }
+      }
+    )
   }
 
   init() {
@@ -61,6 +80,7 @@ export class CookieConsentService {
             `,
           }
         }
+
         this.ccConfig.content.message = data['COOKIE.MESSAGE']
         this.ccConfig.content.header = data['COOKIE.HEADER']
         this.ccConfig.content.dismiss = data['COOKIE.DISMISS']
@@ -68,13 +88,8 @@ export class CookieConsentService {
         this.ccConfig.content.deny = data['COOKIE.DENY']
         this.ccConfig.content.link = data['COOKIE.LINK']
         this.ccConfig.content.policy = data['COOKIE.POLICY']
-        this.ccConfig.content['cookiePolicyLink'] =
-          data['COOKIE.COOKIE_POLICY_LINK']
-        // this.ccConfig.content['cookiePolicyHref'] = 'cookie-policy'
-        this.ccConfig.content['privacyPolicyLink'] =
-          data['COOKIE.PRIVACY_POLICY_LINK']
-        // this.ccConfig.content['privacyPolicyHref'] = 'privacy-policy'
-
+        this.ccConfig.content['cookiePolicyLink'] = data['COOKIE.COOKIE_POLICY_LINK']
+        this.ccConfig.content['privacyPolicyLink'] = data['COOKIE.PRIVACY_POLICY_LINK']
         this.ccService.destroy() //remove previous cookie bar (with default messages)
         this.ccService.init(this.ccConfig) // update config with translated messages
       })
