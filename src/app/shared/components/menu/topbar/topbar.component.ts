@@ -12,7 +12,7 @@ import { AuthenticationService } from '@app-root/shared/services/authentication/
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
-  styleUrls: ['./topbar.component.scss']
+  styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent implements OnDestroy {
   subscription = new Subscription()
@@ -25,14 +25,12 @@ export class TopbarComponent implements OnDestroy {
     private router: Router,
     // public user: UserService,
     public authentication: AuthenticationService,
-    public menu: MenuService,
+    public menu: MenuService
   ) {
-
     // this.subscription = breadcrumbService.itemsHandler
     //   .subscribe(response => {
     //     this.items = response
     //   })
-
     // this.authentication.user.subscribe(response => {
     // this.user = response
     // })
@@ -48,5 +46,4 @@ export class TopbarComponent implements OnDestroy {
     //   this.subscription.unsubscribe()
     // }
   }
-
 }

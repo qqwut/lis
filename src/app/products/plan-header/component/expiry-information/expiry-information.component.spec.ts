@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ExpiryInformationComponent } from './expiry-information.component';
+import { ExpiryInformationComponent } from './expiry-information.component'
 
 describe('ExpiryInformationComponent', () => {
-  let component: ExpiryInformationComponent;
-  let fixture: ComponentFixture<ExpiryInformationComponent>;
+  let component: ExpiryInformationComponent
+  let fixture: ComponentFixture<ExpiryInformationComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpiryInformationComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [ExpiryInformationComponent],
+    }).compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExpiryInformationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(ExpiryInformationComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

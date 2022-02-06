@@ -1,22 +1,22 @@
 export interface IUserItem {
-    token?: string
-    userAD?: string
-    userLis?: string
-    email?: string
-    roleid?: string
-    success?: true
+  token?: string
+  userAD?: string
+  userLis?: string
+  email?: string
+  roleid?: string
+  success?: true
 }
 
 export interface IResLogin {
-    token: string
-    userAD: string
-    userLis: string
-    email: string
-    roleid: string
-    success: boolean
+  token: string
+  userAD: string
+  userLis: string
+  email: string
+  roleid: string
+  success: boolean
 }
 
 export interface IReqLogin {
-    username: string
-    password: string
+  username: string
+  password: string
 }

@@ -24,3 +24,8 @@ src/assets/.gitkeep
 
 # Not ignore HTML
 !*.html
+.angular
+angular.json
+karma.conf.js
+tsconfig.app.json
+tsconfig.spec.json

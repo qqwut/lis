@@ -1,18 +1,16 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'maturity-information',
   templateUrl: './maturity-information.component.html',
-  styleUrls: ['./maturity-information.component.scss']
+  styleUrls: ['./maturity-information.component.scss'],
 })
 export class MaturityInformationComponent implements OnInit {
   displayModal = false
   @Input() collapse? = true
-  @Input() product :any[]
+  @Input() product: any[]
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

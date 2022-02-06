@@ -1,220 +1,261 @@
 <div class="card mt-2">
-    <p-divider>
-        <div class="inline-flex align-items-center">
-            <button pButton pRipple ype="button" class="p-button-secondary p-button-outlined"
-                (click)="collapse = !collapse">
-                <b class="header-button"> Expiry Information </b>
-            </button>
-            <span pButton pRipple type="button" class="p-button-secondary p-button-text" (click)="displayModal = true">
-                <b class="show-modal">(Show Field Definition)</b>
-            </span>
-        </div>
-    </p-divider>
+  <p-divider>
+    <div class="inline-flex align-items-center">
+      <button
+        pButton
+        pRipple
+        ype="button"
+        class="p-button-secondary p-button-outlined"
+        (click)="collapse = !collapse"
+      >
+        <b class="header-button"> Expiry Information </b>
+      </button>
+      <span
+        pButton
+        pRipple
+        type="button"
+        class="p-button-secondary p-button-text"
+        (click)="displayModal = true"
+      >
+        <b class="show-modal">(Show Field Definition)</b>
+      </span>
+    </div>
+  </p-divider>
 
-    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapse">
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td style="width: 20%"> Expiry Calculation </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> Policy Expiry Age </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%"> Policy Expiry Year </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> Coverage Expiry Age </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%"> Coverage Expiry Year </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"></td>
-                <td style="width: 30%" class="td-active">
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+  <p-table
+    [value]="product"
+    styleClass="p-datatable-striped"
+    responsiveLayout="scroll"
+    [hidden]="!collapse"
+  >
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="width: 20%">Expiry Calculation</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">Policy Expiry Age</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 20%">Policy Expiry Year</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">Coverage Expiry Age</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 20%">Coverage Expiry Year</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%"></td>
+        <td style="width: 30%" class="td-active"></td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
 <!-- MODAL -->
-<p-dialog header="Field Definition" [(visible)]="displayModal" [modal]="true" [style]="{ width: '90vw' }"
-    [draggable]="false" [resizable]="false">
-    <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
-        <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll">
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td style="width: 20%">
-                        <b>Expiry Calculation</b>
-                        <p>(XPRY_DT_CALC_CD)</p>
-                    </td>
-                    <td style="width: 80%">
-                        Field defines whether the plan expires at an age or in a given number of years from date of
-                        issue.
-                        <ul>
-                            Allowed Value Description
-                            <li>0 Does not expire; default value</li>
-                            <li>A Expiry in a given number of years</li>
-                            <li>B Expiry at a given attained age</li>
-                            <li>C Expiry at a given attained age (calendar year end)</li>
-                            <li>D Expiry on the monthiversary following the given attained age</li>
-                            <li>E Expiry at the earlier of a given number of years and the policy anniversary following
-                                a
-                                given attained age</li>
-                        </ul>
-                    </td>
-                </tr>
+<p-dialog
+  header="Field Definition"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-striped"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td style="width: 20%">
+            <b>Expiry Calculation</b>
+            <p>(XPRY_DT_CALC_CD)</p>
+          </td>
+          <td style="width: 80%">
+            Field defines whether the plan expires at an age or in a given
+            number of years from date of issue.
+            <ul>
+              Allowed Value Description
+              <li>0 Does not expire; default value</li>
+              <li>A Expiry in a given number of years</li>
+              <li>B Expiry at a given attained age</li>
+              <li>C Expiry at a given attained age (calendar year end)</li>
+              <li>
+                D Expiry on the monthiversary following the given attained age
+              </li>
+              <li>
+                E Expiry at the earlier of a given number of years and the
+                policy anniversary following a given attained age
+              </li>
+            </ul>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Policy Expiry Age</b>
-                        <p>(PLAN_BASE_XPRY_AGE)</p>
-                    </td>
-                    <td style="width: 80%">
-                        If this plan is sold as a base coverage, this field defines age the plan expires. If the expiry
-                        type code is B, C, D or E, then enter the age at which the plan expires.
-                        <p>Default value is zero.</p>
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Policy Expiry Age</b>
+            <p>(PLAN_BASE_XPRY_AGE)</p>
+          </td>
+          <td style="width: 80%">
+            If this plan is sold as a base coverage, this field defines age the
+            plan expires. If the expiry type code is B, C, D or E, then enter
+            the age at which the plan expires.
+            <p>Default value is zero.</p>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Policy Expiry Year</b>
-                        <p>(POL_XPRY_AGE_DUR)</p>
-                    </td>
-                    <td style="width: 80%">
-                        If this plan is sold as a base coverage, this field defines the number of years from issue date
-                        to expiry.
-                        <p> If the expiry type code is A or E, then enter the number of years to expiry.</p>
-                        Default value is zero.
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Policy Expiry Year</b>
+            <p>(POL_XPRY_AGE_DUR)</p>
+          </td>
+          <td style="width: 80%">
+            If this plan is sold as a base coverage, this field defines the
+            number of years from issue date to expiry.
+            <p>
+              If the expiry type code is A or E, then enter the number of years
+              to expiry.
+            </p>
+            Default value is zero.
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Coverage Expiry Age</b>
-                        <p>(PLAN_CVG_XPRY_AGE)</p>
-                    </td>
-                    <td style="width: 80%">
-                        If this plan is sold as a rider, this field defines age the plan expires. If the expiry type
-                        code is B, C, D or E, then enter the age at which the plan expires.
-                        <p>Default value is zero.</p>
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Coverage Expiry Age</b>
+            <p>(PLAN_CVG_XPRY_AGE)</p>
+          </td>
+          <td style="width: 80%">
+            If this plan is sold as a rider, this field defines age the plan
+            expires. If the expiry type code is B, C, D or E, then enter the age
+            at which the plan expires.
+            <p>Default value is zero.</p>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Coverage Expiry Year</b>
-                        <p>(CVG_XPRY_AGE_DUR)</p>
-                    </td>
-                    <td style="width: 80%">
-                        If the plan is sold as a rider, this field defines the number of years from issue date to
-                        expiry.
-                        <p>If the expiry type code is A or E, then enter the number of years to expiry.</p>
-                        Default value is zero.
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Coverage Expiry Year</b>
+            <p>(CVG_XPRY_AGE_DUR)</p>
+          </td>
+          <td style="width: 80%">
+            If the plan is sold as a rider, this field defines the number of
+            years from issue date to expiry.
+            <p>
+              If the expiry type code is A or E, then enter the number of years
+              to expiry.
+            </p>
+            Default value is zero.
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>
-                            <p>EXPERIES</p>
-                        </b>
-                    </td>
-                    <td style="width: 80%">
-                        <p>
-                            The term “expiry” applies to policies without equity (i.e., term plans). Expiries cannot be
-                            performed on policies with cash value. They are normally processed through the automatic
-                            processing run according to the contractual information entered under the EXPIRY CODE,
-                            EXPIRY
-                            YEARS (or EXPIRY AGE), and RIDER EXPIRY YEARS (or RIDER EXPIRY AGE) fields on PLAN-07.
-                        </p>
-                        <b>Automatic Processing</b>
-                        <ul>
-                            <p>
-                                A base coverage or additional coverage automatically expires under the following
-                                conditions:
-                                <li> The policy is in force (status code 1, 2, or 4). </li>
-                                <li> The maturity/expiry date is present and is less than or equal to the processing
-                                    date. </li>
-                                <li> The EXPIRY CODE field on PLAN-07 is not 0. </li>
-                                <li>
-                                    Either the EXPIRY YEARS field or the EXPIRY AGE field on PLAN-07 is not 0; or for
-                                    additional coverages, either the RIDER EXPIRY YEARS field or the RIDER EXPIRY AGE
-                                    field
-                                    on PLAN-07 is not 0
-                                </li>
-                            </p>
-                        </ul>
-                        <p> Sixty days prior to the automatic processing of an expiry, the system checks the
-                            maturity/expiry
-                            date. If this date minus two months is equal to or prior to the processing date, and the
-                            EXPIRY
-                            CODE is not 0, a notice stating expiry in 60 days will be produced. A letter is also
-                            produced.
-                            See “Client Inquiries and Multiple Policy Updates”
-                        </p>
-                        <p>
-                            <b>Online Processing</b>
-                        </p>
-                        <p>
-                            An expiry can be processed on TERM for a base coverage plus any additional coverages, or on
-                            select individual coverages only. On TERM, enter the policy number, suffix, first four
-                            letters of the policyholder’s last name, the coverage number applicable (00 for the whole
-                            policy or the coverage number for an individual coverage), the effective date of the expiry,
-                            and the code NR (for expiry). This expiry date should be the same as the MAT/EXP field on
-                            the POLI-CL or POLI-CH screen, or the MAT/EXPRY field on the POLC or PLCD screen. The
-                            SUB-CODE field should be left blank. If a cheque is to be produced, enter a Y in the CHEQUE
-                            field
-                        </p>
-                        <p>
-                            <b>
-                                Fields Updated
-                            </b>
-                        </p>
-                        <p>
-                            Once a policy expiry has been completed on TERM, the status code is automatically updated to
-                            H for all coverages.
-
-                            When a coverage expiry transaction is done on the TERM screen, the status code on the
-                            applicable coverage is updated to H. Other coverages on the same policy will not be altered.
-
-                            In addition, the maturity/expiry date on POLI-CL and POLC will be updated to reflect the
-                            date of the expiry.
-                        </p>
-                        <p>
-                            <b>
-                                Accounting Generated
-                            </b>
-                        </p>
-                        <p>
-                            Because a policy expiry is not applicable to policies with equity, policy accounting records
-                            are not generated. However, in cases where a policy has dividends on deposit, a premium
-                            deposit fund, or cash in suspense, separate entries are generated. These entries can all be
-                            seen on the TRIN screen. A negative exhibit movement record is also produced.
-                        </p>
-                        <b>
-                            Reports
-                        </b>
-                        <ul>
-                            For policy expiries, the following report is produced:
-                            <li> Policy Status Changes (CSBM0228) </li>
-                        </ul>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-        <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="100" icon="pi pi-arrow-up">
-        </p-scrollTop>
-    </p-scrollPanel>
-    <ng-template pTemplate="footer"> </ng-template>
+        <tr>
+          <td style="width: 20%">
+            <b>
+              <p>EXPERIES</p>
+            </b>
+          </td>
+          <td style="width: 80%">
+            <p>
+              The term “expiry” applies to policies without equity (i.e., term
+              plans). Expiries cannot be performed on policies with cash value.
+              They are normally processed through the automatic processing run
+              according to the contractual information entered under the EXPIRY
+              CODE, EXPIRY YEARS (or EXPIRY AGE), and RIDER EXPIRY YEARS (or
+              RIDER EXPIRY AGE) fields on PLAN-07.
+            </p>
+            <b>Automatic Processing</b>
+            <ul>
+              <p>
+                A base coverage or additional coverage automatically expires
+                under the following conditions:
+                <li>The policy is in force (status code 1, 2, or 4).</li>
+                <li>
+                  The maturity/expiry date is present and is less than or equal
+                  to the processing date.
+                </li>
+                <li>The EXPIRY CODE field on PLAN-07 is not 0.</li>
+                <li>
+                  Either the EXPIRY YEARS field or the EXPIRY AGE field on
+                  PLAN-07 is not 0; or for additional coverages, either the
+                  RIDER EXPIRY YEARS field or the RIDER EXPIRY AGE field on
+                  PLAN-07 is not 0
+                </li>
+              </p>
+            </ul>
+            <p>
+              Sixty days prior to the automatic processing of an expiry, the
+              system checks the maturity/expiry date. If this date minus two
+              months is equal to or prior to the processing date, and the EXPIRY
+              CODE is not 0, a notice stating expiry in 60 days will be
+              produced. A letter is also produced. See “Client Inquiries and
+              Multiple Policy Updates”
+            </p>
+            <p>
+              <b>Online Processing</b>
+            </p>
+            <p>
+              An expiry can be processed on TERM for a base coverage plus any
+              additional coverages, or on select individual coverages only. On
+              TERM, enter the policy number, suffix, first four letters of the
+              policyholder’s last name, the coverage number applicable (00 for
+              the whole policy or the coverage number for an individual
+              coverage), the effective date of the expiry, and the code NR (for
+              expiry). This expiry date should be the same as the MAT/EXP field
+              on the POLI-CL or POLI-CH screen, or the MAT/EXPRY field on the
+              POLC or PLCD screen. The SUB-CODE field should be left blank. If a
+              cheque is to be produced, enter a Y in the CHEQUE field
+            </p>
+            <p>
+              <b> Fields Updated </b>
+            </p>
+            <p>
+              Once a policy expiry has been completed on TERM, the status code
+              is automatically updated to H for all coverages. When a coverage
+              expiry transaction is done on the TERM screen, the status code on
+              the applicable coverage is updated to H. Other coverages on the
+              same policy will not be altered. In addition, the maturity/expiry
+              date on POLI-CL and POLC will be updated to reflect the date of
+              the expiry.
+            </p>
+            <p>
+              <b> Accounting Generated </b>
+            </p>
+            <p>
+              Because a policy expiry is not applicable to policies with equity,
+              policy accounting records are not generated. However, in cases
+              where a policy has dividends on deposit, a premium deposit fund,
+              or cash in suspense, separate entries are generated. These entries
+              can all be seen on the TRIN screen. A negative exhibit movement
+              record is also produced.
+            </p>
+            <b> Reports </b>
+            <ul>
+              For policy expiries, the following report is produced:
+              <li>Policy Status Changes (CSBM0228)</li>
+            </ul>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-scrollTop
+      target="parent"
+      styleClass="custom-scrolltop"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+    >
+    </p-scrollTop>
+  </p-scrollPanel>
+  <ng-template pTemplate="footer"> </ng-template>
 </p-dialog>

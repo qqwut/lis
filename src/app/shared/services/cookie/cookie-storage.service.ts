@@ -3,12 +3,10 @@ import { KeyCookieData } from '@app-root/shared/interfaces/cookie/cookie'
 import { CookieService } from 'ngx-cookie-service'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CookieStorageService {
-
-  constructor(private cookieService: CookieService) {
-  }
+  constructor(private cookieService: CookieService) {}
 
   setData(key: KeyCookieData, data: Object) {
     this.cookieService.set(key, JSON.stringify(data))
@@ -21,5 +19,4 @@ export class CookieStorageService {
     }
     return JSON.parse(data)
   }
-
 }

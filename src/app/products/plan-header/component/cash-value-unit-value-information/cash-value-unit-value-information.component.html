@@ -1,106 +1,142 @@
 <div class="card mt-2">
-    <p-divider>
-        <div class="inline-flex align-items-center">
-            <button pButton pRipple ype="button" class="p-button-secondary p-button-outlined"
-                (click)="collapse = !collapse">
-                <b class="header-button"> Cash Value/Unit Value Information </b>
-            </button>
-            <span pButton pRipple type="button" class="p-button-secondary p-button-text" (click)="displayModal = true">
-                <b class="show-modal">(Show Field Definition)</b>
-            </span>
-        </div>
-    </p-divider>
+  <p-divider>
+    <div class="inline-flex align-items-center">
+      <button
+        pButton
+        pRipple
+        ype="button"
+        class="p-button-secondary p-button-outlined"
+        (click)="collapse = !collapse"
+      >
+        <b class="header-button"> Cash Value/Unit Value Information </b>
+      </button>
+      <span
+        pButton
+        pRipple
+        type="button"
+        class="p-button-secondary p-button-text"
+        (click)="displayModal = true"
+      >
+        <b class="show-modal">(Show Field Definition)</b>
+      </span>
+    </div>
+  </p-divider>
 
-    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapse">
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td style="width: 20%"> Cash Value Calculation </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> CSV Calculation as at </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%"> Unit Value-Premium Paying </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> Unit Value-Paidup </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+  <p-table
+    [value]="product"
+    styleClass="p-datatable-striped"
+    responsiveLayout="scroll"
+    [hidden]="!collapse"
+  >
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="width: 20%">Cash Value Calculation</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">CSV Calculation as at</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 20%">Unit Value-Premium Paying</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">Unit Value-Paidup</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
 <!-- MODAL -->
-<p-dialog header="Field Definition" [(visible)]="displayModal" [modal]="true" [style]="{ width: '90vw' }"
-    [draggable]="false" [resizable]="false">
-    <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
-        <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll">
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td style="width: 20%">
-                        <b>Cash Value Calculation</b>
-                        <p>(CSV_CALC_MTHD_CD)</p>
-                    </td>
-                    <td style="width: 80%">
-                        Indicates whether cash values are calculated using tablular unit values or cash flow records.
-                        <ul>
-                            Allowed Value Description
-                            <li>C Cash flows accumulate at interest</li>
-                            <li>N No cash value</li>
-                            <li>T Tabular CSV's from UV table; default value</li>
-                        </ul>
-                    </td>
-                </tr>
+<p-dialog
+  header="Field Definition"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-striped"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td style="width: 20%">
+            <b>Cash Value Calculation</b>
+            <p>(CSV_CALC_MTHD_CD)</p>
+          </td>
+          <td style="width: 80%">
+            Indicates whether cash values are calculated using tablular unit
+            values or cash flow records.
+            <ul>
+              Allowed Value Description
+              <li>C Cash flows accumulate at interest</li>
+              <li>N No cash value</li>
+              <li>T Tabular CSV's from UV table; default value</li>
+            </ul>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>CSV Calculation as at</b>
-                        <p>(PLAN_CSV_DT_TYP_CD)</p>
-                    </td>
-                    <td style="width: 80%">
-                        Indicates which date to use when calculating cash values for this plan.
-                        <ul>
-                            Allowed Value Description
-                            <li> E As at effective date; default value </li>
-                            <li> M The greater of 'P' (Paid to Date) or 'E' (Effective Date) </li>
-                            <li> P As at paid-to-date </li>
-                        </ul>
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>CSV Calculation as at</b>
+            <p>(PLAN_CSV_DT_TYP_CD)</p>
+          </td>
+          <td style="width: 80%">
+            Indicates which date to use when calculating cash values for this
+            plan.
+            <ul>
+              Allowed Value Description
+              <li>E As at effective date; default value</li>
+              <li>
+                M The greater of 'P' (Paid to Date) or 'E' (Effective Date)
+              </li>
+              <li>P As at paid-to-date</li>
+            </ul>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Unit Value-Premium Paying</b>
-                        <p>(PREM_PAY_UVAL_ID)</p>
-                    </td>
-                    <td style="width: 80%">
-                        Code used to access unit values (UV) when coverage is premium paying (status 1 or 2).
-                        Default value is the plan/rate scale.
-                        GUI selection box created from the ‘EDIT’ table with a type of ‘UVAL’.
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Unit Value-Premium Paying</b>
+            <p>(PREM_PAY_UVAL_ID)</p>
+          </td>
+          <td style="width: 80%">
+            Code used to access unit values (UV) when coverage is premium paying
+            (status 1 or 2). Default value is the plan/rate scale. GUI selection
+            box created from the ‘EDIT’ table with a type of ‘UVAL’.
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Unit Value-Paidup</b>
-                        <p>(PU_UVAL_ID</p>
-                    </td>
-                    <td style="width: 80%">
-                        Code used to access unit values (UV) when coverage is paid up (status 3 or 4).
-                        GUI selection box created from the ‘EDIT’ table with a type of ‘UVAL’.
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-        <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="100" icon="pi pi-arrow-up">
-        </p-scrollTop>
-    </p-scrollPanel>
-    <ng-template pTemplate="footer"> </ng-template>
+        <tr>
+          <td style="width: 20%">
+            <b>Unit Value-Paidup</b>
+            <p>(PU_UVAL_ID</p>
+          </td>
+          <td style="width: 80%">
+            Code used to access unit values (UV) when coverage is paid up
+            (status 3 or 4). GUI selection box created from the ‘EDIT’ table
+            with a type of ‘UVAL’.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-scrollTop
+      target="parent"
+      styleClass="custom-scrolltop"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+    >
+    </p-scrollTop>
+  </p-scrollPanel>
+  <ng-template pTemplate="footer"> </ng-template>
 </p-dialog>

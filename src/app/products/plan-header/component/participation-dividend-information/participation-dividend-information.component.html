@@ -1,108 +1,141 @@
 <div class="card mt-2">
-    <p-divider>
-        <div class="inline-flex align-items-center">
-            <button pButton pRipple ype="button" class="p-button-secondary p-button-outlined"
-                (click)="collapse = !collapse">
-                <b class="header-button"> Participation/Dividend Information </b>
-            </button>
-            <span pButton pRipple type="button" class="p-button-secondary p-button-text" (click)="displayModal = true">
-                <b class="show-modal">(Show Field Definition)</b>
-            </span>
-        </div>
-    </p-divider>
+  <p-divider>
+    <div class="inline-flex align-items-center">
+      <button
+        pButton
+        pRipple
+        ype="button"
+        class="p-button-secondary p-button-outlined"
+        (click)="collapse = !collapse"
+      >
+        <b class="header-button"> Participation/Dividend Information </b>
+      </button>
+      <span
+        pButton
+        pRipple
+        type="button"
+        class="p-button-secondary p-button-text"
+        (click)="displayModal = true"
+      >
+        <b class="show-modal">(Show Field Definition)</b>
+      </span>
+    </div>
+  </p-divider>
 
-    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapse">
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td style="width: 20%"> Participation Indicator </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> One Year Term Pointer </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%"> Dividend Plus 6th Acct. </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.reinstIntRtId }}</b>
-                </td>
-                <td style="width: 20%"> DOD Interest Pointer </td>
-                <td style="width: 30%" class="td-active">
-                    <b>{{ product?.rpuTbacId }}</b>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+  <p-table
+    [value]="product"
+    styleClass="p-datatable-striped"
+    responsiveLayout="scroll"
+    [hidden]="!collapse"
+  >
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td style="width: 20%">Participation Indicator</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">One Year Term Pointer</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 20%">Dividend Plus 6th Acct.</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.reinstIntRtId }}</b>
+        </td>
+        <td style="width: 20%">DOD Interest Pointer</td>
+        <td style="width: 30%" class="td-active">
+          <b>{{ product?.rpuTbacId }}</b>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
 <!-- MODAL -->
-<p-dialog header="Field Definition" [(visible)]="displayModal" [modal]="true" [style]="{ width: '90vw' }"
-    [draggable]="false" [resizable]="false">
-    <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
-        <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll">
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td style="width: 20%">
-                        <b>Participation Indicator</b>
-                        <p>(PLAN_PAR_CD)</p>
-                    </td>
-                    <td style="width: 80%">
-                        This field is used to determine whether dividends should be paid if participating premium rates
-                        are used. Participation codes 'N' and 'P' are used on the coverage level, and this field will
-                        determine the appropriate coverage default.
-                        <ul>
-                            Allowed Value Description
-                            <li>0 No dividend paid</li>
-                            <li>1 Dividend paid on anniversary date if the policy is paid to the anniversary date;
-                                default value</li>
-                            <li>2 Reserved for future use</li>
-                            <li>3 Reserved for future use</li>
-                        </ul>
-                    </td>
-                </tr>
+<p-dialog
+  header="Field Definition"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
+    <p-table
+      [value]="product"
+      styleClass="p-datatable-striped"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td style="width: 20%">
+            <b>Participation Indicator</b>
+            <p>(PLAN_PAR_CD)</p>
+          </td>
+          <td style="width: 80%">
+            This field is used to determine whether dividends should be paid if
+            participating premium rates are used. Participation codes 'N' and
+            'P' are used on the coverage level, and this field will determine
+            the appropriate coverage default.
+            <ul>
+              Allowed Value Description
+              <li>0 No dividend paid</li>
+              <li>
+                1 Dividend paid on anniversary date if the policy is paid to the
+                anniversary date; default value
+              </li>
+              <li>2 Reserved for future use</li>
+              <li>3 Reserved for future use</li>
+            </ul>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>One Year Term Pointer</b>
-                        <p>(DIV_OYT_TBAC_ID)</p>
-                    </td>
-                    <td style="width: 80%">
-                        MxDx table code to be used for calculating one year term insurance purchased with dividends.
-                        <ul>
-                            Allowed Value Description
-                            <li> NO Not applicable; default value </li>
-                        </ul>
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>One Year Term Pointer</b>
+            <p>(DIV_OYT_TBAC_ID)</p>
+          </td>
+          <td style="width: 80%">
+            MxDx table code to be used for calculating one year term insurance
+            purchased with dividends.
+            <ul>
+              Allowed Value Description
+              <li>NO Not applicable; default value</li>
+            </ul>
+          </td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>Dividend Plus 6th Acct.</b>
-                        <p>(DIV_PLUS_6_ACCT)</p>
-                    </td>
-                    <td style="width: 80%">
-                        This field define Dividend Plus version.
-                    </td>
-                </tr>
+        <tr>
+          <td style="width: 20%">
+            <b>Dividend Plus 6th Acct.</b>
+            <p>(DIV_PLUS_6_ACCT)</p>
+          </td>
+          <td style="width: 80%">This field define Dividend Plus version.</td>
+        </tr>
 
-                <tr>
-                    <td style="width: 20%">
-                        <b>DOD Interest Pointer</b>
-                        <p>(DOD_INT_RT_ID)</p>
-                    </td>
-                    <td style="width: 80%">
-                        6 character key used to access interest rates on the IR table for dividends on deposit. If this
-                        is not a plan code/rate scale, it must be present in the 'EDIT' table.
-                        Default value is 'DIV 1'.
-                        Edited against the ‘EDIT’ table with a type of ‘IRTS’.
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-        <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="100" icon="pi pi-arrow-up">
-        </p-scrollTop>
-    </p-scrollPanel>
-    <ng-template pTemplate="footer"> </ng-template>
+        <tr>
+          <td style="width: 20%">
+            <b>DOD Interest Pointer</b>
+            <p>(DOD_INT_RT_ID)</p>
+          </td>
+          <td style="width: 80%">
+            6 character key used to access interest rates on the IR table for
+            dividends on deposit. If this is not a plan code/rate scale, it must
+            be present in the 'EDIT' table. Default value is 'DIV 1'. Edited
+            against the ‘EDIT’ table with a type of ‘IRTS’.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-scrollTop
+      target="parent"
+      styleClass="custom-scrolltop"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+    >
+    </p-scrollTop>
+  </p-scrollPanel>
+  <ng-template pTemplate="footer"> </ng-template>
 </p-dialog>

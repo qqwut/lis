@@ -4,7 +4,11 @@ import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, Observable, of } from 'rxjs'
 import { catchError, map, tap } from 'rxjs/operators'
 import { AppConfigService } from '@app-root/app-config.service'
-import { IReqLogin, IResLogin, IUserItem } from '@app-root/shared/interfaces/user/user'
+import {
+  IReqLogin,
+  IResLogin,
+  IUserItem,
+} from '@app-root/shared/interfaces/user/user'
 import { CookieStorageService } from '@app-shared/services/cookie/cookie-storage.service'
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -50,7 +54,7 @@ export class AuthenticationService {
       userAD: user.userAD,
       userLis: user.userLis,
       email: user.email,
-      roleid: user.roleid
+      roleid: user.roleid,
     }
     this.userSubject.next(this.userItem)
     this.cookieStorageService.setData('user', this.userItem)
@@ -66,8 +70,8 @@ export class AuthenticationService {
         }),
         map(res => ({
           userAD: res.userAD,
-          roleid: res.roleid
-        })),
+          roleid: res.roleid,
+        }))
         // catchError((error) => {
         //   return of(error)
         // })
@@ -75,11 +79,13 @@ export class AuthenticationService {
   }
 
   logout() {
-    this.http.post<any>(
-      `${this.appConfig.BASE_URL}/api/revoke-token`,
-      {},
-      // { withCredentials: true }
-    ).subscribe()
+    this.http
+      .post<any>(
+        `${this.appConfig.BASE_URL}/api/revoke-token`,
+        {}
+        // { withCredentials: true }
+      )
+      .subscribe()
     // this.stopRefreshTokenTimer()
     this.userSubject.next(null)
     this.clearUser()
@@ -87,17 +93,19 @@ export class AuthenticationService {
   }
 
   refreshToken() {
-    return this.http.post<any>(
-      `${this.appConfig.BASE_URL}/api/refresh-token`,
-      {},
-      // { withCredentials: true }
-    ).pipe(
-      map((user) => {
-        this.userSubject.next(user)
-        // this.startRefreshTokenTimer()
-        return user
-      })
-    )
+    return this.http
+      .post<any>(
+        `${this.appConfig.BASE_URL}/api/refresh-token`,
+        {}
+        // { withCredentials: true }
+      )
+      .pipe(
+        map(user => {
+          this.userSubject.next(user)
+          // this.startRefreshTokenTimer()
+          return user
+        })
+      )
   }
 
   // helper methods

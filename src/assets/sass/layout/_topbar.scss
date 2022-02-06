@@ -1,225 +1,227 @@
 .layout-topbar {
-    background: $topbarBg;
-    height: 3.4rem;
-    padding: 0 2rem;
-    border-bottom: $topbarBottomBorder;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 997;
+  background: $topbarBg;
+  height: 3.4rem;
+  padding: 0 2rem;
+  border-bottom: $topbarBottomBorder;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 997;
+  @include flex();
+  @include flex-align-center();
+  @include flex-justify-between();
+  // color: $topbarTextColor;
+  color: $color-topbar;
+  transition: margin-left $animationDuration $animationTimingFunction;
+
+  .topbar-left {
     @include flex();
     @include flex-align-center();
-    @include flex-justify-between();
-    // color: $topbarTextColor;
+
+    .horizontal-logo {
+      display: none;
+    }
+  }
+
+  .menu-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
     color: $color-topbar;
-    transition: margin-left $animationDuration $animationTimingFunction;
+    overflow: hidden;
+    border-radius: $borderRadius;
+    background: $topbarIconBg;
+    transition: background-color $transitionDuration,
+      box-shadow $transitionDuration;
+    display: block;
+    cursor: pointer;
+    outline: 0 none;
 
-    .topbar-left {
-        @include flex();
-        @include flex-align-center();
-
-        .horizontal-logo {
-            display: none;
-        }
+    &:hover {
+      background: $topbarIconHoverBg;
     }
 
-    .menu-button {
+    &:focus {
+      box-shadow: $focusShadow;
+    }
+
+    i {
+      line-height: inherit;
+      font-size: 1.5rem;
+    }
+  }
+
+  .topbar-separator {
+    display: block;
+    width: 1px;
+    border-left: 1px solid $dividerColor;
+    align-self: stretch;
+    margin: 0 1rem;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
+
+  .viewname {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .topbar-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    @include flex();
+    @include flex-align-center();
+
+    > li {
+      margin-left: 1rem;
+      position: relative;
+
+      &:first {
+        margin-left: 0;
+      }
+
+      &.profile-item {
+        // padding: 0 1rem 0 1rem;
+        padding: 0 0.5rem 0 0.5rem;
+        border-left: 1px solid $color-topbar;
+        border-right: 1px solid $color-topbar;
+
+        > a {
+          width: auto;
+          height: auto;
+          @include flex();
+          @include flex-align-center();
+          font-size: 0.875rem;
+          font-weight: 600;
+          padding: 0 0.5rem;
+        }
+
+        .profile-image {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &.right-sidebar-item {
+        > a {
+          background: $topbarIconBg;
+        }
+      }
+
+      > a {
         width: 2.5rem;
         height: 2.5rem;
         line-height: 2.5rem;
         text-align: center;
+        // color: $topbarTextColor;
         color: $color-topbar;
         overflow: hidden;
         border-radius: $borderRadius;
-        background: $topbarIconBg;
-        transition: background-color $transitionDuration, box-shadow $transitionDuration;
+        transition: background-color $transitionDuration,
+          box-shadow $transitionDuration;
         display: block;
+        position: relative;
         cursor: pointer;
+        user-select: none;
         outline: 0 none;
 
         &:hover {
-            background: $topbarIconHoverBg;
+          background: $topbarIconHoverBg;
         }
 
         &:focus {
-            box-shadow: $focusShadow;
+          box-shadow: $focusShadow;
         }
 
         i {
-            line-height: inherit;
-            font-size: 1.5rem;
+          line-height: inherit;
+          font-size: 1.5rem;
         }
-    }
 
-    .topbar-separator {
-        display: block;
-        width: 1px;
-        border-left: 1px solid $dividerColor;
-        align-self: stretch;
-        margin: 0 1rem;
-    }
+        .topbar-badge {
+          position: absolute;
+          display: block;
+          right: 0;
+          top: 0;
+          width: 1rem;
+          height: 1rem;
+          line-height: 1rem;
+          font-size: 0.714rem;
+          border-radius: 50%;
+          font-weight: 600;
+          background: $accentColor;
+          color: $accentTextColor;
+        }
+      }
 
-    .mobile-logo {
+      > ul {
         display: none;
-    }
-
-    .viewname {
-        font-weight: 600;
-        font-size: 1.25rem;
-    }
-
-    .topbar-menu {
+        position: absolute;
+        // background: $color-main;
+        background: $topbarBg;
+        list-style: none;
         margin: 0;
-        padding: 0;
-        list-style-type: none;
-        @include flex();
-        @include flex-align-center();
+        padding: 0.5rem;
+        top: 3.25rem;
+        right: 0;
+        z-index: 999;
+        min-width: 250px;
+        border: $overlayBorder;
+        box-shadow: $overlayShadow;
+        animation-duration: 0.12s;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        border-radius: $borderRadius;
+        transform-origin: center top;
 
-        > li {
-            margin-left: 1rem;
-            position: relative;
+        li {
+          a {
+            color: $textColor;
+            // color: $color-white;
+            padding: 0.5rem;
+            @include flex();
+            @include flex-align-center();
+            border-radius: $borderRadius;
+            transition: background-color $transitionDuration;
+            cursor: pointer;
 
-            &:first {
-                margin-left: 0;
+            &:hover {
+              background: $itemHoverBg;
             }
-
-            &.profile-item {
-                // padding: 0 1rem 0 1rem;
-                padding: 0 0.5rem 0 0.5rem;
-                border-left: 1px solid $color-topbar;
-                border-right: 1px solid $color-topbar;
-
-                > a {
-                    width: auto;
-                    height: auto;
-                    @include flex();
-                    @include flex-align-center();
-                    font-size: 0.875rem;
-                    font-weight: 600;
-                    padding: 0 0.5rem;
-                }
-
-                .profile-image {
-                    width: 2.5rem;
-                    height: 2.5rem;
-                    margin-right: 0.5rem;
-                }
-            }
-
-            &.right-sidebar-item {
-                > a {
-                    background: $topbarIconBg;
-                }
-            }
-
-            > a {
-                width: 2.5rem;
-                height: 2.5rem;
-                line-height: 2.5rem;
-                text-align: center;
-                // color: $topbarTextColor;
-                color: $color-topbar;
-                overflow: hidden;
-                border-radius: $borderRadius;
-                transition: background-color $transitionDuration, box-shadow $transitionDuration;
-                display: block;
-                position: relative;
-                cursor: pointer;
-                user-select: none;
-                outline: 0 none;
-
-                &:hover {
-                    background: $topbarIconHoverBg;
-                }
-
-                &:focus {
-                    box-shadow: $focusShadow;
-                }
-
-                i {
-                    line-height: inherit;
-                    font-size: 1.5rem;
-                }
-
-                .topbar-badge {
-                    position: absolute;
-                    display: block;
-                    right: 0;
-                    top: 0;
-                    width: 1rem;
-                    height: 1rem;
-                    line-height: 1rem;
-                    font-size: 0.714rem;
-                    border-radius: 50%;
-                    font-weight: 600;
-                    background: $accentColor;
-                    color: $accentTextColor;
-                }
-            }
-
-            > ul {
-                display: none;
-                position: absolute;
-                // background: $color-main;
-                background: $topbarBg;
-                list-style: none;
-                margin: 0;
-                padding: 0.5rem;
-                top: 3.25rem;
-                right: 0;
-                z-index: 999;
-                min-width: 250px;
-                border: $overlayBorder;
-                box-shadow: $overlayShadow;
-                animation-duration: 0.12s;
-                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-                border-radius: $borderRadius;
-                transform-origin: center top;
-
-                li {
-                    a {
-                        color: $textColor;
-                        // color: $color-white;
-                        padding: 0.5rem;
-                        @include flex();
-                        @include flex-align-center();
-                        border-radius: $borderRadius;
-                        transition: background-color $transitionDuration;
-                        cursor: pointer;
-
-                        &:hover {
-                            background: $itemHoverBg;
-                        }
-                    }
-                }
-
-                &.notifications-menu {
-                    .notification-item {
-                        margin-left: 0.5rem;
-                    }
-
-                    .notification-summary {
-                        font-weight: 600;
-                    }
-
-                    .notification-detail {
-                        color: $textSecondaryColor;
-                    }
-                }
-
-                &.profile-menu {
-                    span {
-                        margin-left: 0.5rem;
-                    }
-                }
-            }
-
-            &.active-menuitem {
-                > ul {
-                    display: block;
-                }
-            }
+          }
         }
+
+        &.notifications-menu {
+          .notification-item {
+            margin-left: 0.5rem;
+          }
+
+          .notification-summary {
+            font-weight: 600;
+          }
+
+          .notification-detail {
+            color: $textSecondaryColor;
+          }
+        }
+
+        &.profile-menu {
+          span {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      &.active-menuitem {
+        > ul {
+          display: block;
+        }
+      }
     }
+  }
 }
