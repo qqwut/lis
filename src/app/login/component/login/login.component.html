@@ -64,17 +64,15 @@
           </div>
         </div>
 
-        <div class="w-100">
-          {{ messageError }}
-        </div>
+        <div class="w-100">{{ messageError }}</div>
 
         <div class="mt-1">
           <button
             pButton
             id="submit"
-            class="login-input btn-login"
-            label="Submit"
+            class="w-100 btn-login"
             type="submit"
+            label="{{ translate.transform('LOGIN.SUBMIT') }}"
             [disabled]="!formLogin.valid"
           ></button>
         </div>

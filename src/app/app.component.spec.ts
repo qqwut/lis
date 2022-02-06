@@ -5,15 +5,15 @@ import { AppComponent } from './app.component'
 import { AppMainComponent } from './app.main.component'
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule, RouterTestingModule],
       declarations: [AppComponent, AppMainComponent],
     }).compileComponents()
-  }))
-  it('should create the app', async(() => {
+  })
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
-  }))
+  })
 })

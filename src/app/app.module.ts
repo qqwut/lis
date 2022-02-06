@@ -34,12 +34,17 @@ import {
   NgcCookieConsentModule,
   NgcCookieConsentService,
 } from 'ngx-cookieconsent'
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslatePipe,
+} from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HELPER_INTERCEPTORS } from './shared/services/helpers'
 import { cookieConfig } from './shared/constants/consent/consent'
 import { PrimeNgModule } from './shared/modules/prime-ng/prime-ng.module'
 import { NgxSpinnerModule } from 'ngx-spinner'
+import { CookieConsentService } from './shared/services/cookie/cookie-consent.service'
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -78,6 +83,7 @@ export function createTranslateLoader(http: HttpClient) {
     NotfoundPageComponent,
   ],
   providers: [
+    TranslatePipe,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
@@ -88,6 +94,7 @@ export function createTranslateLoader(http: HttpClient) {
     BreadcrumbService,
     I18nTranslateService,
     CookieStorageService,
+    CookieConsentService,
     NgcCookieConsentService,
     HELPER_INTERCEPTORS,
   ],

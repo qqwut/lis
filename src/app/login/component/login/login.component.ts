@@ -10,6 +10,7 @@ import { IUserItem } from '@app-root/shared/interfaces/user/user'
 import { BROWSER } from '@app-root/shared/constants/cookie/cookie'
 import { HttpErrorResponse } from '@angular/common/http'
 import Swal from 'sweetalert2'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private i18n: I18nTranslateService,
     private menuService: MenuService,
     public appConfig: AppConfigService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    public translate: TranslatePipe
   ) {}
 
   get username() {

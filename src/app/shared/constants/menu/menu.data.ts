@@ -9,7 +9,7 @@ export const MENU_AT = [
         items: [
           {
             label: 'Plan Header/Details',
-            routerLink: ['/plan-header'],
+            routerLink: ['/products/plan-header'],
           },
           {
             label: 'Plan Premium',

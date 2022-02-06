@@ -13,3 +13,22 @@
 ::-webkit-scrollbar-corner {
   background: $color-main;
 }
+
+.inner-scrollbar {
+  ::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: $color-orange-active;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $color-orange;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px $color-orange-active;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: $color-orange;
+  }
+}

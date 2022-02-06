@@ -1,5 +1,19 @@
 {
-  "hello": "test {{name}}!",
+  "hello": "test {{name}}",
   "PRIVACY_POLICY": "Privacy Policy",
-  "CHECK_VERSION": "How to Check Browser's Version"
+  "CHECK_VERSION": "How to Check Browser's Version",
+  "COOKIE": {
+    "HEADER": "HEADER",
+    "MESSAGE": "This website uses cookies to ensure you get the best experience on our website.",
+    "DISMISS": "DISMISS",
+    "ALLOW": "Allow cookies",
+    "DENY": "Decline",
+    "LINK": "LINK",
+    "POLICY": "POLICY",
+    "COOKIE_POLICY_LINK": "Cookie Policy",
+    "PRIVACY_POLICY_LINK": "Privacy Policy"
+  },
+  "LOGIN": {
+    "SUBMIT": "Submit"
+  }
 }

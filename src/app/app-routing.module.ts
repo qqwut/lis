@@ -13,12 +13,12 @@ import { AuthGuard } from './shared/services/helpers/auth.guard'
           canActivate: [AuthGuard],
           children: [
             {
-              path: 'plan-header',
+              path: 'products',
               canActivate: [],
               loadChildren: () =>
-                import(
-                  '@app-root/products/plan-header/plan-header.module'
-                ).then(m => m.PlanHeaderModule),
+                import('@app-root/products/products.module').then(
+                  m => m.ProductsModule
+                ),
             },
             // {
             //     path: 'at',
