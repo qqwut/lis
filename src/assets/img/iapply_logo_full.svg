@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122.163" height="18.75" viewBox="0 0 122.163 18.75">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffb700"/>
+      <stop offset="1" stop-color="#f36b10"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_8" data-name="Group 8" transform="translate(-132.143 -65.04)">
+    <g id="Group_7" data-name="Group 7">
+      <path id="Path_16" data-name="Path 16" d="M152.08,65.066s-2.1,6.067-11.437,6.775l17.225,11.9Z" fill="url(#linear-gradient)"/>
+    </g>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="3.576" height="3.576" rx="1.788" transform="translate(132.143 65.066)" fill="#ffb700"/>
+    <path id="Path_17" data-name="Path 17" d="M132.264,83.737V70.121H135.6V83.737Z" fill="#fff"/>
+    <path id="Path_18" data-name="Path 18" d="M183.9,66.56a5.066,5.066,0,0,1-1.466,8.162,4.46,4.46,0,0,1-1.441.4h-.16v.027H171.9v8.588h-3.334V65.066h11.762a5,5,0,0,1,3.548,1.468Zm-2.854,5.1a1.7,1.7,0,0,0,1.014-1.547,1.756,1.756,0,0,0-.507-1.227,1.676,1.676,0,0,0-1.2-.48H171.9v3.44h8.455a1.561,1.561,0,0,0,.693-.159Z" fill="#fff"/>
+    <path id="Path_19" data-name="Path 19" d="M208.7,66.56a5.109,5.109,0,0,1,1.467,3.574,5.056,5.056,0,0,1-2.934,4.588,4.447,4.447,0,0,1-1.44.4h-.16v.027H196.7v8.588h-3.334V65.066h11.762a5,5,0,0,1,3.548,1.468Zm-2.853,5.1a1.7,1.7,0,0,0,1.013-1.547,1.756,1.756,0,0,0-.507-1.227,1.678,1.678,0,0,0-1.2-.48H196.7v3.44h8.455a1.569,1.569,0,0,0,.694-.159Z" fill="#fff"/>
+    <path id="Path_20" data-name="Path 20" d="M233.529,80.43v3.334H224.06a5.793,5.793,0,0,1-2.614-.614,5.914,5.914,0,0,1-2.693-2.72,5.79,5.79,0,0,1-.614-2.614V65.093h3.334V78.136A2.661,2.661,0,0,0,223.74,80.4Z" fill="#fff"/>
+    <path id="Path_21" data-name="Path 21" d="M235.635,83.737h.053l-.053.053Zm18.671-18.7L247.077,74.4l-.4.507v8.8h-3.334V74.962l-.455-.56-7.227-9.362h4.214L245,71.682l5.121-6.642Zm-.027,18.7h.027v.053Z" fill="#fff"/>
+    <path id="Path_22" data-name="Path 22" d="M161.6,83.737h-3.734L156.161,80.4l-4.081-8L148,80.4l-1.707,3.334h-3.734l1.707-3.334,7.815-15.337L159.9,80.4Z" fill="#fff"/>
+  </g>
+</svg>

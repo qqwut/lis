@@ -1,0 +1,36 @@
+@import "variables";
+
+.login-header {
+  overflow: hidden;
+  position: absolute;
+  background-color: $color-main;
+  width: 100%;
+
+  img {
+    width: 120px;
+    padding-top: 15px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+  }
+}
+
+.login-field {
+  min-width: 22rem;
+  max-width: 22rem;
+}
+
+.login-input {
+  height: 2.5rem;
+}
+
+.btn-login {
+  background-color: $color-main;
+  text-align: center;
+  border: unset;
+  font-weight: 900;
+}
+
+.btn-login:hover {
+  background-color: $color-main;
+  border: unset;
+}

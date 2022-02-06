@@ -1,0 +1,77 @@
+$font-path-usage: "/assets/fonts/fonts/SukhumvitSet/";
+
+// 1.Thin
+// 2.Text
+// 3.Medium
+// 4.Light
+// 4.SemiBold
+// 4.Bold
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Light.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Medium.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-SemiBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Bold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit";
+  src: url($font-path-usage + "SukhumvitSet-Bold.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sukhumvit bold";
+  src: url($font-path-usage + "SukhumvitSet-Bold.ttf");
+  font-style: bold;
+}

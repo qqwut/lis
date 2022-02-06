@@ -1,0 +1,14 @@
+//general
+$fontSize: 14px !default;
+// $fontFamily: 'Sukhumvit', Nunito, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+//   Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+//   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$fontFamily: 'Sukhumvit';
+$transitionDuration: 0.2s !default;
+$animationDuration: 0.4s !default;
+$animationTimingFunction: cubic-bezier(0.05, 0.74, 0.2, 0.99) !default;
+$letterSpacing: normal !default;
+$borderRadius: 4px !default;
+// $tabletBreakpoint: 1091px !default;
+$tabletBreakpoint: 720px !default;
+$phoneBreakpoint: 576px !default;
