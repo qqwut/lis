@@ -177,7 +177,7 @@ const primeNg = [
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, primeNg],
+  imports: [primeNg, CommonModule],
   exports: [primeNg],
 })
 export class PrimeNgModule {}
