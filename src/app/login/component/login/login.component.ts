@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.spinner.show()
     this.authenticationService.login(this.formLogin.value).subscribe({
       next: (userItem: IUserItem) => {
-        this.menuService.roleMenu(userItem && userItem.roleid)
+        this.menuService.roleMenu(userItem.roleid)
         this.spinner.hide()
         this.router.navigate(['/'])
       },
