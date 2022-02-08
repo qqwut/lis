@@ -1,9 +1,15 @@
 @import "variables";
 
+.login {
+  min-height: 100vh;
+  background-image: linear-gradient(180deg, $color-main 10%, $color-menu-select 100%);
+}
+
 .login-header {
   overflow: hidden;
   position: absolute;
   background-color: $color-main;
+
   width: 100%;
 
   img {
@@ -14,6 +20,12 @@
   }
 }
 
+.card-login {
+  background-color: $color-white;
+  height: 35rem;
+  width: 35rem;
+}
+
 .login-field {
   min-width: 22rem;
   max-width: 22rem;
@@ -21,6 +33,13 @@
 
 .login-input {
   height: 2.5rem;
+  border-radius: 0;
+}
+
+.logo {
+  color: $color-main;
+  font-weight: 800;
+  font-size: large;
 }
 
 .btn-login {
@@ -28,9 +47,14 @@
   text-align: center;
   border: unset;
   font-weight: 900;
+  border-radius: 0;
+  // border-bottom-left-radius: 0.5rem;
+  // border-bottom-right-radius: 0.5rem;
+  box-shadow: 6px 7px 0px -2px $color-orange;
 }
 
 .btn-login:hover {
   background-color: $color-main;
   border: unset;
+  box-shadow: 6px 7px 4px -2px $color-orange;
 }

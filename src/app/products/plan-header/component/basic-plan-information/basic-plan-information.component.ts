@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http'
 import { Component, Input, OnInit } from '@angular/core'
 import { MenuItem } from 'primeng/api'
+import { IProductPlanHeader, IResPlanHeaderItem, TPH } from '../../interface/TPD'
 import { PlanHeaderService } from '../../service/plan-header.service'
 
 @Component({
@@ -14,12 +15,12 @@ export class BasicPlanInformationComponent implements OnInit {
   @Input() collapse? = true
   @Input() collapseAvailability? = true
   @Input() collapseFreeLook? = true
-  @Input() product: any[]
+  @Input() product: TPH[]
   constructor(private planHeaderService: PlanHeaderService) {}
 
   ngOnInit(): void {
     this.planHeaderService.getProduct().subscribe({
-      next: (response: any) => {
+      next: (response: IResPlanHeaderItem) => {
         // debugger
       },
       error: (error: HttpErrorResponse) => {

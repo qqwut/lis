@@ -1,10 +1,6 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import {
-  HttpClient,
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-} from '@angular/common/http'
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HashLocationStrategy, LocationStrategy } from '@angular/common'
@@ -30,15 +26,8 @@ import { CookieStorageService } from './shared/services/cookie/cookie-storage.se
 import { AuthenticationService } from './shared/services/authentication/authentication.service'
 
 // HELPER
-import {
-  NgcCookieConsentModule,
-  NgcCookieConsentService,
-} from 'ngx-cookieconsent'
-import {
-  TranslateModule,
-  TranslateLoader,
-  TranslatePipe,
-} from '@ngx-translate/core'
+import { NgcCookieConsentModule, NgcCookieConsentService } from 'ngx-cookieconsent'
+import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HELPER_INTERCEPTORS } from './shared/services/helpers'
 import { cookieConfig } from './shared/constants/consent/consent'
