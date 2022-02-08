@@ -24,7 +24,7 @@ import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-le
 // SERVICE
 import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service'
 import { MenuService } from './shared/services/menu/menu.service'
-import { AppConfigService } from './app-config.service'
+import { AppConfig } from './app-config'
 import { I18nTranslateService } from './shared/services/translate/i18n-translate.service'
 import { CookieStorageService } from './shared/services/cookie/cookie-storage.service'
 import { AuthenticationService } from './shared/services/authentication/authentication.service'
@@ -88,7 +88,7 @@ export function createTranslateLoader(http: HttpClient) {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     },
-    AppConfigService,
+    AppConfig,
     AuthenticationService,
     MenuService,
     BreadcrumbService,
