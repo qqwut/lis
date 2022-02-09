@@ -95,7 +95,7 @@ export class AuthenticationService {
   refreshToken() {
     return this.http
       .post<any>(
-        `${this.appConfig.BASE_URL}/api/refresh-token`,
+        `${this.appConfig.BASE_URL}/api/Auth/refresh-token`,
         {}
         // { withCredentials: true }
       )
