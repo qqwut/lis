@@ -1,10 +1,6 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import {
-  HttpClient,
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-} from '@angular/common/http'
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HashLocationStrategy, LocationStrategy } from '@angular/common'
@@ -24,21 +20,14 @@ import { MenuLeftComponent } from '@app-shared/components/menu/menu-left/menu-le
 // SERVICE
 import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service'
 import { MenuService } from './shared/services/menu/menu.service'
-import { AppConfigService } from './app-config.service'
+import { AppConfig } from './app-config'
 import { I18nTranslateService } from './shared/services/translate/i18n-translate.service'
 import { CookieStorageService } from './shared/services/cookie/cookie-storage.service'
 import { AuthenticationService } from './shared/services/authentication/authentication.service'
 
 // HELPER
-import {
-  NgcCookieConsentModule,
-  NgcCookieConsentService,
-} from 'ngx-cookieconsent'
-import {
-  TranslateModule,
-  TranslateLoader,
-  TranslatePipe,
-} from '@ngx-translate/core'
+import { NgcCookieConsentModule, NgcCookieConsentService } from 'ngx-cookieconsent'
+import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HELPER_INTERCEPTORS } from './shared/services/helpers'
 import { cookieConfig } from './shared/constants/consent/consent'
@@ -88,7 +77,7 @@ export function createTranslateLoader(http: HttpClient) {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     },
-    AppConfigService,
+    AppConfig,
     AuthenticationService,
     MenuService,
     BreadcrumbService,

@@ -1,24 +1,13 @@
 <div class="card">
   <p-divider>
     <div class="inline-flex align-items-center">
-      <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-secondary p-button-outlined"
-        (click)="collapse = !collapse"
-      >
+      <button pButton pRipple type="button" class="p-button-secondary p-button-outlined" (click)="collapse = !collapse">
         <b class="header-button"> Basic Plan Information </b>
       </button>
     </div>
   </p-divider>
 
-  <p-table
-    [value]="product"
-    styleClass="p-datatable-striped"
-    responsiveLayout="scroll"
-    [hidden]="!collapse"
-  >
+  <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapse">
     <ng-template pTemplate="body" let-product>
       <tr>
         <td style="width: 20%">Plan Code</td>
@@ -129,12 +118,7 @@
     </div>
   </p-divider>
 
-  <p-table
-    [value]="product"
-    styleClass="p-datatable-striped"
-    responsiveLayout="scroll"
-    [hidden]="!collapseFreeLook"
-  >
+  <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll" [hidden]="!collapseFreeLook">
     <ng-template pTemplate="body" let-product>
       <tr>
         <td style="width: 20%">Free-Look Indicator</td>
@@ -149,8 +133,7 @@
       <tr>
         <td colspan="4">
           ในกรณี Tax Exempt = 'C' ให้ดูเอกสารประกอบ
-          <a>คลิกที่นี่</a>-สำหรับแบบสามัญ และ
-          <a>คลิกที่นี่</a> -สำหรับแบบตะกาฟุล และ <a>คลิกที่นี่</a>-สำหรับแบบปี
+          <a>คลิกที่นี่</a>-สำหรับแบบสามัญ และ <a>คลิกที่นี่</a> -สำหรับแบบตะกาฟุล และ <a>คลิกที่นี่</a>-สำหรับแบบปี
           2013
         </td>
       </tr>

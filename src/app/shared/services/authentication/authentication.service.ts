@@ -3,7 +3,7 @@ import { Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, Observable, of } from 'rxjs'
 import { catchError, map, tap } from 'rxjs/operators'
-import { AppConfigService } from '@app-root/app-config.service'
+import { AppConfig } from '@app-root/app-config'
 import {
   IReqLogin,
   IResLogin,
@@ -20,7 +20,7 @@ export class AuthenticationService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private appConfig: AppConfigService,
+    private appConfig: AppConfig,
     private cookieStorageService: CookieStorageService
   ) {
     this.userSubject = new BehaviorSubject<IUserItem>(null)
@@ -81,7 +81,7 @@ export class AuthenticationService {
   logout() {
     this.http
       .post<any>(
-        `${this.appConfig.BASE_URL}/api/revoke-token`,
+        `${this.appConfig.BASE_URL}/api/Auth/revoke-token`,
         {}
         // { withCredentials: true }
       )

@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { MenuService } from 'src/app/shared/services/menu/menu.service'
 import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service'
-import { AppConfigService } from '@app-root/app-config.service'
+import { AppConfig } from '@app-root/app-config'
 import { I18nTranslateService } from '@app-root/shared/services/translate/i18n-translate.service'
 import { IUserItem } from '@app-root/shared/interfaces/user/user'
 import { BROWSER } from '@app-root/shared/constants/cookie/cookie'
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private spinner: NgxSpinnerService,
     private i18n: I18nTranslateService,
     private menuService: MenuService,
-    public appConfig: AppConfigService,
+    public appConfig: AppConfig,
     private authenticationService: AuthenticationService,
     public translate: TranslatePipe
   ) {}
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.spinner.show()
     this.authenticationService.login(this.formLogin.value).subscribe({
       next: (userItem: IUserItem) => {
-        this.menuService.roleMenu(userItem && userItem.roleid)
+        this.menuService.roleMenu(userItem.roleid)
         this.spinner.hide()
         this.router.navigate(['/'])
       },

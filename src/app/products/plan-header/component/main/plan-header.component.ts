@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { MenuItem } from 'primeng/api'
+import { IProductPlanHeader, TPD, TPH } from '../../interface/TPD'
 
 @Component({
   selector: 'app-plan-header',
@@ -7,7 +8,7 @@ import { MenuItem } from 'primeng/api'
   styleUrls: ['./plan-header.component.scss'],
 })
 export class PlanHeaderComponent implements OnInit {
-  product: any[]
+  product: TPH[]
   items: MenuItem[]
   activeItem: MenuItem
   displayModal = false

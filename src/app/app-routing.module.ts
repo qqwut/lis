@@ -16,9 +16,7 @@ import { AuthGuard } from './shared/services/helpers/auth.guard'
               path: 'products',
               canActivate: [],
               loadChildren: () =>
-                import('@app-root/products/products.module').then(
-                  m => m.ProductsModule
-                ),
+                import('@app-root/products/products.module').then(m => m.ProductsModule),
             },
             // {
             //     path: 'at',
@@ -29,8 +27,7 @@ import { AuthGuard } from './shared/services/helpers/auth.guard'
         },
         {
           path: 'login',
-          loadChildren: () =>
-            import('./login/login.module').then(m => m.LoginModule),
+          loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
         },
         { path: 'notfound', component: NotfoundPageComponent },
         { path: '**', redirectTo: '/notfound' },
