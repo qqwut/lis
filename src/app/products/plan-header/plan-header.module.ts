@@ -25,6 +25,7 @@ import { MaturityInformationComponent } from './component/maturity-information/m
 import { ExpiryInformationComponent } from './component/expiry-information/expiry-information.component'
 import { PremiumChangeInformationComponent } from './component/premium-change-information/premium-change-information.component'
 import { PlanHeaderService } from './service/plan-header.service'
+import { HeaderDividerModule } from '@app-root/shared/modules/header-divider/header-divider.module'
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { PlanHeaderService } from './service/plan-header.service'
     ScrollPanelModule,
     ScrollTopModule,
     ButtonModule,
+    HeaderDividerModule,
   ],
   providers: [PlanHeaderService],
 })

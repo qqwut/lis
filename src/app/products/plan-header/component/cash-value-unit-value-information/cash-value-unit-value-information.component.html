@@ -1,11 +1,11 @@
 <div class="card mt-2">
-  <p-divider>
+  <!-- <p-divider>
     <div class="inline-flex align-items-center">
       <button
         pButton
         pRipple
         ype="button"
-        class="p-button-secondary p-button-outlined"
+        class="p-button-rounded p-button-secondary"
         (click)="collapse = !collapse"
       >
         <b class="header-button"> Cash Value/Unit Value Information </b>
@@ -20,7 +20,14 @@
         <b class="show-modal">(Show Field Definition)</b>
       </span>
     </div>
-  </p-divider>
+  </p-divider> -->
+
+  <app-header-divider
+    (onModal)="displayModal = true"
+    (onCollapse)="collapse = !collapse"
+    [text]="'Cash Value/Unit Value Information'"
+    [textModal]="'(Show Field Definition)'"
+  ></app-header-divider>
 
   <p-table
     [value]="product"
@@ -63,11 +70,7 @@
   [resizable]="false"
 >
   <p-scrollPanel [style]="{ width: '100%', height: '50%' }">
-    <p-table
-      [value]="product"
-      styleClass="p-datatable-striped"
-      responsiveLayout="scroll"
-    >
+    <p-table [value]="product" styleClass="p-datatable-striped" responsiveLayout="scroll">
       <ng-template pTemplate="body" let-product>
         <tr>
           <td style="width: 20%">
@@ -75,8 +78,8 @@
             <p>(CSV_CALC_MTHD_CD)</p>
           </td>
           <td style="width: 80%">
-            Indicates whether cash values are calculated using tablular unit
-            values or cash flow records.
+            Indicates whether cash values are calculated using tablular unit values or cash flow
+            records.
             <ul>
               Allowed Value Description
               <li>C Cash flows accumulate at interest</li>
@@ -92,14 +95,11 @@
             <p>(PLAN_CSV_DT_TYP_CD)</p>
           </td>
           <td style="width: 80%">
-            Indicates which date to use when calculating cash values for this
-            plan.
+            Indicates which date to use when calculating cash values for this plan.
             <ul>
               Allowed Value Description
               <li>E As at effective date; default value</li>
-              <li>
-                M The greater of 'P' (Paid to Date) or 'E' (Effective Date)
-              </li>
+              <li>M The greater of 'P' (Paid to Date) or 'E' (Effective Date)</li>
               <li>P As at paid-to-date</li>
             </ul>
           </td>
@@ -111,9 +111,9 @@
             <p>(PREM_PAY_UVAL_ID)</p>
           </td>
           <td style="width: 80%">
-            Code used to access unit values (UV) when coverage is premium paying
-            (status 1 or 2). Default value is the plan/rate scale. GUI selection
-            box created from the ‘EDIT’ table with a type of ‘UVAL’.
+            Code used to access unit values (UV) when coverage is premium paying (status 1 or 2).
+            Default value is the plan/rate scale. GUI selection box created from the ‘EDIT’ table
+            with a type of ‘UVAL’.
           </td>
         </tr>
 
@@ -123,9 +123,8 @@
             <p>(PU_UVAL_ID</p>
           </td>
           <td style="width: 80%">
-            Code used to access unit values (UV) when coverage is paid up
-            (status 3 or 4). GUI selection box created from the ‘EDIT’ table
-            with a type of ‘UVAL’.
+            Code used to access unit values (UV) when coverage is paid up (status 3 or 4). GUI
+            selection box created from the ‘EDIT’ table with a type of ‘UVAL’.
           </td>
         </tr>
       </ng-template>
@@ -138,5 +137,5 @@
     >
     </p-scrollTop>
   </p-scrollPanel>
-  <ng-template pTemplate="footer"> </ng-template>
+  <!-- <ng-template pTemplate="footer"> </ng-template> -->
 </p-dialog>

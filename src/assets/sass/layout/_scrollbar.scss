@@ -18,17 +18,66 @@
   ::-webkit-scrollbar {
     height: 5px;
     width: 5px;
-    background: $color-orange-active;
+    background: $color-orange;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: $color-orange;
     -webkit-border-radius: 1ex;
-    -webkit-box-shadow: 0px 1px 2px $color-orange-active;
+    -webkit-box-shadow: 0px 1px 2px $color-orange;
   }
 
   ::-webkit-scrollbar-corner {
     background: $color-orange;
+  }
+}
+
+.app-scrollbar {
+  .p-scrolltop.p-link {
+    background-color: $color-orange;
+    width: 3rem;
+    height: 3rem;
+    border-radius: $border-radius;
+  }
+
+  .p-scrolltop {
+    bottom: 2rem !important;
+    right: 2rem !important;
+  }
+  // .p-scrolltop .p-scrolltop-icon {
+  //   color: $color-white;
+  // }
+
+  // ::-webkit-scrollbar {
+  //   height: 5px;
+  //   width: 5px;
+  //   background: $color-main !important;
+  //   border-radius: 10px;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   background: $color-main !important;
+  //   -webkit-border-radius: 1ex;
+  //   -webkit-box-shadow: 0px 1px 2px $color-main !important;
+  // }
+
+  // ::-webkit-scrollbar-corner {
+  //   background: $color-main !important;
+  // }
+  .p-scrollpanel-wrapper {
+    border-right: 9px solid var(--layer-1);
+    margin-left: 1rem;
+  }
+
+  .p-scrollpanel-bar {
+    margin-right: 1rem;
+    background-color: $color-orange;
+    opacity: 1;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $color-orange;
+    }
   }
 }

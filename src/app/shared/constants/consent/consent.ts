@@ -35,10 +35,10 @@ export const cookieConfig: NgcCookieConsentConfig = {
   //     'เว็บไซต์นี้ใช้คุกกี้เพื่อวัตถุประสงค์ในการปรับปรุงประสบการณ์ของผู้ใช้ให้ดียิ่งขึ้น ท่านสามารถศึกษารายละเอียดเพิ่มเติมเกี่ยวกับคุกกี้  เหตุผลในการใช้คุกกี้ และวิธีการตั้งค่าคุกกี้ได้ใน',
 
   //   cookiePolicyLink: 'นโยบายการใช้คุกกี้',
-  //   cookiePolicyHref: 'cookie-policy',
+  //   cookiePolicyHref: 'policy/cookie',
 
   //   privacyPolicyLink: 'นโยบายการคุ้มครองข้อมูลส่วนบุคคล',
-  //   privacyPolicyHref: 'privacy-policy',
+  //   privacyPolicyHref: 'policy/privacy',
 
   //   // tosLink: 'Terms of Service',
   //   // tosHref: 'https://tos.com',

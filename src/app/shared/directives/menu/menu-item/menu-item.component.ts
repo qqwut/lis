@@ -1,17 +1,10 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core'
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Subscription } from 'rxjs'
 import { filter } from 'rxjs/operators'
 import { MenuService } from '@app-shared/services/menu/menu.service'
 import { AppMainComponent } from '@app-root/app.main.component'
-
 @Component({
   selector: '[app-menuitem]',
   templateUrl: './menu-item.component.html',
@@ -81,10 +74,7 @@ import { AppMainComponent } from '@app-root/app.main.component'
         'void => visibleAnimated, visibleAnimated => void',
         animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
       ),
-      transition(
-        'void => slimVisibleAnimated',
-        animate('400ms cubic-bezier(.05,.74,.2,.99)')
-      ),
+      transition('void => slimVisibleAnimated', animate('400ms cubic-bezier(.05,.74,.2,.99)')),
       transition(
         'slimHiddenAnimated => slimVisibleAnimated',
         animate('400ms cubic-bezier(.05,.74,.2,.99)')
@@ -117,52 +107,40 @@ export class MenuItemComponent implements OnInit, OnDestroy {
     private cd: ChangeDetectorRef,
     private menuService: MenuService
   ) {
-    this.menuSourceSubscription = this.menuService.menuSource$.subscribe(
-      key => {
-        // deactivate current active menu
-        if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
-          this.active = false
-        }
+    this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
+      // deactivate current active menu
+      if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
+        this.active = false
       }
-    )
+    })
 
     this.menuResetSubscription = this.menuService.resetSource$.subscribe(() => {
       this.active = false
     })
 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(params => {
-        if (this.appMain.isSlim() || this.appMain.isHorizontal()) {
-          this.active = false
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(params => {
+      if (this.appMain.isSlim() || this.appMain.isHorizontal()) {
+        this.active = false
+      } else {
+        if (this.item.routerLink) {
+          this.updateActiveStateFromRoute()
         } else {
-          if (this.item.routerLink) {
-            this.updateActiveStateFromRoute()
-          } else {
-            this.active = false
-          }
+          this.active = false
         }
-      })
+      }
+    })
   }
 
   ngOnInit() {
-    if (
-      !(this.appMain.isSlim() || this.appMain.isHorizontal()) &&
-      this.item.routerLink
-    ) {
+    if (!(this.appMain.isSlim() || this.appMain.isHorizontal()) && this.item.routerLink) {
       this.updateActiveStateFromRoute()
     }
 
-    this.key = this.parentKey
-      ? this.parentKey + '-' + this.index
-      : String(this.index)
+    this.key = this.parentKey ? this.parentKey + '-' + this.index : String(this.index)
   }
 
   updateActiveStateFromRoute() {
-    this.active = this.router.isActive(
-      this.item.routerLink[0],
-      !this.item.items
-    )
+    this.active = this.router.isActive(this.item.routerLink[0], !this.item.items)
   }
 
   itemClick(event: Event) {
@@ -239,10 +217,7 @@ export class MenuItemComponent implements OnInit, OnDestroy {
           if (activeInk.classList) activeInk.classList.remove('p-ink-active')
           else
             activeInk.className = activeInk.className.replace(
-              new RegExp(
-                '(^|\\b)' + 'p-ink-active'.split(' ').join('|') + '(\\b|$)',
-                'gi'
-              ),
+              new RegExp('(^|\\b)' + 'p-ink-active'.split(' ').join('|') + '(\\b|$)', 'gi'),
               ' '
             )
         }

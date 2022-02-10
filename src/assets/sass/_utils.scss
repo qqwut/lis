@@ -1,7 +1,7 @@
-@import './variables';
+@import "./variables";
 
 .text-error {
-  color: #f44336;
+  color: red;
 }
 
 .cursor-pointer {
@@ -17,7 +17,7 @@
 }
 
 .bd-error {
-  border-color: #f44336;
+  border-color: red;
 }
 
 .p-inputtext.ng-dirty.ng-invalid.ng-pristine.ng-invalid.ng-touched {
@@ -50,6 +50,18 @@ input.ng-dirty.ng-invalid {
 
 .text-right {
   text-align: right !important;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 800;
 }
 
 .m {

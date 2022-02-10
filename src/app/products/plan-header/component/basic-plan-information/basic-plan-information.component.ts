@@ -20,14 +20,13 @@ export class BasicPlanInformationComponent implements OnInit {
   constructor(private planHeaderService: PlanHeaderService) {}
 
   ngOnInit(): void {
-    this.planHeaderService.getProduct().subscribe({
-      next: (response: IResPlanHeaderItem) => {
-        // debugger
-      },
-      error: (error: HttpErrorResponse) => {
-        debugger
-      },
-    })
-    
+    // this.planHeaderService.getProduct().subscribe({
+    //   next: (response: IResPlanHeaderItem) => {
+    //     debugger
+    //   },
+    //   error: (error: HttpErrorResponse) => {
+    //     // debugger
+    //   },
+    // })
   }
 }

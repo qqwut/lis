@@ -36,12 +36,10 @@ export class AppComponent implements OnInit {
     //       window.scroll(0, 0)
     //     }
     //   })
-    // const browserLang = this.translateService.getBrowserLang()
-    // const lang = browserLang.match(/en|th/) ? browserLang : 'th'
-    const lang = 'th'
+    const browserLang = this.translateService.getBrowserLang()
+    const lang = browserLang.match(/en|th/) ? browserLang : 'en'
     this.translateService.use(lang)
     this.translateService.setDefaultLang(lang)
-    // this.cookieConsentService.init()
   }
 
   ngOnInit() {

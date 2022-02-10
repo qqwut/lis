@@ -11,10 +11,17 @@ import { BROWSER } from '@app-root/shared/constants/cookie/cookie'
 import { HttpErrorResponse } from '@angular/common/http'
 import Swal from 'sweetalert2'
 import { TranslatePipe, TranslateService } from '@ngx-translate/core'
+import {
+  appShadowTrigger,
+  appTrigger,
+  contentTrigger,
+  textResultTrigger,
+} from '@app-root/shared/animations/animate'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  animations: [contentTrigger, appTrigger, appShadowTrigger, textResultTrigger],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   formLogin: FormGroup
@@ -42,15 +49,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   get usernameInvalid() {
-    return (
-      this.username.invalid && (this.username.dirty || this.username.touched)
-    )
+    return this.username.invalid && (this.username.dirty || this.username.touched)
   }
 
   get passwordInvalid() {
-    return (
-      this.password.invalid && (this.password.dirty || this.password.touched)
-    )
+    return this.password.invalid && (this.password.dirty || this.password.touched)
   }
 
   ngOnInit() {
@@ -74,10 +77,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onPrivacy() {
-    this.router.navigate(['/privacy-policy'])
+    this.router.navigate(['policy/privacy'])
+    // const url = this.router.serializeUrl(this.router.createUrlTree(['#/policy/privacy']))
+    // window.open(url, '_blank')
   }
 
-  onSupportDevice() {
+  onSupport() {
     this.supportDevice = true
   }
 

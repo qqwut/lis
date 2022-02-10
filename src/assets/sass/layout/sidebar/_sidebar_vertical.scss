@@ -79,6 +79,7 @@
       position: relative;
       padding: 0.5rem;
       font-size: 1rem;
+      font-weight: 800;
       border-radius: $borderRadius;
       outline: 0 none;
       cursor: pointer;
@@ -102,7 +103,7 @@
       }
 
       &.active-route {
-        font-weight: 700;
+        font-weight: 800;
         background-color: $color-menu-active; 
       }
     }

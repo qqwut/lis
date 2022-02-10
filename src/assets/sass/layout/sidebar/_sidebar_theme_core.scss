@@ -35,7 +35,7 @@
         color: $menuitemTextColor;
 
         &:hover {
-          background: $menuitemHoverBg;
+          background: $color-menu-active;
         }
 
         &:focus {
