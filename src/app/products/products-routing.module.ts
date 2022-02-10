@@ -6,9 +6,7 @@ const routes: Routes = [
     path: 'plan-header',
     canActivate: [],
     loadChildren: () =>
-      import('@app-root/products/plan-header/plan-header.module').then(
-        m => m.PlanHeaderModule
-      ),
+      import('@app-root/products/plan-header/plan-header.module').then(m => m.PlanHeaderModule)
   },
 ]
 

@@ -72,12 +72,12 @@
 
   .p-scrollpanel-bar {
     margin-right: 1rem;
-    background-color: $color-orange;
+    background-color: $color-background-main;
     opacity: 1;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: $color-orange;
+      background-color: $color-background-main;
     }
   }
 }

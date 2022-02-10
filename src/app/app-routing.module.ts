@@ -5,7 +5,7 @@ import { NotfoundPageComponent } from './shared/components/notfound-page/notfoun
 import { AuthGuard } from './shared/services/helpers/auth.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
