@@ -13,8 +13,11 @@ var router = express.Router();
 router.route('/draft-list').get((req, res) => {
     draftCtrl.draftList(req, res)
 })
+const rateLimiter = (req, res, next) => {
+    // rate limiter logic here
+}
 router.route('/draft-detail').get(draftCtrl.draftDetail);
 router.route('/draft-create').post(draftCtrl.draftCreate);
 router.route('/draft-save/:draftId').put(draftCtrl.draftSave);
-router.route('/draft-delete').delete(draftCtrl.draftDelete);
+router.route('/draft-delete').delete(rateLimiter, draftCtrl.draftDelete);
 module.exports = router;

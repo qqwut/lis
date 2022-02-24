@@ -15,6 +15,6 @@ const rateLimiter = (req, res, next) => {
     // rate limiter logic here
 }
 
-router.route('/get-address', rateLimiter).get(locationAddress.getAddress);
+router.route('/get-address').get(locationAddress.getAddress, rateLimiter);
 // router.route('/draft-delete').delete(draftCtrl.draftDelete);
 module.exports = router;
