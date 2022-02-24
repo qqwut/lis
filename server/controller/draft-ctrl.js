@@ -334,7 +334,10 @@ exports.draftDelete = function (req, res) {
     }
 
     if (req.query.id && req.query.userFullname) {
-
+        const query = {}
+        query['mgQuery'] = {
+            _id: req.query.id
+        };
         let updateData = {
             $set: {
                 modifiedBy: req.query.userFullname,
@@ -342,9 +345,7 @@ exports.draftDelete = function (req, res) {
                 status: "DELETED"
             }
         };
-        locationDraft.findOneAndUpdate({
-            _id: req.query.id
-        }, updateData, {
+        locationDraft.findOneAndUpdate(query['mgQuery'], updateData, {
             new: true
         }, function (err, doc) {
             if (err) {
