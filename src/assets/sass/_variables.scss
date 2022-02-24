@@ -1,7 +1,26 @@
-$color-main: #2e4e6e;
-$color-active: #396ca0;
-$color-orange: #fd8b1e;
-$color-orange-active: #ffb268;
+$ph-main: #040e68;
+$ph-orange: #d65c00;
+
+// Group 1
+// $color-main: #2e4e6e;
+// $color-active: #396ca0;
+// $color-menu-active: #19354e;
+// $color-orange: #fd8b1e;
+// $color-orange-active: #ffb268;
+// $color-menu-select: #152e43;
+
+// Group 2
+$color-main: #022361;
+$color-main-at: #01112f;
+$color-active: rgb(35, 54, 109);
+$color-menu-active: #07255b;
+$color-orange: rgb(255, 137, 1);
+$color-orange-active: rgb(255, 255, 255);
+$color-menu-select: #0b3170;
+$color-background-main: #f2f4f8;
 $color-white: white;
 $border-color: #e1e2e2;
 $color-topbar: $color-main;
+$border-radius: 1rem;
+$color-error: red;
+$color-box-shadow: #ccdfff52;

@@ -1,117 +1,137 @@
 @import "./variables";
 
 .text-error {
-    color: #f44336;
+  color: red;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.color-link {
+  color: #007bff;
+}
+
+.color-main {
+  color: $color-main;
 }
 
 .bd-error {
-    border-color: #f44336;
+  border-color: red;
 }
 
 .p-inputtext.ng-dirty.ng-invalid.ng-pristine.ng-invalid.ng-touched {
-    border-color: red !important;
+  border-color: red !important;
 }
 
 input.ng-dirty.ng-invalid {
-    border-color: red;
+  border-color: red;
 }
 
 .position-absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .h-100 {
-    height: 100vh;
+  height: 100vh;
 }
 
 .text-left {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .text-center {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 .text-right {
-    text-align: right !important;
+  text-align: right !important;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 800;
 }
 
 .m {
-    &-1 {
-        margin: 10px;
-    }
-    &-2 {
-        margin: 20px;
-    }
-    &-3 {
-        margin: 30px;
-    }
-    &-4 {
-        margin: 40px;
-    }
-    &-5 {
-        margin: 50px;
-    }
+  &-1 {
+    margin: 10px !important;
+  }
+  &-2 {
+    margin: 20px !important;
+  }
+  &-3 {
+    margin: 30px !important;
+  }
+  &-4 {
+    margin: 40px !important;
+  }
+  &-5 {
+    margin: 50px !important;
+  }
 }
 
 .mt {
-    &-1 {
-        margin-top: 10px;
-    }
-    &-2 {
-        margin-top: 20px;
-    }
-    &-3 {
-        margin-top: 30px;
-    }
-    &-4 {
-        margin-top: 40px;
-    }
-    &-5 {
-        margin-top: 50px;
-    }
+  &-1 {
+    margin-top: 10px !important;
+  }
+  &-2 {
+    margin-top: 20px !important;
+  }
+  &-3 {
+    margin-top: 30px !important;
+  }
+  &-4 {
+    margin-top: 40px !important;
+  }
+  &-5 {
+    margin-top: 50px !important;
+  }
 }
 
 .p {
-    &-1 {
-        padding: 10px;
-    }
-    &-2 {
-        padding: 20px;
-    }
-    &-3 {
-        padding: 30px;
-    }
-    &-4 {
-        padding: 40px;
-    }
-    &-5 {
-        padding: 50px;
-    }
+  &-1 {
+    padding: 10px !important;
+  }
+  &-2 {
+    padding: 20px !important;
+  }
+  &-3 {
+    padding: 30px !important;
+  }
+  &-4 {
+    padding: 40px !important;
+  }
+  &-5 {
+    padding: 50px !important;
+  }
 }
 
 .pt {
-    &-1 {
-        padding-top: 10px;
-    }
-    &-2 {
-        padding-top: 20px;
-    }
-    &-3 {
-        padding-top: 30px;
-    }
-    &-4 {
-        padding-top: 40px;
-    }
-    &-5 {
-        padding-top: 50px;
-    }
+  &-1 {
+    padding-top: 10px !important;
+  }
+  &-2 {
+    padding-top: 20px !important;
+  }
+  &-3 {
+    padding-top: 30px !important;
+  }
+  &-4 {
+    padding-top: 40px !important;
+  }
+  &-5 {
+    padding-top: 50px !important;
+  }
 }

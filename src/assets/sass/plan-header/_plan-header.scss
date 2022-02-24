@@ -1,24 +1,24 @@
-@import "variables";
+@import 'variables';
 
 .td-active {
-    color: $color-main;
+  color: $color-main;
 }
 
 .header-button {
-    color: $color-main;
-    border-color: $border-color;
+  color: $color-main;
+  border-color: $border-color;
 }
 
 .show-modal {
-    padding-left: 10px;
-    color: #fd8b1d;
-    cursor: pointer;
+  padding-left: 10px;
+  color: #fd8b1d;
+  cursor: pointer;
 }
 
 tr > td {
-    font-size: 15px !important;
+  font-size: 15px !important;
 }
 
 .p-button-secondary {
-    padding: 5px !important;
+  padding: 0.2rem 1rem !important;
 }

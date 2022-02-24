@@ -1,59 +1,44 @@
-import { isPlatformBrowser } from '@angular/common'
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
-import { NavigationEnd, Router, RouterEvent } from '@angular/router'
-import { NgcCookieConsentService, NgcInitializeEvent, NgcStatusChangeEvent, NgcNoCookieLawEvent } from 'ngx-cookieconsent'
-import { NgxSpinnerService } from "ngx-spinner"
-import { filter, Subscription } from 'rxjs'
+import { Router } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
 import { MenuService } from 'src/app/shared/services/menu/menu.service'
-import { MENU_AT } from 'src/app/shared/constants/menu/menu.data'
-import { LoginService } from '../../service/login.service'
 import { AuthenticationService } from 'src/app/shared/services/authentication/authentication.service'
-import { AppConfigService } from '@app-root/app-config.service'
+import { AppConfig } from '@app-root/app-config'
 import { I18nTranslateService } from '@app-root/shared/services/translate/i18n-translate.service'
-import { UserService } from '@app-root/shared/services/user/user.service'
-import { IUserItem } from '@app-root/shared/constants/user/user'
-import { CookieStorageService } from '@app-root/shared/services/cookie/cookie-storage.service'
-import { TranslateService } from '@ngx-translate/core'
+import { IUserItem } from '@app-root/shared/interfaces/user/user'
+import { BROWSER } from '@app-root/shared/constants/cookie/cookie'
+import { HttpErrorResponse } from '@angular/common/http'
+import Swal from 'sweetalert2'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
+import {
+  appShadowTrigger,
+  appTrigger,
+  contentTrigger,
+  textResultTrigger,
+} from '@app-root/shared/animations/animate'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [contentTrigger, appTrigger, appShadowTrigger, textResultTrigger],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  formLogin!: FormGroup
+  formLogin: FormGroup
+  browserList = BROWSER
   supportDevice = false
-  loading = false
-  products = [
-    {
-      browser: 'Chrome',
-      support: 'ตั้งแต่เวอร์ชั่น 70 ขึ้นไป'
-    },
-    {
-      browser: 'Safari',
-      support: 'ตั้งแต่เวอร์ชั่น 10 ขึ้นไป'
-    },
-    {
-      browser: 'iOS',
-      support: 'ตั้งแต่เวอร์ชั่น 10 ขึ้นไป'
-    },
-    {
-      browser: 'Android',
-      support: 'Nougat (7.0), Marshmallow (6.0), Lollipop (5.0, 5.1)'
-    }
-  ]
+  messageError: string
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private spinner: NgxSpinnerService,
     private i18n: I18nTranslateService,
-    private loginService: LoginService,
     private menuService: MenuService,
-    public appConfig: AppConfigService,
-    private userService: UserService,
-    private cookieStorageService: CookieStorageService
-  ) { }
+    public appConfig: AppConfig,
+    private authenticationService: AuthenticationService,
+    public translate: TranslatePipe
+  ) {}
 
   get username() {
     return this.formLogin.get('username')
@@ -73,11 +58,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initForm()
-    this.i18n.changeLanguage('th')
-  }
-
-  changeLang() {
-    // this.i18n.changeLanguage('en')
   }
 
   initForm() {
@@ -85,45 +65,47 @@ export class LoginComponent implements OnInit, OnDestroy {
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(20)
+        Validators.maxLength(20),
       ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(15)
-      ])
+        Validators.maxLength(15),
+      ]),
     })
     this.formLogin = new FormGroup(form.controls)
   }
 
-  privacyClick() {
-    this.router.navigate(['/privacy-policy'])
+  onPrivacy() {
+    this.router.navigate(['policy/privacy'])
+    // const url = this.router.serializeUrl(this.router.createUrlTree(['#/policy/privacy']))
+    // window.open(url, '_blank')
   }
 
-  openSupportDevice() {
+  onSupport() {
     this.supportDevice = true
   }
 
   signIn() {
+    this.messageError = null
     this.spinner.show()
-    this.loginService
-      .signIn({
-        username: this.formLogin.value.username,
-        password: this.formLogin.value.password,
-      }).subscribe((res: IUserItem) => {
-        this.cookieStorageService.setData('user', {
-          userAD: res.userAD,
-          userLis: res.userLis,
-          email: res.email,
-          roleid: res.roleid
-        })
-        this.cookieStorageService.setData('token', res.token)
-        this.menuService.roleMenu(res && res.roleid)
-        this.userService.setUser(res)
+    this.authenticationService.login(this.formLogin.value).subscribe({
+      next: (userItem: IUserItem) => {
+        this.menuService.roleMenu(userItem.roleid)
         this.spinner.hide()
         this.router.navigate(['/'])
-      })
+      },
+      error: (error: HttpErrorResponse) => {
+        this.spinner.hide()
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed.',
+          text: error.message,
+          showConfirmButton: false,
+        })
+      },
+    })
   }
 
-  ngOnDestroy() { }
+  ngOnDestroy() {}
 }

@@ -1,131 +1,96 @@
 <div class="login-header">
-  <img alt="Brand" src="./assets/img/philliplifeLogo.png" />
+  <img alt="Brand" src="./assets/img/PhilliplifeLogo.svg" />
 </div>
-<div class="p-grid">
-  <div
-    class="p-col p-align-center vertical-container p-d-flex p-ai-center p-jc-center h-100"
-  >
-    <form [formGroup]="formLogin" novalidate (submit)="signIn()">
-      <div class="p-fluid">
-        <img
-          class="text-center w-100"
-          src="./assets/img/iapply_logo_icon.svg"
-          alt="logo"
-          style="height: 124px"
-        />
-        <div class="p-field login-field mt-2">
-          <input
-            pInputText
-            id="userName"
-            formControlName="username"
-            class="login-input"
-            [class.bd-error]="usernameInvalid"
-            placeholder="Username"
-          />
-          <div class="text-error text-left" *ngIf="usernameInvalid">
-            <small *ngIf="username.hasError('required')">
-              Must input username
-            </small>
-            <small *ngIf="username.hasError('minlength')">
-              Minimum 3 characters
-            </small>
-            <small *ngIf="username.hasError('maxlength')">
-              Maximum 10 characters!!
-            </small>
+<div class="flex justify-content-center align-content-center flex-wrap login p-5">
+  <div class="flex flex-wrap justify-content-center align-content-center card-login">
+    <div class="col login-img text-center" @appTrigger>
+      <img class="login-img" src="./assets/img/logo/logo.png" alt="logo" />
+    </div>
+    <div class="col" @appTrigger>
+      <form [formGroup]="formLogin" (submit)="signIn()">
+        <div class="p-fluid">
+          <h3>Sign In</h3>
+          <div class="p-field login-field mt-2">
+            <small> Username </small>
+            <input
+              pInputText
+              id="userName"
+              class="login-input"
+              formControlName="username"
+              [class.bd-error]="usernameInvalid"
+            />
+            <div class="text-error text-right" *ngIf="usernameInvalid">
+              <small *ngIf="username['required']"> Must input username </small>
+              <small *ngIf="username['minlength']"> Minimum 3 characters </small>
+              <small *ngIf="username['maxlength']"> Maximum 10 characters </small>
+            </div>
           </div>
-        </div>
-        <div class="p-field login-field">
-          <input
-            pInputText
-            type="password"
-            id="password"
-            formControlName="password"
-            placeholder="Password"
-            class="login-input"
-            [class.bd-error]="passwordInvalid"
-          />
-          <div class="text-error text-left" *ngIf="passwordInvalid">
-            <small *ngIf="password.errors['required']">
-              Must input password
-            </small>
-            <small *ngIf="password.errors['minlength']">
-              Minimum 3 characters
-            </small>
-            <small *ngIf="password.errors['maxlength']">
-              Maximum 10 characters!!
-            </small>
+          <div class="p-field login-field">
+            <small> Password </small>
+            <input
+              pInputText
+              type="password"
+              id="password"
+              formControlName="password"
+              class="login-input"
+              [class.bd-error]="passwordInvalid"
+            />
+            <div class="text-error text-right" *ngIf="passwordInvalid">
+              <small *ngIf="password.errors['required']"> Must input password </small>
+              <small *ngIf="password.errors['minlength']"> Minimum 3 characters </small>
+              <small *ngIf="password.errors['maxlength']"> Maximum 10 characters </small>
+            </div>
           </div>
-        </div>
-        <div class="mt-1">
-          <button
-            pButton
-            id="submit"
-            class="login-input btn-login"
-            label="Submit"
-            type="submit"
-            [disabled]="!formLogin.valid"
-          ></button>
-        </div>
-        <div class="mt-1 text-center">
-          <label
-            class="cursor-pointer"
-            style="color: #007bff"
-            (click)="privacyClick()"
-          >
-            {{ "PRIVACY_POLICY" | translate }}
-          </label>
-        </div>
-        <div class="mt-1 text-center">
-          <label
-            class="cursor-pointer"
-            style="color: #007bff"
-            (click)="openSupportDevice()"
-          >
-            {{ "CHECK_VERSION" | translate }}
-          </label>
-          <p class="mt-2">
-            PhillipLife&nbsp;&copy; 2022&nbsp;-&nbsp;
-            {{ appConfig?.APP_VERSION }}
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
 
-  <p-dialog
-    header="Browser support"
-    [(visible)]="supportDevice"
-    [modal]="true"
-    [style]="{ width: '50vw' }"
-    [draggable]="false"
-    [resizable]="false"
-  >
-    <p-table
-      [value]="products"
-      styleClass="p-datatable-striped"
-      responsiveLayout="scroll"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Browser</th>
-          <th>Supported versions</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product>
-        <tr>
-          <td>{{ product?.browser }}</td>
-          <td>{{ product?.support }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-    <!-- <ng-template pTemplate="footer">
-      <p-button
-        pRipple
-        icon="pi pi-close"
-        (click)="supportDevice = false"
-        label="ปิด"
-        styleClass="p-button-danger"
-      ></p-button>
-    </ng-template> -->
-  </p-dialog>
+          <div class="w-100">{{ messageError }}</div>
+
+          <div class="mt-4 login-field">
+            <button
+              pButton
+              id="submit"
+              class="w-100 btn-login"
+              type="submit"
+              label="{{ translate.transform('LOGIN.SUBMIT') }}"
+            ></button>
+          </div>
+
+          <div class="mt-3 login-field text-center cursor-pointer color-main" (click)="onPrivacy()">
+            {{ 'PRIVACY_POLICY' | translate }}
+          </div>
+
+          <div class="mt-3 login-field text-center cursor-pointer color-main" (click)="onSupport()">
+            {{ 'CHECK_VERSION' | translate }}
+          </div>
+
+          <div class="mt-3 login-field text-center">
+            PhillipLife&nbsp;&copy; 2022 &nbsp;-&nbsp; {{ appConfig?.APP_VERSION }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+<p-dialog
+  header="Browser support"
+  [(visible)]="supportDevice"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-table [value]="browserList" styleClass="p-datatable-striped" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Browser</th>
+        <th>Supported versions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product?.browser }}</td>
+        <td>{{ product?.support }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

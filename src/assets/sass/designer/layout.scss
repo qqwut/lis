@@ -315,15 +315,15 @@ a {
 }
 
 .exception-body.access {
-  background-image: url(/assets/sass/layout/images/pages/bg-access.jpg);
+  // background-image: url(/assets/sass/layout/images/pages/bg-access.jpg);
 }
 
 .exception-body.notfound {
-  background-image: url(/assets/sass/layout/images/pages/bg-404.jpg);
+  background-image: url(/assets/img/pages/bg-404.jpg);
 }
 
 .exception-body.error {
-  background-image: url(/assets/sass/layout/images/pages/bg-error.jpg);
+  // background-image: url(/assets/sass/layout/images/pages/bg-error.jpg);
 }
 
 @media (max-width: 640px) {

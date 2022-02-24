@@ -1,243 +1,247 @@
-import { Component, OnDestroy } from '@angular/core';
-import { MenuService } from './shared/services/menu/menu.service';
-import { MenuItem, PrimeNGConfig } from 'primeng/api';
-import { AppComponent } from './app.component';
-import { Subscription } from 'rxjs';
-import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service';
+import { Component, OnDestroy } from '@angular/core'
+import { MenuService } from './shared/services/menu/menu.service'
+import { MenuItem, PrimeNGConfig } from 'primeng/api'
+import { AppComponent } from './app.component'
+import { Subscription } from 'rxjs'
+import { BreadcrumbService } from '@app-shared/services/breadcrumb/breadcrumb.service'
 
 @Component({
-    selector: 'app-main',
-    templateUrl: './app.main.component.html',
+  selector: 'app-main',
+  templateUrl: './app.main.component.html',
 })
 export class AppMainComponent implements OnDestroy {
+  subscription: Subscription
 
-    subscription: Subscription;
+  items: MenuItem[]
 
-    items: MenuItem[];
+  overlayMenuActive: boolean
 
-    overlayMenuActive: boolean;
+  staticMenuDesktopInactive: boolean
 
-    staticMenuDesktopInactive: boolean;
+  staticMenuMobileActive: boolean
 
-    staticMenuMobileActive: boolean;
+  menuClick: boolean
 
-    menuClick: boolean;
+  search = false
 
-    search = false;
+  searchClick = false
 
-    searchClick = false;
+  userMenuClick: boolean
 
-    userMenuClick: boolean;
+  topbarUserMenuActive: boolean
 
-    topbarUserMenuActive: boolean;
+  notificationMenuClick: boolean
 
-    notificationMenuClick: boolean;
+  topbarNotificationMenuActive: boolean
 
-    topbarNotificationMenuActive: boolean;
+  rightMenuClick: boolean
 
-    rightMenuClick: boolean;
+  rightMenuActive: boolean
 
-    rightMenuActive: boolean;
+  configActive: boolean
 
-    configActive: boolean;
+  configClick: boolean
 
-    configClick: boolean;
+  resetMenu: boolean
 
-    resetMenu: boolean;
+  signOutMenuClick: boolean
 
-    signOutMenuClick: boolean;
+  signOutMenuActive: boolean
 
-    signOutMenuActive: boolean;
+  menuHoverActive = false
 
-    menuHoverActive = false;
+  constructor(
+    private menuService: MenuService,
+    private primengConfig: PrimeNGConfig,
+    public app: AppComponent,
+    public breadcrumbService: BreadcrumbService
+  ) {
+    this.subscription = breadcrumbService.itemsHandler.subscribe(response => {
+      this.items = response
+    })
+  }
 
-    constructor(
-        private menuService: MenuService,
-        private primengConfig: PrimeNGConfig,
-        public app: AppComponent,
-        public breadcrumbService: BreadcrumbService
-    ) {
-        this.subscription = breadcrumbService.itemsHandler.subscribe(response => {
-            this.items = response;
-        });
+  onLayoutClick() {
+    if (!this.searchClick) {
+      this.search = false
     }
 
-    onLayoutClick() {
-        if (!this.searchClick) {
-            this.search = false;
-        }
-
-        if (!this.userMenuClick) {
-            this.topbarUserMenuActive = false;
-        }
-
-        if (!this.notificationMenuClick) {
-            this.topbarNotificationMenuActive = false;
-        }
-
-        if (!this.rightMenuClick) {
-            this.rightMenuActive = false;
-        }
-
-        if (!this.signOutMenuClick) {
-            this.signOutMenuActive = false;
-        }
-
-        if (!this.menuClick) {
-            if (this.isSlim() || this.isHorizontal()) {
-                this.menuService.reset();
-            }
-
-            if (this.overlayMenuActive || this.staticMenuMobileActive) {
-                this.hideOverlayMenu();
-            }
-
-            this.menuHoverActive = false;
-            this.unblockBodyScroll();
-        }
-
-        if (this.configActive && !this.configClick) {
-            this.configActive = false;
-        }
-
-        this.searchClick = false;
-        this.configClick = false;
-        this.userMenuClick = false;
-        this.rightMenuClick = false;
-        this.signOutMenuClick = false;
-        this.notificationMenuClick = false;
-        this.menuClick = false;
+    if (!this.userMenuClick) {
+      this.topbarUserMenuActive = false
     }
 
-    onMenuButtonClick(event) {
-        this.menuClick = true;
-        this.topbarUserMenuActive = false;
-        this.topbarNotificationMenuActive = false;
-        this.rightMenuActive = false;
-
-        if (this.isOverlay()) {
-            this.overlayMenuActive = !this.overlayMenuActive;
-        }
-
-        if (this.isDesktop()) {
-            this.staticMenuDesktopInactive = !this.staticMenuDesktopInactive;
-        } else {
-            this.staticMenuMobileActive = !this.staticMenuMobileActive;
-            if (this.staticMenuMobileActive) {
-                this.blockBodyScroll();
-            } else {
-                this.unblockBodyScroll();
-            }
-        }
-
-        event.preventDefault();
+    if (!this.notificationMenuClick) {
+      this.topbarNotificationMenuActive = false
     }
 
-    onSearchClick(event) {
-        this.search = !this.search;
-        this.searchClick = !this.searchClick;
+    if (!this.rightMenuClick) {
+      this.rightMenuActive = false
     }
 
-    onSearchHide(event) {
-        this.search = false;
-        this.searchClick = false;
+    if (!this.signOutMenuClick) {
+      this.signOutMenuActive = false
     }
 
-    onMenuClick($event) {
-        this.menuClick = true;
-        this.resetMenu = false;
+    if (!this.menuClick) {
+      if (this.isSlim() || this.isHorizontal()) {
+        this.menuService.reset()
+      }
+
+      if (this.overlayMenuActive || this.staticMenuMobileActive) {
+        this.hideOverlayMenu()
+      }
+
+      this.menuHoverActive = false
+      this.unblockBodyScroll()
     }
 
-    onTopbarUserMenuButtonClick(event) {
-        this.userMenuClick = true;
-        this.topbarUserMenuActive = !this.topbarUserMenuActive;
-
-        this.hideOverlayMenu();
-
-        event.preventDefault();
+    if (this.configActive && !this.configClick) {
+      this.configActive = false
     }
 
-    onTopbarNotificationMenuButtonClick(event) {
-        this.notificationMenuClick = true;
-        this.topbarNotificationMenuActive = !this.topbarNotificationMenuActive;
+    this.searchClick = false
+    this.configClick = false
+    this.userMenuClick = false
+    this.rightMenuClick = false
+    this.signOutMenuClick = false
+    this.notificationMenuClick = false
+    this.menuClick = false
+  }
 
-        this.hideOverlayMenu();
+  onMenuButtonClick(event) {
+    this.menuClick = true
+    this.topbarUserMenuActive = false
+    this.topbarNotificationMenuActive = false
+    this.rightMenuActive = false
 
-        event.preventDefault();
+    if (this.isOverlay()) {
+      this.overlayMenuActive = !this.overlayMenuActive
     }
 
-    onMenuSignOut(event) {
-        this.signOutMenuClick = true;
-        this.signOutMenuActive = !this.signOutMenuActive;
-
-        this.hideOverlayMenu();
-
-        event.preventDefault();
+    if (this.isDesktop()) {
+      this.staticMenuDesktopInactive = !this.staticMenuDesktopInactive
+    } else {
+      this.staticMenuMobileActive = !this.staticMenuMobileActive
+      if (this.staticMenuMobileActive) {
+        this.blockBodyScroll()
+      } else {
+        this.unblockBodyScroll()
+      }
     }
 
-    onRightMenuClick(event) {
-        this.rightMenuClick = true;
-        this.rightMenuActive = !this.rightMenuActive;
+    event.preventDefault()
+  }
 
-        this.hideOverlayMenu();
+  onSearchClick(event) {
+    this.search = !this.search
+    this.searchClick = !this.searchClick
+  }
 
-        event.preventDefault();
+  onSearchHide(event) {
+    this.search = false
+    this.searchClick = false
+  }
+
+  onMenuClick($event) {
+    this.menuClick = true
+    this.resetMenu = false
+  }
+
+  onTopbarUserMenuButtonClick(event) {
+    this.userMenuClick = true
+    this.topbarUserMenuActive = !this.topbarUserMenuActive
+
+    this.hideOverlayMenu()
+
+    event.preventDefault()
+  }
+
+  onTopbarNotificationMenuButtonClick(event) {
+    this.notificationMenuClick = true
+    this.topbarNotificationMenuActive = !this.topbarNotificationMenuActive
+
+    this.hideOverlayMenu()
+
+    event.preventDefault()
+  }
+
+  onMenuSignOut(event) {
+    this.signOutMenuClick = true
+    this.signOutMenuActive = !this.signOutMenuActive
+
+    this.hideOverlayMenu()
+
+    event.preventDefault()
+  }
+
+  onRightMenuClick(event) {
+    this.rightMenuClick = true
+    this.rightMenuActive = !this.rightMenuActive
+
+    this.hideOverlayMenu()
+
+    event.preventDefault()
+  }
+
+  onRippleChange(event) {
+    this.app.ripple = event.checked
+    this.primengConfig = event.checked
+  }
+
+  onConfigClick(event) {
+    this.configClick = true
+  }
+
+  isSlim() {
+    return this.app.menuMode === 'slim'
+  }
+
+  isHorizontal() {
+    return this.app.menuMode === 'horizontal'
+  }
+
+  isOverlay() {
+    return this.app.menuMode === 'overlay'
+  }
+
+  isDesktop() {
+    return window.innerWidth > 720
+  }
+
+  isMobile() {
+    return window.innerWidth <= 720
+  }
+
+  hideOverlayMenu() {
+    this.overlayMenuActive = false
+    this.staticMenuMobileActive = false
+  }
+
+  blockBodyScroll(): void {
+    if (document.body.classList) {
+      document.body.classList.add('blocked-scroll')
+    } else {
+      document.body.className += ' blocked-scroll'
     }
+  }
 
-    onRippleChange(event) {
-        this.app.ripple = event.checked;
-        this.primengConfig = event.checked;
+  unblockBodyScroll(): void {
+    if (document.body.classList) {
+      document.body.classList.remove('blocked-scroll')
+    } else {
+      document.body.className = document.body.className.replace(
+        new RegExp(
+          '(^|\\b)' + 'blocked-scroll'.split(' ').join('|') + '(\\b|$)',
+          'gi'
+        ),
+        ' '
+      )
     }
+  }
 
-    onConfigClick(event) {
-        this.configClick = true;
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe()
     }
-
-    isSlim() {
-        return this.app.menuMode === 'slim';
-    }
-
-    isHorizontal() {
-        return this.app.menuMode === 'horizontal';
-    }
-
-    isOverlay() {
-        return this.app.menuMode === 'overlay';
-    }
-
-    isDesktop() {
-        return window.innerWidth > 720;
-    }
-
-    isMobile() {
-        return window.innerWidth <= 720;
-    }
-
-    hideOverlayMenu() {
-        this.overlayMenuActive = false;
-        this.staticMenuMobileActive = false;
-    }
-
-    blockBodyScroll(): void {
-        if (document.body.classList) {
-            document.body.classList.add('blocked-scroll');
-        } else {
-            document.body.className += ' blocked-scroll';
-        }
-    }
-
-    unblockBodyScroll(): void {
-        if (document.body.classList) {
-            document.body.classList.remove('blocked-scroll');
-        } else {
-            document.body.className = document.body.className.replace(new RegExp('(^|\\b)' +
-                'blocked-scroll'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        }
-    }
-
-    ngOnDestroy() {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
-    }
+  }
 }

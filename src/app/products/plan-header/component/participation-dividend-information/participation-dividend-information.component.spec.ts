@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ParticipationDividendInformationComponent } from './participation-dividend-information.component';
+import { ParticipationDividendInformationComponent } from './participation-dividend-information.component'
 
 describe('ParticipationDividendInformationComponent', () => {
-  let component: ParticipationDividendInformationComponent;
-  let fixture: ComponentFixture<ParticipationDividendInformationComponent>;
+  let component: ParticipationDividendInformationComponent
+  let fixture: ComponentFixture<ParticipationDividendInformationComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParticipationDividendInformationComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [ParticipationDividendInformationComponent],
+    }).compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParticipationDividendInformationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(ParticipationDividendInformationComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

@@ -4,16 +4,17 @@
 // $color-main: #1e3269;
 // $color-main: #2e4e6e;
 // $color-orange: #fd8b1e;
-$bodyBg: #f8f9fa !default;
+$bodyBg: #f2f4f8 !default;
 // $textColor:#495057 !default;
-$textColor:#fff !default;
-$textSecondaryColor:#6c757d !default;
-$dividerColor:#dee2e6 !default;
-$itemHoverBg:#e9ecef !default;
-$focusShadow:0 0 0 0.2rem #BBDEFB !default;
-$linkColor: #1976D2 !default;
-$overlayBorder:0 none !default;
-$overlayShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+$textColor: #fff !default;
+$textSecondaryColor: #6c757d !default;
+$dividerColor: #dee2e6 !default;
+$itemHoverBg: #e9ecef !default;
+$focusShadow: 0 0 0 0.2rem #bbdefb !default;
+$linkColor: #1976d2 !default;
+$overlayBorder: 0 none !default;
+$overlayShadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
 
 //card
 $cardBg: #ffffff !default;
@@ -27,15 +28,15 @@ $topbarIconBg: $color-orange-active !default;
 $topbarIconHoverBg: $color-orange-active !default;
 
 //accent
-$accentColor: #1976D2 !default;
+$accentColor: #1976d2 !default;
 $accentTextColor: #ffffff !default;
 
 //sidebar
-$sidebarWidth: 16rem !default;
+$sidebarWidth: 18rem !default;
 $slimSidebarWidth: 6rem !default;
 
 //search
-$searchBg:#adb5bd !default;
+$searchBg: #adb5bd !default;
 $searchBorder: 0 none !default;
 
 //footer

@@ -1,88 +1,93 @@
 @import "variables";
 
-.login-header {
-    overflow: hidden;
-    position: absolute;
-    background-color: $color-main;
-    width: 100%;
+.login {
+  height: 100vh;
+  // background-image: url(/assets/img/background/login.jpg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
 
-    img {
-        width: 120px;
-        padding-top: 15px;
-        padding-left: 8px;
-        padding-bottom: 5px;
-    }
+.login-header {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  img {
+    width: 120px;
+    padding-top: 15px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+  }
 }
 
 .login-field {
-    min-width: 22rem;
-    max-width: 22rem;
-}
-
-.input-group {
-    padding: 0px 5rem;
+  max-width: 20rem;
 }
 
 .login-input {
-    // width: 100% !important;
-    height: 2.5rem;
+  height: 3rem;
+  border-radius: $border-radius;
+  border: 0;
+  background-color: $color-background-main;
+}
+
+.logo {
+  color: $color-main;
+  font-weight: 800;
+  font-size: large;
 }
 
 .btn-login {
-    background-color: $color-main;
-    border: unset;
+  background: #022361;
+  color: $color-white;
+  border-radius: $border-radius;
+  padding: 8px !important;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  box-shadow: unset;
+  border: unset;
 }
 
 .btn-login:hover {
-    background-color: $color-main;
-    border: unset;
+  background-color: $color-main;
+  border: unset;
+  box-shadow: 6px 7px 0px -2px $color-orange;
 }
 
-// .custom-spinner {
-//     background-color: #2c486385;
-//     width: 100%;
-//     height: 100%;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     overflow: hidden;
-// }
-
-.image {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    top: 45%;
-    left: 48.5%;
-    -webkit-animation: spin 4s linear infinite;
-    -moz-animation: spin 4s linear infinite;
-    animation: spin 4s linear infinite;
+.card-login {
+  box-shadow: 8px 5px 24px #ccdfff52;
+  background-color: $color-white;
+  border-radius: $border-radius;
+  padding: 1rem;
+  margin: 2rem;
+  border: 1px solid #ebf3ff;
 }
-// @-moz-keyframes spin {
-//     100% {
-//         -moz-transform: rotate(360deg);
-//     }
-// }
-// @-webkit-keyframes spin {
-//     100% {
-//         -webkit-transform: rotate(360deg);
-//     }
-// }
-// @keyframes spin {
-//     100% {
-//         -webkit-transform: rotate(360deg);
-//         transform: rotate(360deg);
-//     }
-// }
 
-// @media screen and (max-width: 700px) {
-//     .input-group {
-//         padding: 0px 0rem;
-//         // width: 150%;
-//         margin: auto;
-//         float: center;
-//         text-align: center;
-//     }
-// }
+.login-img {
+  padding: 2rem;
+  width: 20rem;
+}
+
+@media screen and (min-width: 980px) {
+  .card-login {
+    height: 35rem;
+    width: 60rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card-login {
+    width: 100%;
+  }
+
+  .login-field {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login-img {
+    display: none;
+  }
+}

@@ -1,0 +1,41 @@
+.policy-logo {
+  position: fixed;
+  left: 4rem;
+  top: 2rem;
+}
+
+.policy-back {
+  position: fixed;
+  right: 4rem;
+  top: 2rem;
+}
+
+.privacy {
+  background-color: $color-background-main;
+  padding: 4rem;
+  padding-top: 6rem;
+
+  .card {
+    box-shadow: 8px 5px 24px $color-box-shadow;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    padding: 2rem;
+    border: 1px solid #ebf3ff;
+    height: 78vh;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}

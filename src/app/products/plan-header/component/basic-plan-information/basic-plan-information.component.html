@@ -1,17 +1,8 @@
 <div class="card">
-  <p-divider>
-    <div class="inline-flex align-items-center">
-      <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-secondary p-button-outlined"
-        (click)="collapse = !collapse"
-      >
-        <b class="header-button"> Basic Plan Information </b>
-      </button>
-    </div>
-  </p-divider>
+  <app-header-divider
+    (onCollapse)="collapse = !collapse"
+    [text]="'Basic Plan Information'"
+  ></app-header-divider>
 
   <p-table
     [value]="product"
@@ -77,19 +68,12 @@
     </ng-template>
   </p-table>
 
-  <p-divider>
-    <div class="inline-flex align-items-center">
-      <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-secondary p-button-outlined"
-        (click)="collapseAvailability = !collapseAvailability"
-      >
-        <b class="header-button"> Availability </b>
-      </button>
-    </div>
-  </p-divider>
+  <div class="mt-4"></div>
+
+  <app-header-divider
+    (onCollapse)="collapseAvailability = !collapseAvailability"
+    [text]="'Availability'"
+  ></app-header-divider>
 
   <p-table
     [value]="product"
@@ -111,19 +95,12 @@
     </ng-template>
   </p-table>
 
-  <p-divider>
-    <div class="inline-flex align-items-center">
-      <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-secondary p-button-outlined"
-        (click)="collapseFreeLook = !collapseFreeLook"
-      >
-        <b class="header-button"> Free Look / Tax Exemption </b>
-      </button>
-    </div>
-  </p-divider>
+  <div class="mt-4"></div>
+
+  <app-header-divider
+    (onCollapse)="collapseFreeLook = !collapseFreeLook"
+    [text]="'Free Look / Tax Exemption'"
+  ></app-header-divider>
 
   <p-table
     [value]="product"
@@ -145,9 +122,8 @@
       <tr>
         <td colspan="4">
           ในกรณี Tax Exempt = 'C' ให้ดูเอกสารประกอบ
-          <a>คลิกที่นี่</a>-สำหรับแบบสามัญ และ
-          <a>คลิกที่นี่</a> -สำหรับแบบตะกาฟุล และ <a>คลิกที่นี่</a>-สำหรับแบบปี
-          2013
+          <a>คลิกที่นี่</a>-สำหรับแบบสามัญ และ <a>คลิกที่นี่</a> -สำหรับแบบตะกาฟุล และ
+          <a>คลิกที่นี่</a>-สำหรับแบบปี 2013
         </td>
       </tr>
     </ng-template>
