@@ -76,7 +76,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const load = require('express-load');
-const { createAccountLimiter } = require('./server/utils/rate-limit');
+const { createAccountLimiter } = require('./rate-limit');
 
 load('modules', {
     cwd: 'server'
