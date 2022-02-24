@@ -1,29 +1,28 @@
 const path = require('path');
-if (process.env.NODE_ENV === 'local') {
-    require('dotenv').config({
-        path: path.join(__dirname, './env/.env'),
-        sample: path.join(__dirname, './env/.env'),
-    });
-}
+
+require('dotenv').config({
+    path: path.join(__dirname, './env/.env'),
+    sample: path.join(__dirname, './env/.env'),
+});
 
 const cfg = module.exports = {}
 
 cfg.app_host = process.env.APP_HOST || "0.0.0.0";
 cfg.app_port = process.env.APP_PORT || "3003";
 cfg.app_https = process.env.USE_HTTPS || false;
-cfg.db_connection_string = process.env.DATABASE_CONNECTION_STRING || "mongodb://10.138.46.130:27017/phxPartners-dev";
+cfg.db_connection_string = process.env.DATABASE_CONNECTION_STRING || process.env.LOCAL_DATABASE_CONNECTION_STRING;
 cfg.http_req_timeout = process.env.HTTP_REQ_TIMEOUT || 12000;
 cfg.http_req_timeout_upload = process.env.HTTP_REQ_TIMEOUT_UPLOAD || 18000;
 cfg.tmp_path = process.env.TMP_PATH || "/app/myofficepartners-backend/server/data/tmp";
 cfg.authS3 = process.env.AUTHS3 || "Y2NzbTpjY3NtcEBzc3cwcmQ=";
-cfg.authIds = process.env.AUTHIDS || "cXNsZ3hadEhuTU1vZFlsbDVlWWgyaHJsNmhrYTpEc0pnNzVPQ1FHOTRaV2JweUhtRVNGSkZyVGNh";
+cfg.authIds = process.env.AUTHIDS || process.env.LOCAL_AUTHIDS;
 cfg.service = {};
 cfg.service.PANDORA = {};
 cfg.service.PANDORA.URI = process.env.PANDORA_URI;
 cfg.service.PANDORA.URI_IDS = process.env.PANDORA_URI_IDS;
 cfg.service.PANDORA.URI_S3 = process.env.PANDORA_URI_S3;
 cfg.service.PANDORA.PREFIX = process.env.PANDORA_URI_PREFIX;
-cfg.SECRET = process.env.JWT_SECRET;
+cfg.SECRET = process.env.JWT_SECRET || process.env.LOCAL_SECRET;
 
 /// config to remove 
 
