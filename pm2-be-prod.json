@@ -1,0 +1,42 @@
+{
+    "apps": [
+        {
+            "exec_mode": "fork",
+            "instances": 1,
+            "script": "/app/myofficepartners-backend/index.js",
+            "name": "ccsm-backend",
+            "interpreter": "node",
+            "env": {
+                "NODE_ENV": "production",
+                "APP_HOST": "0.0.0.0",
+                "APP_PORT": "8443",
+                "USE_HTTPS": true,
+                "DATABASE_IP_PORT": "mongodb.pbssoffd901g.corp.ais900.org:27017,mongodb.pbssoffd902g.corp.ais900.org:27017,mongodb.pbssoffd903g.corp.ais900.org:27017",
+                "DATABASE_OPTION": "replicaSet=rs_myoffice",
+                "DATABASE_NAME": "ccsm-prod",
+                "DATABASE_USER": "phxpartnersuser",
+                "DATABASE_PWD": "app@mofcDB!#P",
+                "LOG_PATH": "/app/MYOFFICEPARTNER-BE/logs",
+                "LOAD_ASC_UPLOAD_PATH": "/NAS_BSSMyOFFBE_SILA1/UploadFlie/ASC/Upload",
+                "LOAD_ASC_RESULT_PATH": "/NAS_BSSMyOFFBE_SILA1/UploadFlie/ASC/Result",
+                "LOAD_LOCATION_UPLOAD_PATH": "/NAS_BSSMyOFFBE_SILA1/UploadFlie/Location/Upload",
+                "LOAD_LOCATION_RESULT_PATH": "/NAS_BSSMyOFFBE_SILA1/UploadFlie/Location/Result",
+                "LOAD_LOCATION_FILE_EXAMPLE": "/NAS_BSSMyOFFBE_SILA1/UploadFlie/Location/Example",
+                "TMP_PATH": "/app/myofficepartners-backend/server/data/tmp",
+                "DATABASE_RECONNECT": 3,
+                "LOG_ROTATE_TIME": 15,
+                "KEY": "/app/MYOFFICEPARTNER-BE/cert/myofficebe.key",
+                "CERT": "/app/MYOFFICEPARTNER-BE/cert/myofficebe.intra.ais.pem",
+                "SERVICE": {
+                    "PANDORA": {
+                        "URI": "https://ccsmcore.intra.ais", //IP CCSM Jboss
+                        "PREFIX": "/phxPartner/v1/partner",
+                        "CERT": "/app/MYOFFICEPARTNER-BE/cert/ccsmcore.cer" //Cert CCSM Jboss
+                    }
+                },
+                "HTTP_REQ_TIMEOUT": 600,
+                "HTTP_REQ_TIMEOUT_UPLOAD" : 1800
+            }
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "personId": "P0000000001",
+    "pinCode": "003811",
+    "titleTh": "นาย",
+    "fnameTh": "สมชาย",
+    "lnameTh": "ลิขิต",
+    "titleEn": "Mr.",
+    "fnameEn": "SomChai",
+    "lnameEn": "Likit",
+    "mainPhone": "0897778686",
+    "mainSocial": "somchai@ais.co.th",
+    "isMain": "Y",
+    "social": [
+      {
+        "type": "EMAIL",
+        "isMain": "Y",
+        "socialId": "J0000000001",
+        "social": "somchai@ais.co.th",
+        "ext": ""
+      }
+    ],
+    "phone": [
+      {
+        "phoneId": "L0000000001",
+        "isMain": "Y",
+        "type": "MOBILE",
+        "number": "0897778686",
+        "ext": ""
+      }
+    ]
+  },
+  {
+    "personId": "P0000000002",
+    "pinCode": "000567",
+    "titleTh": "นางสาว",
+    "fnameTh": "กรุงศรี",
+    "lnameTh": "อยุธยา",
+    "titleEn": "Ms.",
+    "fnameEn": "Krungsri",
+    "lnameEn": "Ayuthaya",
+    "mainPhone": "0965543434",
+    "mainSocial": "krungsri@ais.co.th",
+    "isMain": "N",
+    "social": [
+      {
+        "type": "EMAIL",
+        "isMain": "N",
+        "socialId": "J0000000002",
+        "social": "krungsri@ais.co.th",
+        "ext": ""
+      }
+    ],
+    "phone": [
+      {
+        "phoneId": "L0000000004",
+        "isMain": "N",
+        "type": "MOBILE",
+        "number": "0965543434",
+        "ext": ""
+      }
+    ]
+  }
+]

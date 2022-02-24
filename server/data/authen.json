@@ -1,0 +1,9 @@
+[{	
+    "action_data" : "DEFAULT",
+    "lovType_data" : "ADDRESS_TYPE",
+    "fieldName_data" : "chkLocNewAddrAddrGrp",
+    "attribute_data" : "address.AddressType",
+    "labelName_data" : "Address Group",
+    "fieldType_data" : "CHECKBOX",
+    "value_data" : "BRANCH_ADDR"
+}]

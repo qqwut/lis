@@ -1,0 +1,41 @@
+{
+    "apps": [{
+        "exec_mode": "fork",
+        "instances": 1,
+        "script": "index.js",
+        "name": "phxPartners-backend-local",
+        "interpreter": "node",
+        "env": {
+            "NODE_ENV": "development",
+            "APP_HOST": "0.0.0.0",
+            "APP_PORT": "18444",
+            "USE_HTTPS": false,
+            // "DATABASE_IP_PORT": "25.44.186.155:27017",
+            "DATABASE_IP_PORT": "25.12.201.130:46136",
+            // "DATABASE_OPTION": "replicaSet=rs0",
+            "DATABASE_NAME": "phxPartners-dev",
+            "DATABASE_USER": "",
+	        "DATABASE_PWD": "",
+            "LOG_PATH": "/app/MYOFFICEPARTNER-BE/logs",
+            "LOAD_ASC_UPLOAD_PATH": "/app/MYOFFICEPARTNER-BE/UploadFile/ASC/Upload",
+            "LOAD_ASC_RESULT_PATH": "/app/MYOFFICEPARTNER-BE/UploadFile/ASC/Result",
+            "LOAD_LOCATION_UPLOAD_PATH": "/app/MYOFFICEPARTNER-BE/UploadFile/Location/Upload",
+            "LOAD_LOCATION_RESULT_PATH": "/app/MYOFFICEPARTNER-BE/UploadFile/Location/Result",
+            "LOAD_LOCATION_FILE_EXAMPLE": "/app/MYOFFICEPARTNER-BE/UploadFile/Location/Example",
+            "LOG_ROTATE_TIME": 15,
+            "DATABASE_RECONNECT": 3 ,
+            "KEY": "./key1.pem",
+            "CERT": "./cert1.pem",
+            "SERVICE": {
+                "PANDORA" : {
+                    // "URI" : "http://25.12.201.130:34618", // IOT
+                    "URI" : "http://25.12.201.130:20244", // IOT-NEWSERVER
+                    "PREFIX" : "/phxPartner/v1/partner",
+                    "CERT":"./PANDORA_CERT/server.pem"
+                }
+            },
+            "HTTP_REQ_TIMEOUT" : 600,
+	        "HTTP_REQ_TIMEOUT_UPLOAD" : 1800
+	    }
+    }]
+}

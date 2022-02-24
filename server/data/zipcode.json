@@ -1,0 +1,16 @@
+[{
+    "provinceCode": "BKK",
+    "provinceName" :"กรุงเทพ",
+    "zipCode": "10400",
+    "tumbonTh": "ดินแดง",
+    "amphurTh": "ดินแดง",
+    "subRegion": "CB"
+},
+{
+    "zipCode":"10400",
+    "tumbonTh":"มักกะสัน",
+    "amphurTh":"ราชเทวี",
+    "provinceCode" :"BKK",
+    "provinceName" :"กรุงเทพ",
+    "subRegion":"CB"
+}]
