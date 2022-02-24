@@ -2,5 +2,5 @@
 const express = require('express');
 const mappingRegionCtrl = require('../controller/mappingRegion-ctrl');
 var router = express.Router();
-router.route('/mappingRegion').get(mappingRegionCtrl.mappingRegion);
+router.get('/mappingRegion', mappingRegionCtrl)
 module.exports = router;
