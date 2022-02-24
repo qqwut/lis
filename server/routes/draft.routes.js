@@ -1,4 +1,5 @@
 import rateLimit from 'express-rate-limit'
+
 const createAccountLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
     max: 5, // Limit each IP to 5 create account requests per `window` (here, per hour)
@@ -11,7 +12,7 @@ const createAccountLimiter = rateLimit({
 const express = require('express');
 const draftCtrl = require('../controller/draft-ctrl');
 var router = express.Router();
-router.route('/draft-list').get(draftCtrl.draftList, createAccountLimiter)
+router.route('/draft-list').get(createAccountLimiter, draftCtrl.draftList)
 router.route('/draft-detail').get(draftCtrl.draftDetail);
 router.route('/draft-create').post(draftCtrl.draftCreate);
 router.route('/draft-save/:draftId').put(draftCtrl.draftSave);
