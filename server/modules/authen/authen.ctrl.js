@@ -68,7 +68,7 @@ exports.authenticate = function (req, res, next) {
                 exp: parseInt(expireDT.toDate().getTime() / 1000)
             };
 
-            var SECRET = "ccsm";
+            var SECRET = cfg.SECRET;
             var token = jwt.sign(profile, SECRET); // 60*5 minutes
             console.log('save token data login session :: ' + req.sessionID);
             memCache.put(user.id, {
@@ -270,7 +270,7 @@ function genTokenEntroAuth(username, req, res, next) {
         };
         profile.timestamp = moment().unix();
         profile.exp = parseInt(expireDT.toDate().getTime() / 1000);
-        var SECRET = "ccsm";
+        var SECRET = cfg.SECRET;
         var token = jwt.sign(profile, SECRET); // 60*5 minutes
         var ret = {
             "resultCode": "20000",

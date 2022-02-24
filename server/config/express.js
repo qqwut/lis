@@ -56,23 +56,23 @@ module.exports = function () {
     return done(null, false);
   };
 
-  var jwt = require('express-jwt');
-  var auth = jwt({
-    secret: 'ccsm',
-    userProperty: 'currentUser',
-    getToken: function fromHeaderOrQuerystring(req) {
-      if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-        return req.headers.authorization.split(' ')[1];
-      }
-      if (req.headers.authorization && req.headers.authorization.length > 0) {
-        return req.headers.authorization;
-      } else if (req.query && req.query.token) {
-        return req.query.token;
-      }
-      return null;
-    },
-    isRevoked: isRevokedCallback
-  });
+  // var jwt = require('express-jwt');
+  // var auth = jwt({
+  //   secret: 'ccsm',
+  //   userProperty: 'currentUser',
+  //   getToken: function fromHeaderOrQuerystring(req) {
+  //     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
+  //       return req.headers.authorization.split(' ')[1];
+  //     }
+  //     if (req.headers.authorization && req.headers.authorization.length > 0) {
+  //       return req.headers.authorization;
+  //     } else if (req.query && req.query.token) {
+  //       return req.query.token;
+  //     }
+  //     return null;
+  //   },
+  //   isRevoked: isRevokedCallback
+  // });
 
   function getCurrentUser(req, res, next) {
     var token = null;

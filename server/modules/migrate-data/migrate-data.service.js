@@ -1,4 +1,7 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+if (process.env.LOCAL_UN_AUTH_ENV) {
+    process.env[process.env.LOCAL_UN_AUTH_ENV] = String(process.env.LOCAL_UN_AUTH_ENV_VALUE);
+}
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 var env = process.env.NODE_ENV || 'development';
 var cfg = require('../../config/config.js');
 var _request = require('request-promise');
