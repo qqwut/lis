@@ -19,13 +19,12 @@ exports.draftList = function (req, res) {
 
     if (req.query.userGroupAuth) {
         let userGrp = usrService.userGroupToArray(req.query.userGroupAuth, 'userGroup');
-        let mgQuery = {
+        locationDraft.find({
             $or: userGrp,
             status: {
                 $ne: "DELETED"
             }
-        };
-        locationDraft.find(mgQuery).exec(function (err, results) {
+        }).exec(function (err, results) {
             if (err) {
                 res.json(err);
             } else {
@@ -335,9 +334,7 @@ exports.draftDelete = function (req, res) {
     }
 
     if (req.query.id && req.query.userFullname) {
-        let mgQuery = {
-            _id: req.query.id
-        };
+
         let updateData = {
             $set: {
                 modifiedBy: req.query.userFullname,
@@ -345,7 +342,9 @@ exports.draftDelete = function (req, res) {
                 status: "DELETED"
             }
         };
-        locationDraft.findOneAndUpdate(mgQuery, updateData, {
+        locationDraft.findOneAndUpdate({
+            _id: req.query.id
+        }, updateData, {
             new: true
         }, function (err, doc) {
             if (err) {

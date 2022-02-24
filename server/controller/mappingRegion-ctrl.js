@@ -12,11 +12,9 @@ exports.mappingRegion = function(req, res) {
         responseDescription: []
     };
 
-    var mgQuery = {
+    mappingRegion.find({
         provinceCode_key0: req.query.provinceCode
-    };
-
-    mappingRegion.find(mgQuery).exec(function(err, docs) {
+    }).exec(function(err, docs) {
         if (err) {
             // 
         } else {
