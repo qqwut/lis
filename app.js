@@ -76,6 +76,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const load = require('express-load');
+const { createAccountLimiter } = require('./server/utils/rate-limit');
 
 load('modules', {
     cwd: 'server'
@@ -90,17 +91,17 @@ app.use(passport.session());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(config.proxy_root, proxy({
-  target: config.proxy_target,
-  changeOrigin: true,
-  pathRewrite: config.proxy_rewrite,
+    target: config.proxy_target,
+    changeOrigin: true,
+    pathRewrite: config.proxy_rewrite,
 }));
 
-app.all('*', function (req, res) {
-  // logger.info('[TRACE] Server 404 request:' + req.originalUrl);
-  res.status(200).sendFile(path.join(__dirname, './dist/index.html'));
+app.all('*', createAccountLimiter, function (req, res) {
+    // logger.info('[TRACE] Server 404 request:' + req.originalUrl);
+    res.status(200).sendFile(path.join(__dirname, './dist/index.html'));
 });
 https.createServer(options, app).listen(config.web_port);
-logger.info(process.env.NODE_ENV +" Environment");
+logger.info(process.env.NODE_ENV + " Environment");
 logger.info('Web-App is running on port : ' + config.web_port);
 /* ------------- [END INITIAL OUR APPLICATION] ------------ */
 /* ------------- [START EXPORT OUR MODULE] ------------ */
