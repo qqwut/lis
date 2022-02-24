@@ -30,7 +30,7 @@ exports.getSDFFilter2QueryStr = function (filterKeyMapping, _filter) {
 };
 
 exports.regexMongoStartWith = function (str) {
-    return '\^' + str.substring(0, str.length - 1);
+    return '^' + str.substring(0, str.length - 1);
 }
 
 exports.readFileDataJson = function (filePath) {
