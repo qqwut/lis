@@ -10,7 +10,9 @@
 const express = require('express');
 const draftCtrl = require('../controller/draft-ctrl');
 var router = express.Router();
-router.route('/draft-list').get(draftCtrl.draftList);
+router.route('/draft-list').get((req, res) => {
+    draftCtrl.draftList(req, res)
+})
 router.route('/draft-detail').get(draftCtrl.draftDetail);
 router.route('/draft-create').post(draftCtrl.draftCreate);
 router.route('/draft-save/:draftId').put(draftCtrl.draftSave);
