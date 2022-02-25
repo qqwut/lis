@@ -1,0 +1,14 @@
+[{
+    "_id": "s2f1sdfs32df4s523",
+    "provinceCode": "BKK",
+    "provinceNameTh": "กรุงเทพ",
+    "routeGroup": "BKK",
+    "subRegion" :"CB"
+},
+{
+    "_id": "s2f1sdfs32df4s523",
+    "provinceCode" : "PTT",
+    "provinceNameTh" : "ปทุมธานี",
+    "routeGroup" : "BKK",   
+    "subRegion" :"CB"
+}]

@@ -1,0 +1,23 @@
+{
+  "companyId": "C0000000003",
+  "companyTitleTh": "บริษัท",
+  "companyNameTh": "บุญชัย จำกัด",
+  "companyAbbr": "AWN",
+  "locationIdType": "TAX_ID",
+  "locationIdNo": "2098765342098",
+  "locationNameTh": "สาขา ศุภสาร",
+  "locationNameEn": "Supphasan branch",
+  "distChnCode": "AISCHN",
+  "distChnName": "AIS Channel",
+  "chnSalesCode": "AISSHOP",
+  "chnSalesName": "AIS Shop",
+  "licenseCode": "1000008",
+  "distributorFlag": "Y",
+  "retailFlag": "N",
+  "subRegion": "CB",
+  "saleAreaId": "S0000000001",
+  "saleAreaCode": "เขต 1",
+  "distributionGroup": "1",
+  "locationName":"PHP09"
+
+}

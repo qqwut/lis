@@ -1,0 +1,10 @@
+require('./distChn');
+require('./chnSales');
+require('./mappingCompany');
+require('./company');
+require('./locationDraft');
+require('./zipCode');
+require('./userGroup');
+require('./lov');
+require('./openingHours');
+require('./mappingRegion');
